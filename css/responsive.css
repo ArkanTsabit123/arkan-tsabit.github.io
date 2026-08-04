@@ -1,7 +1,368 @@
-/* Responsive Styles */
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
 
+/* --------------------------------------------
+   Tablets (max-width: 1024px)
+   -------------------------------------------- */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: var(--spacing-xl);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* --------------------------------------------
+   Mobile (max-width: 768px)
+   -------------------------------------------- */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
+    /* Typography */
+    .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .hero-description {
+        font-size: var(--font-size-base);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .section-header p {
+        font-size: var(--font-size-base);
+    }
+
+    .page-header h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .page-header p {
+        font-size: var(--font-size-base);
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: calc(70px + var(--spacing-xl));
+        padding-bottom: var(--spacing-xl);
+        min-height: auto;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .hero-metrics {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .hero-tech-stack {
+        justify-content: center;
+    }
+
+    /* Featured */
+    .featured-card {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-image {
+        min-height: 200px;
+    }
+
+    .featured-content {
+        padding: var(--spacing-lg);
+    }
+
+    .featured-metrics {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Certifications Preview */
+    .certs-preview-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cert-preview-item {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    /* Profile */
+    .profile-container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .profile-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Contact */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Social Links */
+    .social-links {
+        gap: var(--spacing-md);
+    }
+
+    .social-link {
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-xs);
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Certifications */
+    .cert-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cert-provider {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Cert Stats */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Achievements */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Filter */
+    .filter-buttons {
+        gap: var(--spacing-xs);
+    }
+
+    .filter-btn {
+        padding: 0.25rem 0.75rem;
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* --------------------------------------------
+   Small Mobile (max-width: 480px)
+   -------------------------------------------- */
+@media (max-width: 480px) {
+    /* Container */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Typography */
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero-metrics {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    .metric-item {
+        flex: 1 1 80px;
+        text-align: center;
+    }
+
+    .metric-number {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Buttons */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Certifications */
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Profile */
+    .profile-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Contact */
+    .contact-item {
+        flex-wrap: wrap;
+    }
+
+    .contact-item i {
+        width: 20px;
+        font-size: var(--font-size-base);
+    }
+
+    /* Cert Stats */
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stats-grid .stat-item {
+        padding: var(--spacing-sm);
+    }
+
+    /* Chatbot CTA */
+    .chatbot-cta-content h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .chatbot-cta-content p {
+        font-size: var(--font-size-base);
+    }
+
+    /* Error Page */
+    .error-code {
+        font-size: 4rem;
+    }
+
+    .error-content h1 {
+        font-size: var(--font-size-2xl);
+    }
+
+    .error-content p {
+        font-size: var(--font-size-base);
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: var(--spacing-lg);
+    }
+
+    .timeline-item {
+        padding-left: var(--spacing-md);
+    }
+
+    /* Header */
+    .header {
+        height: 60px;
+    }
+
+    .header-container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .logo-text {
+        font-size: var(--font-size-lg);
+    }
+
+    .nav-list {
+        top: 60px;
+        padding: var(--spacing-lg);
+    }
+
+    .theme-toggle,
+    .lang-toggle {
+        padding: 0.25rem 0.5rem;
+        font-size: var(--font-size-xs);
+    }
+
+    .page-header {
+        padding-top: calc(60px + var(--spacing-xl));
+    }
+}
+
+/* --------------------------------------------
+   Landscape Phones (max-height: 600px)
+   -------------------------------------------- */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        padding-top: calc(70px + var(--spacing-md));
+        padding-bottom: var(--spacing-md);
+        min-height: auto;
+    }
+
+    .hero-container {
+        gap: var(--spacing-md);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .hero-image {
+        max-width: 120px;
+    }
+
+    .hero-metrics {
+        gap: var(--spacing-md);
+    }
+
+    .metric-item {
+        flex: 0 1 auto;
+    }
+
+    .hero-buttons .btn {
+        padding: 0.5rem 1rem;
+        font-size: var(--font-size-sm);
     }
 }

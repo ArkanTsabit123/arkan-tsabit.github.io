@@ -1,11 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Achievements - Arkan Tsabit</title>
+    <meta name="description" content="Arkan Tsabit's achievements including Oracle Race to Certification and teaching awards." />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
-    <h1>Achievements</h1>
+
+    <!-- ============================================================
+    HEADER (SAME AS INDEX)
+    ============================================================ -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Home">
+                    <span class="logo-text">AT</span>
+                </a>
+            </div>
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="certifications.html" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="achievements.html" class="nav-link active" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+        PAGE HEADER
+        ============================================================ -->
+        <section class="page-header">
+            <div class="container">
+                <h1 data-i18n="achievements.page_title">Achievements</h1>
+                <p data-i18n="achievements.page_subtitle">Recognition and awards from my professional journey</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        ACHIEVEMENTS GRID
+        ============================================================ -->
+        <section class="achievements-section">
+            <div class="container">
+                <div class="achievements-grid" id="achievementsGrid">
+                    <!-- Rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER (SAME AS INDEX)
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Arkan Tsabit.
+                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+            </p>
+            <div class="footer-social">
+                <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/i18n.js"></script>
+
 </body>
 </html>

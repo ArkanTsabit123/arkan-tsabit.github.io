@@ -4,7 +4,81 @@
       "id": "oci-multicloud",
       "provider": "Oracle",
       "name": "OCI Multicloud Architect Professional",
-      "year": 2025
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-genai",
+      "provider": "Oracle",
+      "name": "OCI Generative AI Professional",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-vector",
+      "provider": "Oracle",
+      "name": "AI Vector Search Certified Professional",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-autonomous",
+      "provider": "Oracle",
+      "name": "Autonomous Database Cloud Professional",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-db-services",
+      "provider": "Oracle",
+      "name": "Cloud Database Services Professional",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-ai-foundations",
+      "provider": "Oracle",
+      "name": "OCI AI Foundations Associate",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-foundations",
+      "provider": "Oracle",
+      "name": "OCI Foundations Associate",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "oci-data-platform",
+      "provider": "Oracle",
+      "name": "Oracle Data Platform Foundations Associate",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/oracle.png"
+    },
+    {
+      "id": "ibm-data-engineering",
+      "provider": "IBM",
+      "name": "IBM Data Engineering Professional Certificate",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/ibm.png"
+    },
+    {
+      "id": "meta-database",
+      "provider": "Meta",
+      "name": "Meta Database Engineer Professional Certificate",
+      "year": 2025,
+      "link": null,
+      "icon": "assets/images/certifications/meta.png"
     }
   ]
 }

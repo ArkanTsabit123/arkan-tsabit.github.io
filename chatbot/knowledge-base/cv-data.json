@@ -1,1 +1,60 @@
-{}
+{
+  "documents": [
+    {
+      "id": "cv_001",
+      "content": "Arkan Tsabit is a Data Engineer with hands-on experience building production-ready ETL pipelines. He is certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer.",
+      "metadata": {
+        "source": "CV",
+        "category": "professional_summary"
+      }
+    },
+    {
+      "id": "cv_002",
+      "content": "Arkan Tsabit has 4 major data engineering projects: BatchETL Pipeline, Uber Data Pipeline, Amazon Web Scraping, and Daily Expense Tracker.",
+      "metadata": {
+        "source": "CV",
+        "category": "projects"
+      }
+    },
+    {
+      "id": "cv_003",
+      "content": "Arkan Tsabit is proficient in Apache Airflow, PostgreSQL, DuckDB, Python, Pandas, Docker, Streamlit, Plotly, and Matplotlib.",
+      "metadata": {
+        "source": "CV",
+        "category": "technical_skills"
+      }
+    },
+    {
+      "id": "cv_004",
+      "content": "Arkan Tsabit has 10 professional certifications: 8 from Oracle (OCI Multicloud Architect, Generative AI, AI Vector Search, Autonomous DB, Cloud DB Services, AI Foundations, Foundations, Data Platform), 1 from IBM (Data Engineering), and 1 from Meta (Database Engineer).",
+      "metadata": {
+        "source": "CV",
+        "category": "certifications"
+      }
+    },
+    {
+      "id": "cv_005",
+      "content": "Arkan Tsabit's achievements include: Top 108 Global in Oracle Race to Certification 2025, Top 3 Indonesia in Oracle Race to Certification 2025, and Best Teacher Award at Satu Benih Boarding School 2025.",
+      "metadata": {
+        "source": "CV",
+        "category": "achievements"
+      }
+    },
+    {
+      "id": "cv_006",
+      "content": "Arkan Tsabit transitioned from IT infrastructure and network engineering to data engineering. His previous roles include IT Terminal Service Support at Soekarno-Hatta International Airport, Business Manager at BEJAGOO COFFEE & EATERY, Database Administrator at SATU BENIH BOARDING SCHOOL, and Level 2 Network Engineer at BRI SD-WAN.",
+      "metadata": {
+        "source": "CV",
+        "category": "experience"
+      }
+    },
+    {
+      "id": "cv_007",
+      "content": "Arkan Tsabit can be contacted at arkantsabit025@gmail.com or +62 81295709620. His GitHub is github.com/ArkanTsabit123 and LinkedIn is linkedin.com/in/arkan-tsabit.",
+      "metadata": {
+        "source": "CV",
+        "category": "contact"
+      }
+    }
+  ]
+}

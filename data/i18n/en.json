@@ -6,5 +6,102 @@
     "certifications": "Certifications",
     "achievements": "Achievements",
     "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Open to Work",
+    "greeting": "Hello, I'm",
+    "title": "Data Engineer | Cloud Data Engineer",
+    "tagline": "Building production-ready data pipelines that process millions of records in seconds.",
+    "metrics": {
+      "rows": "Records Processed",
+      "execution": "Execution Time",
+      "quality": "Data Quality"
+    },
+    "cta_projects": "View Projects",
+    "cta_cv": "Download CV",
+    "cta_contact": "Contact Me"
+  },
+  "featured": {
+    "title": "Featured Project",
+    "subtitle": "My most comprehensive data engineering work",
+    "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
+    "cta": "View All Projects"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with",
+    "cloud": "Cloud & Data Architecture",
+    "engineering": "Data Engineering",
+    "databases": "Databases",
+    "visualization": "Visualization & Tools"
+  },
+  "certs": {
+    "title": "Certifications",
+    "subtitle": "10 professional certifications from industry leaders",
+    "cta": "View All Certifications",
+    "page_title": "Certifications",
+    "page_subtitle": "10 professional certifications from industry leaders",
+    "oracle_desc": "8 professional certifications in cloud architecture, AI, and database services",
+    "ibm_desc": "Professional certificate in data engineering",
+    "meta_desc": "Professional certificate in database engineering"
+  },
+  "achievements": {
+    "page_title": "Achievements",
+    "page_subtitle": "Recognition and awards from my professional journey"
+  },
+  "about": {
+    "page_title": "About Me",
+    "page_subtitle": "Get to know the person behind the data",
+    "who_am_i": "Who I Am",
+    "bio_1": "I am a Data Engineer with hands-on experience building production-ready ETL pipelines that process 2.96M+ records in under 30 seconds with 100% data quality. I specialize in data warehousing, dimensional modeling, and data integration.",
+    "bio_2": "I transitioned from IT infrastructure and network engineering to data engineering through intensive self-study and hands-on projects. My background in IT operations gives me a unique perspective on system reliability and data pipeline performance.",
+    "bio_3": "I am certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer. I am passionate about building scalable and reliable data solutions that turn raw data into actionable insights.",
+    "stats": {
+      "projects": "Data Projects",
+      "certs": "Certifications",
+      "rows": "Records Processed",
+      "domains": "Industries"
+    },
+    "story_title": "My Career Transition",
+    "story_subtitle": "From IT infrastructure to data engineering",
+    "story_1": "Maintained IT infrastructure for operational data systems across 3 terminals. First exposure to data systems and system availability.",
+    "story_2": "Analyzed sales data to identify customer patterns and optimized pricing strategies. Discovered passion for data-driven decision-making.",
+    "story_3": "Self-study and certifications in data engineering, cloud architecture, and databases. Built 4 production-grade portfolio projects.",
+    "story_4": "Building production-ready ETL pipelines and data solutions. Certified by Oracle, IBM, and Meta."
+  },
+  "projects": {
+    "page_title": "Projects",
+    "page_subtitle": "End-to-end data engineering projects built with industry-standard tools",
+    "filter": {
+      "all": "All",
+      "airflow": "Airflow",
+      "postgresql": "PostgreSQL",
+      "python": "Python",
+      "docker": "Docker",
+      "streamlit": "Streamlit"
+    }
+  },
+  "contact": {
+    "page_title": "Contact",
+    "page_subtitle": "Get in touch for opportunities and collaborations",
+    "connect_title": "Let's Connect",
+    "connect_desc": "I am always open to new opportunities, collaborations, and conversations about data engineering, cloud architecture, and data-driven solutions.",
+    "download_title": "Downloads",
+    "download_desc": "Download my resume and job application documents",
+    "download_cv": "Download CV (PDF)",
+    "download_letter": "Download Job Application (PDF)"
+  },
+  "chatbot": {
+    "title": "Ask Arkan's AI",
+    "description": "Have questions about my experience, projects, or skills? Chat with my AI assistant to learn more.",
+    "cta": "Open Chat"
+  },
+  "error": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "cta": "Return Home"
+  },
+  "footer": {
+    "credit": "Built with passion for data engineering."
   }
 }

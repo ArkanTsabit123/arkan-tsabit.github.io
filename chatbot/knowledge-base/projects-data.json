@@ -1,1 +1,40 @@
-{}
+{
+  "documents": [
+    {
+      "id": "project_001",
+      "content": "BatchETL Pipeline: End-to-end ETL pipeline for NYC Taxi trip data. Processes 2.96M rows in less than 30 seconds with 100% data quality. Removed 95,099 outliers. Uses Airflow, PostgreSQL, Streamlit, and Docker. Features 5 KPIs, 4 charts, and 5 filters. Achieved 127 verification checks with 100% pass rate.",
+      "metadata": {
+        "source": "project",
+        "name": "BatchETL Pipeline",
+        "stack": "Airflow, PostgreSQL, Streamlit, Docker"
+      }
+    },
+    {
+      "id": "project_002",
+      "content": "Uber Data Pipeline: End-to-end ETL pipeline for NYC Uber/Taxi trip data. Uses Airflow orchestration with DuckDB data warehouse. Features Star Schema with 4 dimension tables and 1 fact table. Dashboard has 4 KPIs, 4 charts (Line, Bar, Pie, Scatter), and 3 filters. Containerized with Docker.",
+      "metadata": {
+        "source": "project",
+        "name": "Uber Data Pipeline",
+        "stack": "Airflow, DuckDB, Streamlit, Docker"
+      }
+    },
+    {
+      "id": "project_003",
+      "content": "Amazon Web Scraping: Python-based web scraping pipeline for extracting product data from Amazon. Extracts 5 fields per product: Title, Price, Rating, Reviews, and Availability. Achieves 95%+ success rate with 2-5 seconds per product. Uses Requests, BeautifulSoup4, and Pandas.",
+      "metadata": {
+        "source": "project",
+        "name": "Amazon Web Scraping",
+        "stack": "Python, BeautifulSoup, Requests, Pandas"
+      }
+    },
+    {
+      "id": "project_004",
+      "content": "Daily Expense Tracker: Full-stack expense tracking application with dual interfaces. CLI has 12 menus, GUI has 6 tabs. SQLite database with 5 tables and 5 indexes. Achieved 277 test cases with 100% pass rate. Features pie charts and trend charts with Matplotlib.",
+      "metadata": {
+        "source": "project",
+        "name": "Daily Expense Tracker",
+        "stack": "Python, SQLite, Tkinter, Matplotlib"
+      }
+    }
+  ]
+}

@@ -1,1 +1,104 @@
-{}
+{
+  "documents": [
+    {
+      "id": "cert_001",
+      "content": "OCI Multicloud Architect Professional - Oracle Certification earned in 2025. Validates expertise in Oracle Cloud Infrastructure, multicloud architecture, and cloud-native data solutions.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "OCI Multicloud Architect Professional",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_002",
+      "content": "OCI Generative AI Professional - Oracle Certification earned in 2025. Validates expertise in generative AI, LLMs, and OCI GenAI services.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "OCI Generative AI Professional",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_003",
+      "content": "AI Vector Search Certified Professional - Oracle Certification earned in 2025. Validates expertise in AI vector search, Oracle AI Vector Search, and vector databases.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "AI Vector Search Certified Professional",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_004",
+      "content": "Autonomous Database Cloud Professional - Oracle Certification earned in 2025. Validates expertise in Oracle Autonomous Database, cloud database services, and database administration.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "Autonomous Database Cloud Professional",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_005",
+      "content": "Cloud Database Services Professional - Oracle Certification earned in 2025. Validates expertise in Oracle cloud database services, database management, and cloud-native database solutions.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "Cloud Database Services Professional",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_006",
+      "content": "OCI AI Foundations Associate - Oracle Certification earned in 2025. Validates foundational knowledge in Oracle AI services, machine learning, and AI integration.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "OCI AI Foundations Associate",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_007",
+      "content": "OCI Foundations Associate - Oracle Certification earned in 2025. Validates foundational knowledge in Oracle Cloud Infrastructure, core services, and cloud architecture.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "OCI Foundations Associate",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_008",
+      "content": "Oracle Data Platform Foundations Associate - Oracle Certification earned in 2025. Validates foundational knowledge in Oracle Data Platform, data integration, and data management.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Oracle",
+        "name": "Oracle Data Platform Foundations Associate",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_009",
+      "content": "IBM Data Engineering Professional Certificate - Earned in 2025. Validates expertise in data engineering, ETL pipelines, data warehousing, and big data processing.",
+      "metadata": {
+        "source": "certification",
+        "provider": "IBM",
+        "name": "IBM Data Engineering Professional Certificate",
+        "year": 2025
+      }
+    },
+    {
+      "id": "cert_010",
+      "content": "Meta Database Engineer Professional Certificate - Earned in 2025. Validates expertise in database design, SQL, Python, and database administration.",
+      "metadata": {
+        "source": "certification",
+        "provider": "Meta",
+        "name": "Meta Database Engineer Professional Certificate",
+        "year": 2025
+      }
+    }
+  ]
+}

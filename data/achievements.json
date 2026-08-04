@@ -1,10 +1,25 @@
 {
   "achievements": [
     {
-      "id": "oracle-race-2025",
+      "id": "oracle-race-global",
       "title": "Oracle Race to Certification",
-      "description": "Top 108 Global, Top 3 Indonesia",
-      "year": 2025
+      "description": "Top 108 Global Leaderboard in Oracle Race to Certification 2025, competing against thousands of participants worldwide.",
+      "year": 2025,
+      "icon": "fas fa-globe-americas"
+    },
+    {
+      "id": "oracle-race-indonesia",
+      "title": "Oracle Race to Certification",
+      "description": "Top 3 Indonesia in Oracle Race to Certification 2025, demonstrating exceptional performance in Oracle Cloud certification.",
+      "year": 2025,
+      "icon": "fas fa-trophy"
+    },
+    {
+      "id": "best-teacher",
+      "title": "Best Teacher Award",
+      "description": "Recognized as Best Teacher at Satu Benih Boarding School in 2025 for excellence in teaching and curriculum delivery.",
+      "year": 2025,
+      "icon": "fas fa-award"
     }
   ]
 }

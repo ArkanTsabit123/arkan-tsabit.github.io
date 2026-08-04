@@ -3,12 +3,62 @@
     {
       "id": "batchetl",
       "name": "BatchETL Pipeline",
-      "description": "End-to-end ETL pipeline for NYC Taxi data",
+      "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
       "metrics": {
         "rows": "2.96M",
         "execution": "<30s",
         "quality": "100%"
-      }
+      },
+      "stack": ["Airflow", "PostgreSQL", "Streamlit", "Docker"],
+      "tags": ["airflow", "postgresql", "streamlit", "docker", "python"],
+      "github": "https://github.com/ArkanTsabit123/BatchETL-Pipeline",
+      "demo": null,
+      "image": "assets/images/projects/batchetl/dashboard.png"
+    },
+    {
+      "id": "uber",
+      "name": "Uber Data Pipeline",
+      "description": "End-to-end ETL pipeline for NYC Uber/Taxi trip data with star schema data warehouse and interactive dashboard.",
+      "metrics": {
+        "dim_tables": "4",
+        "fact_tables": "1",
+        "charts": "4"
+      },
+      "stack": ["Airflow", "DuckDB", "Streamlit", "Docker"],
+      "tags": ["airflow", "duckdb", "streamlit", "docker", "python"],
+      "github": "https://github.com/ArkanTsabit123/uber-data-pipeline",
+      "demo": null,
+      "image": "assets/images/projects/uber/dashboard.png"
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon Web Scraping",
+      "description": "Python-based web scraping pipeline for extracting product data from Amazon search results with automated data cleaning and export.",
+      "metrics": {
+        "fields": "5",
+        "success": "95%+",
+        "speed": "2-5s"
+      },
+      "stack": ["Python", "BeautifulSoup", "Requests", "Pandas"],
+      "tags": ["python", "scraping", "pandas"],
+      "github": "https://github.com/ArkanTsabit123/Amazon-Web-Scrapping",
+      "demo": null,
+      "image": "assets/images/projects/amazon/scraping-result.png"
+    },
+    {
+      "id": "expense",
+      "name": "Daily Expense Tracker",
+      "description": "Complete expense tracking application with dual interfaces (CLI + GUI), budget management, recurring expenses, and data visualization.",
+      "metrics": {
+        "tests": "277",
+        "pass_rate": "100%",
+        "tables": "5"
+      },
+      "stack": ["Python", "SQLite", "Tkinter", "Matplotlib"],
+      "tags": ["python", "sqlite", "gui", "cli"],
+      "github": "https://github.com/ArkanTsabit123/Daily-Expense-Tracker",
+      "demo": null,
+      "image": "assets/images/projects/expense/gui-dashboard.png"
     }
   ]
 }

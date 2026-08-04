@@ -1,11 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Me - Arkan Tsabit</title>
+    <meta name="description" content="About Arkan Tsabit - Data Engineer with experience in ETL pipelines, data warehousing, and cloud architecture." />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
-    <h1>About Me</h1>
+
+    <!-- ============================================================
+    HEADER (SAME AS INDEX)
+    ============================================================ -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Home">
+                    <span class="logo-text">AT</span>
+                </a>
+            </div>
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" class="nav-link active" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="certifications.html" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="achievements.html" class="nav-link" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+        PAGE HEADER
+        ============================================================ -->
+        <section class="page-header">
+            <div class="container">
+                <h1 data-i18n="about.page_title">About Me</h1>
+                <p data-i18n="about.page_subtitle">Get to know the person behind the data</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        PROFILE SECTION
+        ============================================================ -->
+        <section class="profile-section">
+            <div class="container profile-container">
+                <div class="profile-image">
+                    <img src="assets/images/profile.jpg" alt="Arkan Tsabit" />
+                </div>
+                <div class="profile-content">
+                    <h2 data-i18n="about.who_am_i">Who I Am</h2>
+                    <p data-i18n="about.bio_1">
+                        I am a Data Engineer with hands-on experience building production-ready ETL pipelines
+                        that process 2.96M+ records in under 30 seconds with 100% data quality.
+                        I specialize in data warehousing, dimensional modeling, and data integration.
+                    </p>
+                    <p data-i18n="about.bio_2">
+                        I transitioned from IT infrastructure and network engineering to data engineering
+                        through intensive self-study and hands-on projects. My background in IT operations
+                        gives me a unique perspective on system reliability and data pipeline performance.
+                    </p>
+                    <p data-i18n="about.bio_3">
+                        I am certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer.
+                        I am passionate about building scalable and reliable data solutions that turn raw data
+                        into actionable insights.
+                    </p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label" data-i18n="about.stats.projects">Data Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10</span>
+                            <span class="stat-label" data-i18n="about.stats.certs">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2.96M+</span>
+                            <span class="stat-label" data-i18n="about.stats.rows">Records Processed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label" data-i18n="about.stats.domains">Industries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        STORY SECTION
+        ============================================================ -->
+        <section class="story-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="about.story_title">My Career Transition</h2>
+                    <p data-i18n="about.story_subtitle">From IT infrastructure to data engineering</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016-2020</div>
+                        <div class="timeline-content">
+                            <h4>IT Terminal Service Support</h4>
+                            <p data-i18n="about.story_1">
+                                Maintained IT infrastructure for operational data systems across 3 terminals.
+                                First exposure to data systems and system availability.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020-2024</div>
+                        <div class="timeline-content">
+                            <h4>Business Manager</h4>
+                            <p data-i18n="about.story_2">
+                                Analyzed sales data to identify customer patterns and optimized pricing strategies.
+                                Discovered passion for data-driven decision-making.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024-2025</div>
+                        <div class="timeline-content">
+                            <h4>Data Engineering Transition</h4>
+                            <p data-i18n="about.story_3">
+                                Self-study and certifications in data engineering, cloud architecture, and databases.
+                                Built 4 production-grade portfolio projects.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025-Present</div>
+                        <div class="timeline-content">
+                            <h4>Data Engineer | Cloud Data Engineer</h4>
+                            <p data-i18n="about.story_4">
+                                Building production-ready ETL pipelines and data solutions.
+                                Certified by Oracle, IBM, and Meta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER (SAME AS INDEX)
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Arkan Tsabit.
+                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+            </p>
+            <div class="footer-social">
+                <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/i18n.js"></script>
+
 </body>
 </html>

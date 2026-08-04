@@ -1,12 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arkan Tsabit - Data Engineer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arkan Tsabit - Data Engineer Portfolio</title>
+    <meta name="description" content="Arkan Tsabit - Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects." />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
 </head>
 <body>
-    <h1>Arkan Tsabit</h1>
-    <p>Data Engineer | Cloud Data Engineer</p>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Home">
+                    <span class="logo-text">AT</span>
+                </a>
+            </div>
+
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="certifications.html" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="achievements.html" class="nav-link" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+        HERO SECTION
+        ============================================================ -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <p class="hero-badge" data-i18n="hero.badge">Open to Work</p>
+                    <h1 class="hero-title">
+                        <span data-i18n="hero.greeting">Hello, I'm</span>
+                        <span class="highlight">Arkan Tsabit</span>
+                    </h1>
+                    <p class="hero-subtitle" data-i18n="hero.title">Data Engineer | Cloud Data Engineer</p>
+                    <p class="hero-description" data-i18n="hero.tagline">
+                        Building production-ready data pipelines that process millions of records in seconds.
+                    </p>
+
+                    <div class="hero-metrics">
+                        <div class="metric-item">
+                            <span class="metric-number">2.96M+</span>
+                            <span class="metric-label" data-i18n="hero.metrics.rows">Records Processed</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">&lt;30s</span>
+                            <span class="metric-label" data-i18n="hero.metrics.execution">Execution Time</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-number">100%</span>
+                            <span class="metric-label" data-i18n="hero.metrics.quality">Data Quality</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn btn-primary" data-i18n="hero.cta_projects">View Projects</a>
+                        <a href="docs/CV/Arkan-Tsabit_Data-Engineer.pdf" class="btn btn-secondary" download>
+                            <i class="fas fa-download"></i>
+                            <span data-i18n="hero.cta_cv">Download CV</span>
+                        </a>
+                        <a href="contact.html" class="btn btn-outline" data-i18n="hero.cta_contact">Contact Me</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image">
+                        <img src="assets/images/profile.jpg" alt="Arkan Tsabit" />
+                    </div>
+                    <div class="hero-tech-stack">
+                        <span class="tech-tag">Airflow</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        FEATURED PROJECT SECTION
+        ============================================================ -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="featured.title">Featured Project</h2>
+                    <p data-i18n="featured.subtitle">My most comprehensive data engineering work</p>
+                </div>
+
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="assets/images/projects/batchetl/dashboard.png" alt="BatchETL Pipeline Dashboard" />
+                    </div>
+                    <div class="featured-content">
+                        <h3>BatchETL Pipeline</h3>
+                        <p data-i18n="featured.description">
+                            End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration,
+                            data quality validation, and real-time analytics dashboard.
+                        </p>
+                        <div class="featured-metrics">
+                            <span><strong>2.96M</strong> rows</span>
+                            <span><strong>&lt;30s</strong> execution</span>
+                            <span><strong>100%</strong> quality</span>
+                        </div>
+                        <div class="featured-stack">
+                            <span class="stack-tag">Airflow</span>
+                            <span class="stack-tag">PostgreSQL</span>
+                            <span class="stack-tag">Streamlit</span>
+                            <span class="stack-tag">Docker</span>
+                        </div>
+                        <a href="projects.html" class="btn btn-primary btn-sm" data-i18n="featured.cta">View All Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        SKILLS OVERVIEW
+        ============================================================ -->
+        <section class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="skills.title">Technical Skills</h2>
+                    <p data-i18n="skills.subtitle">Technologies and tools I work with</p>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <h4 data-i18n="skills.cloud">Cloud & Data Architecture</h4>
+                        <ul>
+                            <li>Oracle Cloud Infrastructure (OCI)</li>
+                            <li>Multicloud Architecture</li>
+                            <li>Star Schema</li>
+                            <li>Data Warehouse Design</li>
+                            <li>Dimensional Modeling</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4 data-i18n="skills.engineering">Data Engineering</h4>
+                        <ul>
+                            <li>Apache Airflow</li>
+                            <li>ETL/ELT Pipelines</li>
+                            <li>Python &amp; Pandas</li>
+                            <li>Docker Compose</li>
+                            <li>Data Integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4 data-i18n="skills.databases">Databases</h4>
+                        <ul>
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>Oracle Autonomous DB</li>
+                            <li>SQLite</li>
+                            <li>DuckDB</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <h4 data-i18n="skills.visualization">Visualization &amp; Tools</h4>
+                        <ul>
+                            <li>Streamlit</li>
+                            <li>Plotly</li>
+                            <li>Matplotlib</li>
+                            <li>Git &amp; GitHub</li>
+                            <li>Jupyter Notebook</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CERTIFICATIONS PREVIEW
+        ============================================================ -->
+        <section class="certs-preview-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="certs.title">Certifications</h2>
+                    <p data-i18n="certs.subtitle">10 professional certifications from industry leaders</p>
+                </div>
+
+                <div class="certs-preview-grid">
+                    <div class="cert-preview-item">
+                        <img src="assets/images/certifications/oracle.png" alt="Oracle" />
+                        <span>8 Certifications</span>
+                    </div>
+                    <div class="cert-preview-item">
+                        <img src="assets/images/certifications/ibm.png" alt="IBM" />
+                        <span>IBM Data Engineering</span>
+                    </div>
+                    <div class="cert-preview-item">
+                        <img src="assets/images/certifications/meta.png" alt="Meta" />
+                        <span>Meta Database Engineer</span>
+                    </div>
+                </div>
+
+                <div class="certs-preview-cta">
+                    <a href="certifications.html" class="btn btn-outline" data-i18n="certs.cta">View All Certifications</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        CHATBOT CTA
+        ============================================================ -->
+        <section class="chatbot-cta-section">
+            <div class="container">
+                <div class="chatbot-cta-content">
+                    <i class="fas fa-robot chatbot-cta-icon"></i>
+                    <h2 data-i18n="chatbot.title">Ask Arkan's AI</h2>
+                    <p data-i18n="chatbot.description">
+                        Have questions about my experience, projects, or skills?
+                        Chat with my AI assistant to learn more.
+                    </p>
+                    <button class="btn btn-primary" id="openChatbotBtn" data-i18n="chatbot.cta">Open Chat</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Arkan Tsabit.
+                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+            </p>
+            <div class="footer-social">
+                <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    CHATBOT WIDGET
+    ============================================================ -->
+    <div id="chatbot-widget" class="chatbot-widget" role="dialog" aria-label="AI Chatbot">
+        <div class="chatbot-header">
+            <span class="chatbot-title">AI Assistant</span>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot">
+                <div class="message-bubble">
+                    Hello! Ask me about Arkan's experience, projects, certifications, or skills.
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Type your question..." aria-label="Chat input" />
+            <button id="chatbotSend" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open chatbot">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="js/main.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/projects.js"></script>
+
 </body>
 </html>
