@@ -1,0 +1,6 @@
+/* Dark Mode Styles */
+
+[data-theme="dark"] {
+    background-color: #0F172A;
+    color: #F8FAFC;
+}

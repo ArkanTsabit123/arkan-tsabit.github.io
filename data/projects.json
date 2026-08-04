@@ -1,0 +1,14 @@
+{
+  "projects": [
+    {
+      "id": "batchetl",
+      "name": "BatchETL Pipeline",
+      "description": "End-to-end ETL pipeline for NYC Taxi data",
+      "metrics": {
+        "rows": "2.96M",
+        "execution": "<30s",
+        "quality": "100%"
+      }
+    }
+  ]
+}

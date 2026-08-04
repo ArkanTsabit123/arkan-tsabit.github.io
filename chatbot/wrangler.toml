@@ -1,0 +1,10 @@
+name = "arkan-chatbot"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "arkan-knowledge-base"
+
+[[ai]]
+binding = "AI"

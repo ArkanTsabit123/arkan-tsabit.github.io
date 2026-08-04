@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Saya",
+    "projects": "Proyek",
+    "certifications": "Sertifikasi",
+    "achievements": "Prestasi",
+    "contact": "Kontak"
+  }
+}
