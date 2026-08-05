@@ -5,7 +5,7 @@
 | Property | Value |
 |----------|-------|
 | Version | 1.0.0 |
-| Last Updated | 2026-08-05 |
+| Last Updated | 2026-08-06 |
 | Status | Production Ready |
 | Domain | arkan-tsabit.github.io |
 | Hosting | GitHub Pages |
@@ -121,7 +121,8 @@
 |  |  - Name: Arkan Tsabit                                               |   |
 |  |  - Title: Data Engineer | Cloud Data Engineer                      |   |
 |  |  - Tagline: Building production-ready data pipelines              |   |
-|  |  - Metrics: 2.96M+ records, under 30 seconds execution, 100% data quality |   |
+|  |  - Metrics: 10 Professional Certifications, 1 Achievement,        |   |
+|  |             4 Data Projects, 4 Work Experience                     |   |
 |  |  - Buttons: View Projects, Download CV, Contact Me                |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
@@ -164,6 +165,8 @@
 |  +---------------------------------------------------------------------+   |
 |  |  CERTIFICATIONS (10)                                                |   |
 |  |  Oracle (8) and IBM (1) and Meta (1)                               |   |
+|  |  - Each certification has a "Verify" button linking to official   |   |
+|  |    credential page                                                  |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
 |  +---------------------------------------------------------------------+   |
@@ -346,8 +349,8 @@ arkan-tsabit-portfolio/
 
 | Section | Content |
 |---------|---------|
-| Hero | Name, Title, Tagline, Metrics, Call-to-action buttons |
-| Quick Stats | 2.96M+ records, under 30 seconds execution, 100 percent data quality |
+| Hero | Name, Title, Tagline, Metrics (10, 1, 4, 4), Call-to-action buttons |
+| Skills List | Orchestration: Airflow, Data Warehousing: PostgreSQL, DuckDB, Programming: Python, Pandas, SQL, Containerization: Docker Compose, Visualization: Streamlit, Plotly, Matplotlib |
 | Featured Project | BatchETL Pipeline (highlighted) |
 | Skills Overview | 4 technology categories with icons |
 | Certifications Preview | 10 certifications with logos |
@@ -423,8 +426,17 @@ arkan-tsabit-portfolio/
     "contact": "Contact"
   },
   "hero": {
+    "badge": "Open to Work",
+    "greeting": "Hello, I'm",
     "title": "Data Engineer | Cloud Data Engineer",
-    "tagline": "Building production-ready data pipelines",
+    "tagline": "Hi, I'm Arkan — Data Engineer with expertise in ETL pipelines, data warehousing, and cloud architecture. Certified Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer.",
+    "subtagline": "I am also proficient in modern data engineering tools and technologies, including:",
+    "metrics": {
+      "certs": "Professional Certifications",
+      "achievement": "Achievement",
+      "projects": "Data Projects",
+      "experience": "Work Experience"
+    },
     "cta_projects": "View Projects",
     "cta_cv": "Download CV",
     "cta_contact": "Contact Me"
@@ -442,8 +454,17 @@ arkan-tsabit-portfolio/
     "contact": "Kontak"
   },
   "hero": {
+    "badge": "Terbuka untuk Kerja",
+    "greeting": "Halo, Saya",
     "title": "Data Engineer | Cloud Data Engineer",
-    "tagline": "Membangun pipeline data siap produksi",
+    "tagline": "Halo, saya Arkan — Data Engineer dengan keahlian di pipeline ETL, pergudangan data, dan arsitektur cloud. Tersertifikasi Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer.",
+    "subtagline": "Saya juga mahir dalam berbagai alat dan teknologi data engineering modern, di antaranya:",
+    "metrics": {
+      "certs": "Sertifikasi Profesional",
+      "achievement": "Prestasi",
+      "projects": "Proyek Data",
+      "experience": "Pengalaman Kerja"
+    },
     "cta_projects": "Lihat Proyek",
     "cta_cv": "Unduh CV",
     "cta_contact": "Hubungi Saya"
@@ -509,23 +530,30 @@ function toggleTheme() {
 |                                     |                                       |
 |                                     v                                       |
 |  +---------------------------------------------------------------------+   |
-|  |  2. Vector Search (Cloudflare Vectorize)                           |   |
-|  |     - Convert question to embedding                                |   |
+|  |  2. Generate Embedding (bge-small-en-v1.5)                         |   |
+|  |     - Convert question to vector (384 dimensions)                  |   |
+|  +---------------------------------------------------------------------+   |
+|                                     |                                       |
+|                                     v                                       |
+|  +---------------------------------------------------------------------+   |
+|  |  3. Vector Search (Cloudflare Vectorize)                           |   |
 |  |     - Search knowledge base for relevant documents                 |   |
+|  |     - Top K: 5 matches with metadata                               |   |
 |  +---------------------------------------------------------------------+   |
 |                                     |                                       |
 |                                     v                                       |
 |  +---------------------------------------------------------------------+   |
-|  |  3. Context Building                                               |   |
-|  |     - Retrieve relevant text chunks from knowledge base            |   |
-|  |     - Format as context for LLM                                    |   |
+|  |  4. Context Building                                               |   |
+|  |     - Extract content from metadata                                |   |
+|  |     - Filter scores > 0.3                                          |   |
+|  |     - Join content as context                                      |   |
 |  +---------------------------------------------------------------------+   |
 |                                     |                                       |
 |                                     v                                       |
 |  +---------------------------------------------------------------------+   |
-|  |  4. LLM Response (Cloudflare Workers AI)                           |   |
+|  |  5. LLM Response (Cloudflare Workers AI)                           |   |
 |  |     - Generate response based on context only                      |   |
-|  |     - "Arkan has built 4 major projects: BatchETL Pipeline..."    |   |
+|  |     - Model: Mistral 7B v0.2 (testing better models)              |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
 +-----------------------------------------------------------------------------+
@@ -533,31 +561,38 @@ function toggleTheme() {
 
 ### Knowledge Base Structure
 
+The knowledge base contains 30 documents organized by category:
+
 ```
 {
   "documents": [
     {
-      "id": "cv_001",
-      "content": "Arkan Tsabit is a Data Engineer with experience building production-ready ETL pipelines...",
+      "id": "profile_001",
+      "content": "Arkan Tsabit is a Data Engineer with expertise...",
       "metadata": {
-        "source": "CV",
-        "category": "professional_summary"
+        "category": "profile",
+        "keywords": "profile, introduction, data engineer",
+        "content": "Arkan Tsabit is a Data Engineer..."
       }
     },
     {
-      "id": "project_001",
-      "content": "BatchETL Pipeline processes 2.96M NYC taxi records in under 30 seconds...",
+      "id": "project_batchetl",
+      "content": "BatchETL Pipeline is a data engineering project...",
       "metadata": {
-        "source": "project",
-        "name": "BatchETL Pipeline"
+        "category": "projects",
+        "name": "BatchETL Pipeline",
+        "keywords": "BatchETL, NYC Taxi, Airflow",
+        "content": "BatchETL Pipeline processes 2.96M rows..."
       }
     },
     {
-      "id": "cert_001",
-      "content": "Oracle Certified Multicloud Architect Professional - earned October 2025...",
+      "id": "cert_oracle_001",
+      "content": "Oracle Multicloud Architect Professional...",
       "metadata": {
-        "source": "certification",
-        "provider": "Oracle"
+        "category": "certifications",
+        "provider": "Oracle",
+        "keywords": "Oracle, Multicloud Architect",
+        "content": "Oracle Multicloud Architect Professional..."
       }
     }
   ]
@@ -566,71 +601,194 @@ function toggleTheme() {
 
 ### Chatbot UI
 
+The chatbot widget appears as a floating button on all pages.
+
 ```
 <!-- Chatbot Widget -->
 <div id="chatbot-widget">
   <div id="chatbot-header">
-    <span>Chat with Arkan's AI</span>
-    <button id="chatbot-toggle">Close</button>
+    <span>AI Assistant</span>
+    <button id="chatbotClose">✕</button>
   </div>
-  <div id="chatbot-messages">
+  <div id="chatbotMessages">
     <div class="message bot">
-      Hello. Ask me about Arkan's experience, projects, certifications, or skills.
+      Hello! Ask me about Arkan's experience, projects, certifications, or skills.
     </div>
   </div>
-  <div id="chatbot-input">
-    <input type="text" placeholder="Type your question..." id="chatbot-input-field">
-    <button id="chatbot-send">Send</button>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbotInput" placeholder="Type your question...">
+    <button id="chatbotSend">Send</button>
   </div>
 </div>
 ```
 
-### Cloudflare Worker Template
+### Cloudflare Worker (worker.js)
 
-```
-// worker.js
+```javascript
 export default {
   async fetch(request, env, ctx) {
-    const url = new URL(request.url);
-    
-    if (url.pathname === '/api/chat') {
-      const { question } = await request.json();
-      
-      const embedding = await env.AI.run('@cf/baai/bge-small-en-v1.5', {
-        text: question
+    // CORS handling
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+        },
       });
-      
+    }
+
+    const url = new URL(request.url);
+
+    // Health check
+    if (url.pathname === '/health') {
+      return new Response(JSON.stringify({
+        status: 'healthy',
+        service: 'arkan-chatbot',
+        version: '2.0.0',
+        timestamp: new Date().toISOString(),
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    // Chat endpoint
+    if (url.pathname === '/api/chat' && request.method === 'POST') {
+      const body = await request.json();
+      const question = body.question;
+
+      // Generate embedding
+      const embeddingResponse = await env.AI.run('@cf/baai/bge-small-en-v1.5', {
+        text: question.trim(),
+      });
+      const embedding = embeddingResponse.data[0];
+
+      // Query Vectorize
       const vectorResults = await env.VECTORIZE.query(embedding, {
         topK: 5,
-        returnValues: true
+        returnValues: false,
+        returnMetadata: true,
       });
-      
-      const context = vectorResults.matches
-        .map(match => match.value)
-        .join('\n\n');
-      
-      const response = await env.AI.run('@cf/meta/llama-3-8b-instruct', {
+
+      // Build context
+      let context = '';
+      if (vectorResults.matches && vectorResults.matches.length > 0) {
+        const contents = vectorResults.matches
+          .map(match => match.metadata?.content || '')
+          .filter(content => content);
+        context = contents.join('\n\n');
+      }
+
+      if (!context) {
+        return new Response(JSON.stringify({
+          response: "I don't have specific information about that topic. Please ask about Arkan's experience, projects, certifications, or skills.",
+          source: 'default',
+        }), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
+      }
+
+      // Generate response using LLM
+      const llmResponse = await env.AI.run('@cf/mistral/mistral-7b-instruct-v0.2-lora', {
         messages: [
           {
             role: 'system',
-            content: 'You are Arkan\'s AI assistant. Answer questions based ONLY on the provided context. If the answer is not in the context, say "I do not have that information."'
+            content: 'You are a helpful assistant. Answer based ONLY on the context given. Be concise.',
           },
           {
             role: 'user',
-            content: 'Context: ${context}\n\nQuestion: ${question}'
-          }
-        ]
+            content: `Answer based ONLY on this context: ${context}\n\nQuestion: ${question}\n\nAnswer:`,
+          },
+        ],
+        temperature: 0.2,
+        max_tokens: 150,
       });
-      
-      return new Response(JSON.stringify({ response: response.response }), {
-        headers: { 'Content-Type': 'application/json' }
+
+      return new Response(JSON.stringify({
+        response: llmResponse.response || 'No response from LLM.',
+        source: 'llm',
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
       });
     }
-    
-    return new Response('Not found', { status: 404 });
-  }
-}
+
+    return new Response(JSON.stringify({
+      error: 'Not found',
+      message: 'The requested endpoint does not exist.',
+    }), {
+      status: 404,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  },
+};
 ```
+
+### Cloudflare Worker Configuration (wrangler.toml)
+
+```toml
+name = "arkan-chatbot"
+main = "worker.js"
+compatibility_date = "2025-08-01"
+
+[vars]
+ENVIRONMENT = "production"
+
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "arkan-knowledge-base"
+
+[ai]
+binding = "AI"
+
+[observability]
+enabled = true
+
+[[env.production]]
+route = "arkan-chatbot.workers.dev"
+```
+
+---
+
+## LLM Testing Summary
+
+The following 22 LLM models are being tested for compatibility with Cloudflare Workers AI:
+
+| # | Model ID | Status |
+|---|----------|--------|
+| 1 | `@cf/meta/llama-4-scout-17b-16e-instruct` | 🔄 Testing |
+| 2 | `@cf/meta/llama-3.2-3b-instruct` | 🔄 Testing |
+| 3 | `@cf/meta/llama-3.1-8b-instruct-fp8` | 🔄 Testing |
+| 4 | `@cf/meta/llama-3.2-1b-instruct` | 🔄 Testing |
+| 5 | `@cf/meta/llama-3.3-70b-instruct-fp8-fast` | 🔄 Testing |
+| 6 | `@cf/mistralai/mistral-small-3.1-24b-instruct` | 🔄 Testing |
+| 7 | `@cf/mistral/mistral-7b-instruct-v0.2-lora` | ✅ Active |
+| 8 | `@cf/qwen/qwen2.5-coder-32b-instruct` | 🔄 Testing |
+| 9 | `@cf/qwen/qwen3-30b-a3b-fp8` | 🔄 Testing |
+| 10 | `@cf/qwen/qwq-32b` | 🔄 Testing |
+| 11 | `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` | 🔄 Testing |
+| 12 | `@cf/google/gemma-4-26b-a4b-it` | 🔄 Testing |
+| 13 | `@cf/google/gemma-7b-it-lora` | 🔄 Testing |
+| 14 | `@cf/aisingapore/gemma-sea-lion-v4-27b-it` | 🔄 Testing |
+| 15 | `@cf/ibm-granite/granite-4.0-h-micro` | 🔄 Testing |
+| 16 | `@cf/moonshotai/kimi-k2.6` | 🔄 Testing |
+| 17 | `@cf/moonshotai/kimi-k2.7-code` | 🔄 Testing |
+| 18 | `@cf/zai-org/glm-4.7-flash` | 🔄 Testing |
+| 19 | `@cf/zai-org/glm-5.2` | 🔄 Testing |
+| 20 | `@cf/nvidia/nemotron-3-120b-a12b` | 🔄 Testing |
+| 21 | `@cf/openai/gpt-oss-20b` | 🔄 Testing |
+| 22 | `@cf/openai/gpt-oss-120b` | 🔄 Testing |
 
 ---
 
@@ -649,7 +807,7 @@ git commit -m "Initial portfolio website"
 git push -u origin main
 
 # 3. Enable GitHub Pages
-# Settings -> Pages -> Branch: main -> /docs or / (root)
+# Settings -> Pages -> Branch: main -> / (root)
 ```
 
 ### Step 2: Cloudflare Workers Setup
@@ -661,10 +819,14 @@ npm install -g wrangler
 # 2. Login
 wrangler login
 
-# 3. Create Vectorize database
-wrangler vectorize create arkan-knowledge-base
+# 3. Create Vectorize index
+wrangler vectorize create arkan-knowledge-base --preset @cf/baai/bge-small-en-v1.5
 
-# 4. Deploy worker
+# 4. Upload knowledge base
+node convert-to-ndjson.js
+wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
+
+# 5. Deploy worker
 wrangler deploy
 ```
 
@@ -672,10 +834,10 @@ wrangler deploy
 
 ```
 # .env for Cloudflare Workers
-CLOUDFLARE_ACCOUNT_ID=your_account_id
-CLOUDFLARE_API_TOKEN=your_api_token
+CLOUDFLARE_ACCOUNT_ID=1ac4476c492b63bf4eeb0fb1523aab34
+CLOUDFLARE_API_TOKEN=your_api_token_here
 VECTORIZE_INDEX_NAME=arkan-knowledge-base
-AI_MODEL=@cf/meta/llama-3-8b-instruct
+AI_MODEL=@cf/baai/bge-small-en-v1.5
 ```
 
 ---
@@ -690,6 +852,8 @@ AI_MODEL=@cf/meta/llama-3-8b-instruct
 | Caching | Browser cache for static assets |
 | Compression | Gzip and Brotli compression |
 | Image Optimization | WebP format with responsive sizes |
+| Vector Search | Top K limited to 5 matches |
+| LLM Tokens | Limited to 150 tokens for faster response |
 
 ---
 
@@ -733,10 +897,12 @@ AI_MODEL=@cf/meta/llama-3-8b-instruct
 | Issue | Solution |
 |-------|----------|
 | GitHub Pages not loading | Check branch settings and wait 5 minutes |
-| Chatbot not responding | Check Cloudflare Worker logs |
+| Chatbot not responding | Check Cloudflare Worker logs (`wrangler tail`) |
 | Dark mode not saving | Check localStorage permission |
 | Images not loading | Verify file paths and extensions |
 | Language toggle not working | Check i18n JSON files |
+| LLM model deprecated | Update model in `worker.js` |
+| Vectorize index empty | Check `stored_vectors` in dashboard |
 
 ---
 
@@ -749,6 +915,7 @@ AI_MODEL=@cf/meta/llama-3-8b-instruct
 | Interactive Charts | Low | Medium |
 | Newsletter Signup | Low | Low |
 | Real-time Analytics Dashboard | Low | High |
+| Custom Domain | Medium | Low |
 
 ---
 
@@ -759,6 +926,8 @@ AI_MODEL=@cf/meta/llama-3-8b-instruct
 | Website | https://arkan-tsabit.github.io |
 | GitHub | https://github.com/ArkanTsabit123 |
 | LinkedIn | https://linkedin.com/in/arkan-tsabit |
+| Worker | https://arkan-chatbot.arkan-chatbot.workers.dev |
+| Health Check | https://arkan-chatbot.arkan-chatbot.workers.dev/health |
 | Cloudflare Dashboard | https://dash.cloudflare.com |
 
 ---

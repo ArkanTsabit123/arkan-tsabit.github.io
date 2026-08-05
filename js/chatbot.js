@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     async function sendMessageToWorker(message) {
         try {
-            const response = await fetch('https://arkan-chatbot.workers.dev/api/chat', {
+            const response = await fetch('https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

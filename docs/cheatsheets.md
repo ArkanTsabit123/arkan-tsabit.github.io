@@ -5,7 +5,7 @@
 | Property | Value |
 |----------|-------|
 | Version | 1.0.0 |
-| Last Updated | 2026-08-05 |
+| Last Updated | 2026-08-06 |
 | Status | Production Ready |
 | Domain | arkan-tsabit.github.io |
 | Hosting | GitHub Pages |
@@ -137,18 +137,69 @@ wrangler worker list
 ### Vectorize Commands
 
 ```bash
-# Create vectorize index
-wrangler vectorize create arkan-knowledge-base
+# Create vectorize index with preset
+wrangler vectorize create arkan-knowledge-base --preset @cf/baai/bge-small-en-v1.5
 
 # List indexes
 wrangler vectorize list
 
+# Delete index
+wrangler vectorize delete arkan-knowledge-base
+
 # Insert vectors
-wrangler vectorize insert arkan-knowledge-base --file=vectors.json
+wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
 
 # Query vectors
 wrangler vectorize query arkan-knowledge-base --query="What projects has Arkan built?"
 ```
+
+### Knowledge Base Upload
+
+```bash
+# Convert JSON to NDJSON
+node convert-to-ndjson.js
+
+# Upload to Vectorize
+npx wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
+
+# Generate embeddings and upload
+python upload_vectors.py
+```
+
+### LLM Model Testing
+
+```bash
+# Test different LLM models
+# Update worker.js with model ID and deploy:
+npx wrangler deploy
+```
+
+**Model IDs to test:**
+
+| # | Model ID |
+|---|----------|
+| 1 | `@cf/meta/llama-4-scout-17b-16e-instruct` |
+| 2 | `@cf/meta/llama-3.2-3b-instruct` |
+| 3 | `@cf/meta/llama-3.1-8b-instruct-fp8` |
+| 4 | `@cf/meta/llama-3.2-1b-instruct` |
+| 5 | `@cf/meta/llama-3.3-70b-instruct-fp8-fast` |
+| 6 | `@cf/mistralai/mistral-small-3.1-24b-instruct` |
+| 7 | `@cf/mistral/mistral-7b-instruct-v0.2-lora` |
+| 8 | `@cf/qwen/qwen2.5-coder-32b-instruct` |
+| 9 | `@cf/qwen/qwen3-30b-a3b-fp8` |
+| 10 | `@cf/qwen/qwq-32b` |
+| 11 | `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` |
+| 12 | `@cf/google/gemma-4-26b-a4b-it` |
+| 13 | `@cf/google/gemma-7b-it-lora` |
+| 14 | `@cf/aisingapore/gemma-sea-lion-v4-27b-it` |
+| 15 | `@cf/ibm-granite/granite-4.0-h-micro` |
+| 16 | `@cf/moonshotai/kimi-k2.6` |
+| 17 | `@cf/moonshotai/kimi-k2.7-code` |
+| 18 | `@cf/zai-org/glm-4.7-flash` |
+| 19 | `@cf/zai-org/glm-5.2` |
+| 20 | `@cf/nvidia/nemotron-3-120b-a12b` |
+| 21 | `@cf/openai/gpt-oss-20b` |
+| 22 | `@cf/openai/gpt-oss-120b` |
 
 ---
 
@@ -230,6 +281,25 @@ nano data/i18n/id.json
 
 ## Testing Commands
 
+### Chatbot Testing
+
+```bash
+# Run all 34 test questions
+python test_all.py
+
+# Test single question with curl
+curl -X POST "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Who is Arkan Tsabit?"}'
+
+# Test in PowerShell
+$body = @{ question = "Who is Arkan Tsabit?" } | ConvertTo-Json
+Invoke-RestMethod -Uri "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" -Method Post -Body $body -ContentType "application/json"
+
+# Test health check
+curl https://arkan-chatbot.arkan-chatbot.workers.dev/health
+```
+
 ### Local Testing
 
 ```bash
@@ -299,8 +369,11 @@ npx sitemap-generator-cli http://localhost:8000 --output sitemap.xml
 ### Endpoints
 
 ```bash
+# Health check
+GET https://arkan-chatbot.arkan-chatbot.workers.dev/health
+
 # Chatbot API endpoint
-POST https://arkan-chatbot.workers.dev/api/chat
+POST https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat
 Content-Type: application/json
 
 {
@@ -309,7 +382,8 @@ Content-Type: application/json
 
 # Response
 {
-  "response": "Arkan has built 4 major projects..."
+  "response": "Arkan has built 4 major projects...",
+  "source": "llm"
 }
 ```
 
@@ -317,7 +391,7 @@ Content-Type: application/json
 
 ```bash
 # Test with curl
-curl -X POST https://arkan-chatbot.workers.dev/api/chat \
+curl -X POST https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat \
   -H "Content-Type: application/json" \
   -d '{"question":"What projects has Arkan built?"}'
 
@@ -325,11 +399,15 @@ curl -X POST https://arkan-chatbot.workers.dev/api/chat \
 python -c "
 import requests
 response = requests.post(
-    'https://arkan-chatbot.workers.dev/api/chat',
+    'https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat',
     json={'question': 'What projects has Arkan built?'}
 )
 print(response.json())
 "
+
+# Test with PowerShell
+$body = @{ question = "Who is Arkan Tsabit?" } | ConvertTo-Json
+Invoke-RestMethod -Uri "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" -Method Post -Body $body -ContentType "application/json"
 ```
 
 ---
@@ -341,13 +419,16 @@ print(response.json())
 | Issue | Solution |
 |-------|----------|
 | GitHub Pages not loading | Check branch settings, wait 5 minutes |
-| Chatbot not responding | Check Cloudflare Worker logs |
+| Chatbot not responding | Check Cloudflare Worker logs (`wrangler tail`) |
 | Dark mode not saving | Check localStorage permission |
 | Images not loading | Verify file paths and extensions |
 | Language toggle not working | Check i18n JSON files |
 | CSS not applying | Clear browser cache (Ctrl+Shift+R) |
 | JavaScript errors | Check browser console (F12) |
 | 404 errors | Verify file paths and links |
+| LLM model deprecated | Update model in `worker.js` |
+| Vectorize index empty | Check `stored_vectors` in dashboard |
+| API token error | Regenerate token with proper permissions |
 
 ### Debug Commands
 
@@ -367,6 +448,12 @@ print(response.json())
 
 # Check Cloudflare Worker logs
 wrangler tail
+
+# Check deployment status
+# Settings -> Pages -> GitHub Pages
+
+# Run debug script
+python debug.py
 ```
 
 ---
@@ -384,6 +471,7 @@ wrangler tail
 | Certifications Data | data/certifications.json | All certifications |
 | Achievements Data | data/achievements.json | All achievements |
 | Worker | chatbot/worker.js | Cloudflare Worker |
+| Knowledge Base | chatbot/knowledge-upload.json | 30 documents for RAG |
 
 ### URLs
 
@@ -393,7 +481,8 @@ wrangler tail
 | GitHub | https://github.com/ArkanTsabit123 |
 | LinkedIn | https://linkedin.com/in/arkan-tsabit |
 | Cloudflare Dashboard | https://dash.cloudflare.com |
-| Google Analytics | https://analytics.google.com |
+| Worker Health | https://arkan-chatbot.arkan-chatbot.workers.dev/health |
+| Chat API | https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat |
 
 ### Colors
 
@@ -406,13 +495,26 @@ wrangler tail
 | Accent | #10B981 | #34D399 |
 | Border | #E5E7EB | #1E293B |
 
+### Metrics
+
+| Metric | Value |
+|--------|-------|
+| Professional Certifications | 10 |
+| Achievement | 1 |
+| Data Projects | 4 |
+| Work Experience | 4 |
+| Languages | 2 (ID, EN) |
+| Pages | 6 |
+| Knowledge Base Documents | 30 |
+| Test Questions | 34 |
+
 ---
 
 ## Version History
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0.0 | 2026-08-05 | Initial release |
+| 1.0.0 | 2026-08-06 | Initial release |
 
 ---
 
@@ -426,6 +528,8 @@ wrangler tail
 | GitHub Pages | https://pages.github.com |
 | HTML5 Validator | https://validator.w3.org |
 | CSS Validator | https://jigsaw.w3.org/css-validator/ |
+| Cloudflare Vectorize | https://developers.cloudflare.com/vectorize/ |
+| Workers AI Models | https://developers.cloudflare.com/workers-ai/models/ |
 
 ---
 

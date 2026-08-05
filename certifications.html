@@ -17,7 +17,7 @@
 <body>
 
     <!-- ============================================================
-    HEADER (SAME AS INDEX)
+    HEADER / NAVIGATION
     ============================================================ -->
     <header class="header" role="banner">
         <div class="container header-container">
@@ -26,6 +26,7 @@
                     <span class="logo-text">AT</span>
                 </a>
             </div>
+
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <ul class="nav-list" id="navList">
                     <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
@@ -36,6 +37,7 @@
                     <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </nav>
+
             <div class="header-controls">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon" id="themeIcon"></i>
@@ -144,7 +146,7 @@
     </main>
 
     <!-- ============================================================
-    FOOTER (SAME AS INDEX)
+    FOOTER
     ============================================================ -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
@@ -166,9 +168,56 @@
         </div>
     </footer>
 
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
     <script src="js/main.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Load certifications data
+        fetch('data/certifications.json')
+            .then(response => response.json())
+            .then(data => {
+                const certs = data.certifications;
+
+                // Filter by provider
+                const oracleCerts = certs.filter(c => c.provider === 'Oracle');
+                const ibmCerts = certs.filter(c => c.provider === 'IBM');
+                const metaCerts = certs.filter(c => c.provider === 'Meta');
+
+                // Render each provider's certifications
+                renderCertGrid('oracleCerts', oracleCerts);
+                renderCertGrid('ibmCerts', ibmCerts);
+                renderCertGrid('metaCerts', metaCerts);
+            })
+            .catch(error => {
+                console.error('Error loading certifications:', error);
+            });
+
+        function renderCertGrid(elementId, certs) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+
+            container.innerHTML = certs.map(cert => `
+                <div class="cert-item">
+                    <h4>${cert.name}</h4>
+                    <span>${cert.provider} • ${cert.year}</span>
+                    ${cert.link ? `
+                        <a href="${cert.link}"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="cert-verify-btn">
+                            <i class="fas fa-external-link-alt"></i> Verify
+                        </a>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+    });
+    </script>
 
 </body>
 </html>

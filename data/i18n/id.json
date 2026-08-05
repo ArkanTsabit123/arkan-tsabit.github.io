@@ -11,11 +11,20 @@
     "badge": "Terbuka untuk Kerja",
     "greeting": "Halo, Saya",
     "title": "Data Engineer | Cloud Data Engineer",
-    "tagline": "Membangun pipeline data siap produksi yang memproses jutaan data dalam hitungan detik.",
+    "tagline": "Halo, saya Arkan — Data Engineer dengan keahlian di pipeline ETL, pergudangan data, dan arsitektur cloud. Tersertifikasi Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer.",
+    "subtagline": "Saya juga mahir dalam berbagai alat dan teknologi data engineering modern, di antaranya:",
+    "skills_list": {
+      "orchestration": "Orkestrasi",
+      "data_warehousing": "Pergudangan Data",
+      "programming": "Pemrograman",
+      "containerization": "Kontainerisasi",
+      "visualization": "Visualisasi"
+    },
     "metrics": {
-      "rows": "Data Diproses",
-      "execution": "Waktu Eksekusi",
-      "quality": "Kualitas Data"
+      "certs": "Sertifikasi Profesional",
+      "achievement": "Prestasi",
+      "projects": "Proyek Data",
+      "experience": "Pengalaman Kerja"
     },
     "cta_projects": "Lihat Proyek",
     "cta_cv": "Unduh CV",

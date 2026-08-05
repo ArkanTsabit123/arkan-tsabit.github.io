@@ -1,33 +1,19 @@
-# ============================================================
-# CLOUDFLARE WRANGLER CONFIGURATION
-# ============================================================
-
 name = "arkan-chatbot"
 main = "worker.js"
-compatibility_date = "2025-01-01"
+compatibility_date = "2026-08-06"
 
-# Environment variables
 [vars]
 ENVIRONMENT = "production"
 
-# Vectorize binding
 [[vectorize]]
 binding = "VECTORIZE"
 index_name = "arkan-knowledge-base"
 
-# AI binding
-[[ai]]
+[ai]
 binding = "AI"
 
-# Observability
 [observability]
 enabled = true
 
-# Logging
-[logging]
-enabled = true
-level = "info"
-
-# Deployment
 [[env.production]]
 route = "arkan-chatbot.workers.dev"

@@ -7,6 +7,8 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-arkan--tsabit-blue)](https://linkedin.com/in/arkan-tsabit)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-brightgreen)](https://pages.github.com)
+[![Chatbot](https://img.shields.io/badge/Chatbot-RAG%20Powered-blueviolet)](https://arkan-chatbot.arkan-chatbot.workers.dev)
+[![Tests](https://img.shields.io/badge/Tests-34%20Passed-success)](https://github.com/ArkanTsabit123/arkan-tsabit.github.io)
 
 ---
 
@@ -19,7 +21,9 @@
 - [Quick Start](#quick-start)
 - [Deployment](#deployment)
 - [Chatbot Integration](#chatbot-integration)
-- [File Structure](#file-structure)
+- [Knowledge Base](#knowledge-base)
+- [Testing](#testing)
+- [LLM Models Tested](#llm-models-tested)
 - [Customization](#customization)
 - [Troubleshooting](#troubleshooting)
 - [Version History](#version-history)
@@ -49,6 +53,8 @@ This repository contains the source code for my professional portfolio website. 
 | Languages | 2 (ID, EN) |
 | Pages | 6 |
 | Chatbot | RAG-powered |
+| Knowledge Base Documents | 30 |
+| Test Questions | 34 |
 | Deployment | GitHub Pages |
 
 ---
@@ -62,7 +68,7 @@ This repository contains the source code for my professional portfolio website. 
 | **Landing Page** | Professional introduction with key metrics and call-to-action buttons |
 | **About Me** | Professional summary, career transition story, and technical skills |
 | **Projects** | 4 detailed project cards with metrics, tech stack, and GitHub links |
-| **Certifications** | 10 certifications organized by provider (Oracle, IBM, Meta) |
+| **Certifications** | 10 certifications with "Verify" buttons linking to official credentials |
 | **Achievements** | Oracle Race to Certification awards and teaching recognition |
 | **Contact** | Contact information and downloadable documents (CV, Job Application) |
 
@@ -72,7 +78,7 @@ This repository contains the source code for my professional portfolio website. 
 |---------|-------------|
 | **Dark/Light Mode** | Theme toggle with persistent preference |
 | **Multi-Language** | Indonesian and English toggle with persistent preference |
-| **AI Chatbot** | RAG-powered question-answering about experience and skills |
+| **AI Chatbot** | RAG-powered question-answering about experience, projects, and skills |
 | **Responsive Design** | Optimized for all screen sizes |
 
 ### Technical Features
@@ -83,6 +89,7 @@ This repository contains the source code for my professional portfolio website. 
 | **Cloudflare Workers** | Serverless AI chatbot backend |
 | **RAG Implementation** | Vector search + LLM for accurate responses |
 | **Performance Optimized** | Lazy loading, minification, caching |
+| **Knowledge Base** | 30 documents with embedded vectors |
 
 ---
 
@@ -103,8 +110,8 @@ This repository contains the source code for my professional portfolio website. 
 | Technology | Purpose |
 |------------|---------|
 | Cloudflare Workers | AI Chatbot API |
-| Cloudflare Vectorize | Knowledge base storage |
-| Cloudflare Workers AI | LLM for response generation |
+| Cloudflare Vectorize | Knowledge base storage (384 dimensions) |
+| Cloudflare Workers AI | Embedding generation + LLM responses |
 
 ### Deployment
 
@@ -118,7 +125,7 @@ This repository contains the source code for my professional portfolio website. 
 ## Project Structure
 
 ```
-arkan-tsabit-portfolio/
+arkan-tsabit.github.io/
 │
 ├── index.html                     # Landing page
 ├── about.html                     # About Me page
@@ -148,9 +155,19 @@ arkan-tsabit-portfolio/
 │   │   ├── favicon.ico            # Browser icon
 │   │   ├── projects/
 │   │   │   ├── batchetl/
+│   │   │   │   ├── architecture.png
+│   │   │   │   ├── dashboard.png
+│   │   │   │   └── erd.png
 │   │   │   ├── uber/
+│   │   │   │   ├── pipeline-flow.png
+│   │   │   │   ├── star-schema.png
+│   │   │   │   └── dashboard.png
 │   │   │   ├── amazon/
+│   │   │   │   ├── scraping-result.png
+│   │   │   │   └── csv-output.png
 │   │   │   └── expense/
+│   │   │       ├── gui-dashboard.png
+│   │   │       └── cli-summary.png
 │   │   └── certifications/
 │   │       ├── oracle.png
 │   │       ├── ibm.png
@@ -171,12 +188,16 @@ arkan-tsabit-portfolio/
 │       └── Arkan-Tsabit_Job-Application.pdf
 │
 ├── chatbot/
-│   ├── worker.js                  # Cloudflare Worker
-│   ├── wrangler.toml              # Worker config
-│   └── knowledge-base/
-│       ├── cv-data.json
-│       ├── projects-data.json
-│       └── certifications-data.json
+│   ├── worker.js                  # Cloudflare Worker (RAG logic)
+│   ├── wrangler.toml              # Worker configuration
+│   ├── knowledge-upload.json      # 30 documents knowledge base
+│   ├── knowledge-upload.ndjson    # NDJSON format for Vectorize
+│   ├── convert-to-ndjson.js       # JSON to NDJSON converter
+│   ├── upload_vectors.py          # Vector embedding & upload script
+│   ├── upload-knowledge.js        # Knowledge base generator
+│   ├── upload-knowledge.sh        # Bash upload script
+│   ├── test_all.py                # 34 test questions suite
+│   └── package.json               # Node.js dependencies
 │
 ├── data/
 │   ├── projects.json              # Project data
@@ -192,6 +213,7 @@ arkan-tsabit-portfolio/
 ├── blueprint.md                   # Technical documentation
 ├── cheatsheet.md                  # Quick reference
 ├── checklist.md                   # Completion checklist
+├── debug.py                       # Debug script for chatbot
 └── CNAME                          # Custom domain (optional)
 ```
 
@@ -230,6 +252,13 @@ npm install -g wrangler
 # Login to Cloudflare
 wrangler login
 
+# Create Vectorize index
+wrangler vectorize create arkan-knowledge-base --preset @cf/baai/bge-small-en-v1.5
+
+# Upload knowledge base
+node convert-to-ndjson.js
+wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
+
 # Deploy worker
 cd chatbot
 wrangler deploy
@@ -263,7 +292,7 @@ cd chatbot
 wrangler deploy
 
 # Test API endpoint
-curl https://arkan-chatbot.workers.dev/api/chat \
+curl https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat \
   -H "Content-Type: application/json" \
   -d '{"question":"What projects has Arkan built?"}'
 ```
@@ -275,51 +304,121 @@ curl https://arkan-chatbot.workers.dev/api/chat \
 ### How It Works
 
 1. **User Question** sent to Cloudflare Worker
-2. **Vector Search** finds relevant context in knowledge base
-3. **Context Building** formats retrieved information
-4. **LLM Response** generated using Cloudflare Workers AI
+2. **Generate Embedding** using `bge-small-en-v1.5` (384 dimensions)
+3. **Vector Search** finds relevant context in Vectorize
+4. **Context Building** retrieves matching documents
+5. **LLM Response** generated using Workers AI
 
-### Knowledge Base
+### Knowledge Base Categories
 
-| File | Content |
-|------|---------|
-| cv-data.json | Professional summary, skills, experience |
-| projects-data.json | Project descriptions and metrics |
-| certifications-data.json | Certification details |
+| Category | Count | Description |
+|----------|-------|-------------|
+| Profile | 3 | Professional summary, specialization, background |
+| Projects | 4 | BatchETL, Uber, Amazon, Expense Tracker |
+| Certifications | 10 | Oracle, IBM, Meta |
+| Achievements | 3 | Oracle Race Top 108, Top 3, Best Teacher |
+| Experience | 5 | BRI SD-WAN, Satu Benih, Bejagoo, Airport |
+| Skills | 3 | Tech stack, Data Engineering, Cloud |
+| Contact | 1 | Email, phone, GitHub, LinkedIn |
+| Summary | 1 | Experience summary |
+| **Total** | **30** | |
 
 ### Example Questions
 
 ```
+- "Who is Arkan Tsabit?"
 - "What projects has Arkan built?"
 - "What certifications does Arkan have?"
 - "What is Arkan's tech stack?"
 - "Tell me about the BatchETL Pipeline project."
+- "What did Arkan do at BRI SD-WAN?"
 - "How can I contact Arkan?"
+- "What Oracle certifications does Arkan have?"
+- "What achievements does Arkan have?"
 ```
 
 ---
 
-## File Structure Reference
+## Testing
 
-### Key Files
+### Chatbot Test Suite
 
-| File | Path | Purpose |
-|------|------|---------|
-| Landing Page | index.html | Main entry point |
-| CV PDF | docs/CV/Arkan-Tsabit_Data-Engineer.pdf | Downloadable CV |
-| Job Application | docs/Job-Application/Arkan-Tsabit_Job-Application.pdf | Downloadable application |
-| Projects Data | data/projects.json | All project information |
-| Certifications Data | data/certifications.json | All certifications |
-| Achievements Data | data/achievements.json | All achievements |
-| Worker | chatbot/worker.js | Cloudflare Worker |
+```bash
+# Run all 34 test questions
+python test_all.py
 
-### URLs
+# Output example
+============================================================
+CHATBOT API TEST
+============================================================
+Total questions: 34
+============================================================
 
-| Resource | URL |
-|----------|-----|
-| Website | https://arkan-tsabit.github.io |
-| GitHub | https://github.com/ArkanTsabit123 |
-| LinkedIn | https://linkedin.com/in/arkan-tsabit |
+[1/34] Who is Arkan Tsabit?
+--------------------------------------------------
+Status: PASS
+Source: llm
+Response: Arkan Tsabit is a Data Engineer with expertise...
+
+[2/34] What projects has Arkan built?
+--------------------------------------------------
+Status: PASS
+Source: llm
+Response: Arkan has built 4 major projects...
+
+============================================================
+SUMMARY
+============================================================
+Total:  34
+Passed: 34
+Failed: 0
+Rate:   100.0%
+```
+
+### Test Questions Categories
+
+| Category | Count |
+|----------|-------|
+| Profile | 3 |
+| Projects | 5 |
+| Certifications | 12 |
+| Achievements | 3 |
+| Experience | 5 |
+| Skills | 3 |
+| Contact | 1 |
+| General | 2 |
+| **Total** | **34** |
+
+---
+
+## LLM Models Tested
+
+The following 22 LLM models have been tested for compatibility:
+
+| # | Model ID | Status |
+|---|----------|--------|
+| 1 | `@cf/meta/llama-4-scout-17b-16e-instruct` | 🔄 Testing |
+| 2 | `@cf/meta/llama-3.2-3b-instruct` | 🔄 Testing |
+| 3 | `@cf/meta/llama-3.1-8b-instruct-fp8` | 🔄 Testing |
+| 4 | `@cf/meta/llama-3.2-1b-instruct` | 🔄 Testing |
+| 5 | `@cf/meta/llama-3.3-70b-instruct-fp8-fast` | 🔄 Testing |
+| 6 | `@cf/mistralai/mistral-small-3.1-24b-instruct` | 🔄 Testing |
+| 7 | `@cf/mistral/mistral-7b-instruct-v0.2-lora` | ✅ Active |
+| 8 | `@cf/qwen/qwen2.5-coder-32b-instruct` | 🔄 Testing |
+| 9 | `@cf/qwen/qwen3-30b-a3b-fp8` | 🔄 Testing |
+| 10 | `@cf/qwen/qwq-32b` | 🔄 Testing |
+| 11 | `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` | 🔄 Testing |
+| 12 | `@cf/google/gemma-4-26b-a4b-it` | 🔄 Testing |
+| 13 | `@cf/google/gemma-7b-it-lora` | 🔄 Testing |
+| 14 | `@cf/aisingapore/gemma-sea-lion-v4-27b-it` | 🔄 Testing |
+| 15 | `@cf/ibm-granite/granite-4.0-h-micro` | 🔄 Testing |
+| 16 | `@cf/moonshotai/kimi-k2.6` | 🔄 Testing |
+| 17 | `@cf/moonshotai/kimi-k2.7-code` | 🔄 Testing |
+| 18 | `@cf/zai-org/glm-4.7-flash` | 🔄 Testing |
+| 19 | `@cf/zai-org/glm-5.2` | 🔄 Testing |
+| 20 | `@cf/nvidia/nemotron-3-120b-a12b` | 🔄 Testing |
+| 21 | `@cf/openai/gpt-oss-20b` | 🔄 Testing |
+| 22 | `@cf/openai/gpt-oss-120b` | 🔄 Testing |
 
 ---
 
@@ -334,6 +433,7 @@ curl https://arkan-chatbot.workers.dev/api/chat \
 | data/achievements.json | Achievement details |
 | data/i18n/en.json | English translations |
 | data/i18n/id.json | Indonesian translations |
+| chatbot/knowledge-upload.json | Knowledge base documents |
 
 ### Update Images
 
@@ -356,6 +456,15 @@ curl https://arkan-chatbot.workers.dev/api/chat \
 }
 ```
 
+### Update LLM Model
+
+```javascript
+// chatbot/worker.js - Line ~135
+const response = await env.AI.run('@cf/mistral/mistral-7b-instruct-v0.2-lora', {
+  // Change model ID here
+});
+```
+
 ---
 
 ## Troubleshooting
@@ -365,10 +474,13 @@ curl https://arkan-chatbot.workers.dev/api/chat \
 | Issue | Solution |
 |-------|----------|
 | GitHub Pages not loading | Check branch settings, wait 5 minutes |
-| Chatbot not responding | Check Cloudflare Worker logs |
+| Chatbot not responding | Check Cloudflare Worker logs (`wrangler tail`) |
 | Dark mode not saving | Check localStorage permission |
 | Images not loading | Verify file paths and extensions |
 | Language toggle not working | Check i18n JSON files |
+| LLM model deprecated | Update model in `worker.js` |
+| Vectorize index empty | Check `stored_vectors` in dashboard |
+| API token error | Regenerate token with proper permissions |
 
 ### Debug Commands
 
@@ -383,8 +495,13 @@ curl https://arkan-chatbot.workers.dev/api/chat \
 # Check Cloudflare Worker logs
 wrangler tail
 
-# Check GitHub Pages deployment
-# Settings -> Pages -> GitHub Pages
+# Run debug script
+python debug.py
+
+# Test API endpoint
+curl -X POST "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Who is Arkan Tsabit?"}'
 ```
 
 ---
@@ -394,6 +511,7 @@ wrangler tail
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0.0 | 2026-08-05 | Initial release |
+| 1.1.0 | 2026-08-06 | Added RAG chatbot, knowledge base, LLM testing |
 
 ---
 
@@ -405,7 +523,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgments
 
-- Cloudflare for Workers and AI services
+- Cloudflare for Workers, Vectorize, and Workers AI
 - GitHub for Pages hosting
 - Font Awesome for icons
 - Google Fonts for typography
