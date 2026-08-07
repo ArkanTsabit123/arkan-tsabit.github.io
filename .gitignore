@@ -79,6 +79,7 @@ yarn.lock
 
 # Wrangler cache
 .wrangler/
+chatbot/.wrangler/
 .cloudflare/
 
 # Wrangler generated files
@@ -156,9 +157,10 @@ backups/
 *.bak
 *.tmp
 
-# Screenshots (keep folder structure, ignore files)
-# screenshots/*.png
-# !screenshots/.gitkeep
+# Screenshots
+screenshots/
+assets/images/New\ folder/
+assets/images/data-engineer_12663372.png
 
 # Generated files
 *.log
@@ -166,13 +168,7 @@ backups/
 *.temp
 out/
 output/
-
-# Charts
-charts/
-*.png
-*.jpg
-*.jpeg
-*.gif
+*.ndjson
 
 # Exports
 exports/
@@ -180,21 +176,29 @@ exports/
 *.xlsx
 *.json
 
-# Project specific files
+# Debug files
 debug_log_*.json
 phase*_verification.json
 phase*_verification_report.txt
-knowledge-upload.ndjson
-knowledge-upload.json
-knowledge-upload.ndjson
+
+# Local utility scripts (optional - keep structure.py if needed)
+structure.py
+setup_project.py
+Chatbot\ RAG\ Debugger.py
+
+# Diagram source files (keep only final PDF)
+docs/diagrams/*.xml
+docs/diagrams/*.drawio
+docs/diagrams/*.dbml
+docs/diagrams/*.mwb
+!docs/diagrams/*.pdf
 
 # ============================================================
 # CHATBOT SPECIFIC
 # ============================================================
 
-# Vectorize data (keep the source, ignore generated)
+# Vectorize generated files
 chatbot/knowledge-upload.ndjson
-chatbot/knowledge-upload.json
 chatbot/package-lock.json
 chatbot/node_modules/
 
@@ -205,3 +209,22 @@ chatbot/node_modules/
 # Git ignore local config
 .git/config.local
 .git/index.lock
+
+# ============================================================
+# KEEP THESE FILES (DON'T IGNORE!)
+# ============================================================
+
+# !checker.py
+# !structure.py 
+
+# ============================================================
+# SECRETS (DON'T PUBLISH!)
+# ============================================================
+.env
+.env.local
+.env.*.local
+config.py
+secrets.py
+*.secrets
+*.secret
+credentials.json

@@ -23,7 +23,7 @@
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html" aria-label="Home">
-                    <span class="logo-text">AT</span>
+                    <img src="assets/images/logo.ico" alt="Arkan Tsabit Logo" class="logo-img" />
                 </a>
             </div>
 
@@ -76,11 +76,17 @@
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/oracle.png" alt="Oracle" class="cert-provider-logo" />
-                    <h2>Oracle</h2>
-                    <p data-i18n="certs.oracle_desc">8 professional certifications in cloud architecture, AI, and database services</p>
+                    <div>
+                        <h2>Oracle</h2>
+                        <p data-i18n="certs.oracle_desc">8 professional certifications in cloud architecture, AI, and database services</p>
+                    </div>
                 </div>
                 <div class="cert-grid" id="oracleCerts">
-                    <!-- Rendered by JavaScript -->
+                    <!-- Loading State -->
+                    <div class="loading-spinner" style="grid-column: 1 / -1;">
+                        <i class="fas fa-spinner"></i>
+                        <span>Loading certifications...</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -92,11 +98,17 @@
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/ibm.png" alt="IBM" class="cert-provider-logo" />
-                    <h2>IBM</h2>
-                    <p data-i18n="certs.ibm_desc">Professional certificate in data engineering</p>
+                    <div>
+                        <h2>IBM</h2>
+                        <p data-i18n="certs.ibm_desc">Professional certificate in data engineering</p>
+                    </div>
                 </div>
                 <div class="cert-grid" id="ibmCerts">
-                    <!-- Rendered by JavaScript -->
+                    <!-- Loading State -->
+                    <div class="loading-spinner" style="grid-column: 1 / -1;">
+                        <i class="fas fa-spinner"></i>
+                        <span>Loading certifications...</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -108,11 +120,17 @@
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/meta.png" alt="Meta" class="cert-provider-logo" />
-                    <h2>Meta</h2>
-                    <p data-i18n="certs.meta_desc">Professional certificate in database engineering</p>
+                    <div>
+                        <h2>Meta</h2>
+                        <p data-i18n="certs.meta_desc">Professional certificate in database engineering</p>
+                    </div>
                 </div>
                 <div class="cert-grid" id="metaCerts">
-                    <!-- Rendered by JavaScript -->
+                    <!-- Loading State -->
+                    <div class="loading-spinner" style="grid-column: 1 / -1;">
+                        <i class="fas fa-spinner"></i>
+                        <span>Loading certifications...</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -152,7 +170,7 @@
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
-                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+                <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
             <div class="footer-social">
                 <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -161,9 +179,8 @@
                 <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
                     <i class="fas fa-envelope"></i>
-                </a>
             </div>
         </div>
     </footer>
@@ -176,47 +193,77 @@
     <script src="js/i18n.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Load certifications data
-        fetch('data/certifications.json')
-            .then(response => response.json())
-            .then(data => {
-                const certs = data.certifications;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load certifications data
+            fetch('data/certifications.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.certifications || data.certifications.length === 0) {
+                        throw new Error('No certifications data found');
+                    }
+                    
+                    const certs = data.certifications;
 
-                // Filter by provider
-                const oracleCerts = certs.filter(c => c.provider === 'Oracle');
-                const ibmCerts = certs.filter(c => c.provider === 'IBM');
-                const metaCerts = certs.filter(c => c.provider === 'Meta');
+                    // Filter by provider
+                    const oracleCerts = certs.filter(c => c.provider === 'Oracle');
+                    const ibmCerts = certs.filter(c => c.provider === 'IBM');
+                    const metaCerts = certs.filter(c => c.provider === 'Meta');
 
-                // Render each provider's certifications
-                renderCertGrid('oracleCerts', oracleCerts);
-                renderCertGrid('ibmCerts', ibmCerts);
-                renderCertGrid('metaCerts', metaCerts);
-            })
-            .catch(error => {
-                console.error('Error loading certifications:', error);
-            });
+                    // Render each provider's certifications
+                    renderCertGrid('oracleCerts', oracleCerts);
+                    renderCertGrid('ibmCerts', ibmCerts);
+                    renderCertGrid('metaCerts', metaCerts);
+                })
+                .catch(error => {
+                    console.error('Error loading certifications:', error);
+                    const containers = ['oracleCerts', 'ibmCerts', 'metaCerts'];
+                    containers.forEach(id => {
+                        document.getElementById(id).innerHTML = `
+                            <div class="error-message" style="grid-column: 1 / -1;">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <p>Unable to load certifications. Please try again later.</p>
+                                <button class="btn btn-secondary btn-sm" onclick="location.reload()" style="margin-top: var(--spacing-md);">
+                                    <i class="fas fa-redo"></i> Retry
+                                </button>
+                            </div>
+                        `;
+                    });
+                });
 
-        function renderCertGrid(elementId, certs) {
-            const container = document.getElementById(elementId);
-            if (!container) return;
+            function renderCertGrid(elementId, certs) {
+                const container = document.getElementById(elementId);
+                if (!container) return;
 
-            container.innerHTML = certs.map(cert => `
-                <div class="cert-item">
-                    <h4>${cert.name}</h4>
-                    <span>${cert.provider} • ${cert.year}</span>
-                    ${cert.link ? `
-                        <a href="${cert.link}"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="cert-verify-btn">
-                            <i class="fas fa-external-link-alt"></i> Verify
-                        </a>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-    });
+                if (certs.length === 0) {
+                    container.innerHTML = `
+                        <div class="cert-item" style="grid-column: 1 / -1; text-align: center; padding: var(--spacing-lg);">
+                            <p style="color: var(--text-secondary);">No certifications found for this provider.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = certs.map(cert => `
+                    <div class="cert-item">
+                        <h4>${cert.name}</h4>
+                        <span>${cert.provider} • ${cert.year || 'N/A'}</span>
+                        ${cert.link ? `
+                            <a href="${cert.link}"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="cert-verify-btn">
+                                <i class="fas fa-external-link-alt"></i> Verify
+                            </a>
+                        ` : ''}
+                    </div>
+                `).join('');
+            }
+        });
     </script>
 
 </body>

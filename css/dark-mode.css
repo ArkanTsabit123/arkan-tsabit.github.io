@@ -15,7 +15,7 @@
     --accent-blue-hover: #2563eb;
     --accent-green: #34d399;
     --accent-green-hover: #10b981;
-    --white: #0f172a;
+    --white: #ffffff;  /* ✅ FIXED: Tetap putih untuk teks/tombol */
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
@@ -297,4 +297,19 @@
 
 [data-theme="dark"] .error-content p {
     color: var(--text-secondary);
+}
+
+[data-theme="dark"] .stats-grid .stat-item {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .cert-verify-btn {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+[data-theme="dark"] .cert-verify-btn:hover {
+    background: var(--accent-blue);
+    color: var(--white);
 }

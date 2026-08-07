@@ -119,11 +119,23 @@ async function generateEmbedding(question, env) {
 
 async function queryVectorize(embedding, env) {
     try {
-        return await env.VECTORIZE.query(embedding, {
+        const result = await env.VECTORIZE.query(embedding, {
             topK: 5,
             returnValues: false,
             returnMetadata: true,
         });
+        
+        // Debug logging
+        console.log('Query result matches:', result.matches?.length || 0);
+        if (result.matches && result.matches.length > 0) {
+            console.log('First match ID:', result.matches[0].id);
+            console.log('First match score:', result.matches[0].score);
+            if (result.matches[0].metadata) {
+                console.log('First match metadata keys:', Object.keys(result.matches[0].metadata));
+            }
+        }
+        
+        return result;
     } catch (error) {
         console.error('Vectorize query error:', error);
         return { matches: [] };
@@ -132,36 +144,71 @@ async function queryVectorize(embedding, env) {
 
 function buildContext(searchResults) {
     if (!searchResults.matches || searchResults.matches.length === 0) {
+        console.log('No matches found');
         return null;
     }
 
     const contents = [];
 
     for (const match of searchResults.matches) {
-        console.log(`Match: id=${match.id}, score=${match.score}`);
+        console.log(`Processing match: id=${match.id}, score=${match.score}`);
+        
+        let content = '';
 
-        let content = match.content || match.metadata?.content || match.metadata?.text || '';
+        // Try to extract content from metadata
+        if (match.metadata) {
+            // Priority order: content > text > description > name
+            content = match.metadata.content || 
+                      match.metadata.text || 
+                      match.metadata.description || 
+                      match.metadata.name || 
+                      '';
+            
+            // If still empty, try to join all string values
+            if (!content) {
+                const stringValues = Object.values(match.metadata)
+                    .filter(v => typeof v === 'string' && v.length > 0);
+                if (stringValues.length > 0) {
+                    content = stringValues.join(' ');
+                }
+            }
+        }
 
+        // If still empty, try using match.content (if exists)
+        if (!content && match.content) {
+            content = match.content;
+        }
+
+        // If still empty, use id as fallback
         if (!content && match.id) {
             content = match.id;
         }
 
+        // Add to contents if we have meaningful content
         if (content && content.length > 0) {
             contents.push(content);
+            console.log(`Added content (${content.length} chars): ${content.substring(0, 100)}...`);
         }
     }
 
     if (contents.length === 0) {
+        console.log('No content extracted from matches');
         return null;
     }
 
-    return contents.join('\n\n');
+    const context = contents.join('\n\n');
+    console.log(`Context built with ${contents.length} items, total ${context.length} chars`);
+    return context;
 }
 
 async function generateAnswer(question, context, env) {
-    const truncatedContext = context.length > 300 ? context.substring(0, 300) + '...' : context;
+    // Use full context (max 500 chars)
+    const truncatedContext = context.length > 500 ? context.substring(0, 500) + '...' : context;
 
-    const prompt = `Answer based ONLY on this context: ${truncatedContext}
+    const prompt = `Answer based ONLY on this context. If the answer is not in the context, say "I don't know".
+
+Context:
+${truncatedContext}
 
 Question: ${question}
 
@@ -172,7 +219,7 @@ Answer:`;
             messages: [
                 {
                     role: 'system',
-                    content: 'You are a helpful assistant. Answer based ONLY on the context given. Be concise.',
+                    content: 'You are a helpful assistant. Answer based ONLY on the context given. Be concise and informative. If the answer is not in the context, say "I don\'t know."',
                 },
                 {
                     role: 'user',
@@ -180,7 +227,7 @@ Answer:`;
                 },
             ],
             temperature: 0.2,
-            max_tokens: 150,
+            max_tokens: 250,
         });
 
         return response.response || 'No response from LLM.';

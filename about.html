@@ -17,13 +17,13 @@
 <body>
 
     <!-- ============================================================
-    HEADER (SAME AS INDEX)
+    HEADER
     ============================================================ -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html" aria-label="Home">
-                    <span class="logo-text">AT</span>
+                    <img src="assets/images/logo.ico" alt="Arkan Tsabit Logo" class="logo-img" />
                 </a>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -57,9 +57,7 @@
     ============================================================ -->
     <main>
 
-        <!-- ============================================================
-        PAGE HEADER
-        ============================================================ -->
+        <!-- PAGE HEADER -->
         <section class="page-header">
             <div class="container">
                 <h1 data-i18n="about.page_title">About Me</h1>
@@ -67,9 +65,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        PROFILE SECTION
-        ============================================================ -->
+        <!-- PROFILE SECTION -->
         <section class="profile-section">
             <div class="container profile-container">
                 <div class="profile-image">
@@ -115,54 +111,146 @@
         </section>
 
         <!-- ============================================================
-        STORY SECTION
+        WORKING EXPERIENCE SECTION
         ============================================================ -->
         <section class="story-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 data-i18n="about.story_title">My Career Transition</h2>
-                    <p data-i18n="about.story_subtitle">From IT infrastructure to data engineering</p>
+                    <h2 data-i18n="about.work_title">Working Experience</h2>
+                    <p data-i18n="about.work_subtitle">From IT infrastructure to data engineering</p>
                 </div>
                 <div class="timeline">
+                    <!-- BRI SD-WAN - Most Recent -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2016-2020</div>
+                        <div class="timeline-year">Feb 2026 - July 2026</div>
                         <div class="timeline-content">
-                            <h4>IT Terminal Service Support</h4>
-                            <p data-i18n="about.story_1">
-                                Maintained IT infrastructure for operational data systems across 3 terminals.
-                                First exposure to data systems and system availability.
-                            </p>
+                            <h4>BRI SD-WAN — Level 2 Network Engineer</h4>
+                            <ul>
+                                <li>Managed network data migration across 100+ sites</li>
+                                <li>Coordinated cross-functional teams to resolve data synchronization issues</li>
+                                <li>Documented network performance metrics for stakeholder reporting</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- SATU BENIH BOARDING SCHOOL -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2020-2024</div>
+                        <div class="timeline-year">May 2025 - Feb 2026</div>
                         <div class="timeline-content">
-                            <h4>Business Manager</h4>
-                            <p data-i18n="about.story_2">
-                                Analyzed sales data to identify customer patterns and optimized pricing strategies.
-                                Discovered passion for data-driven decision-making.
-                            </p>
+                            <h4>Satu Benih Boarding School — Database Administrator &amp; Computer Teacher</h4>
+                            <ul>
+                                <li>Managed school databases (Dapodik, Sispena, BOS, ANBK)</li>
+                                <li>Performed backup and recovery and maintained data integrity</li>
+                                <li>Delivered Curriculum 2024 as Computer Teacher</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- BEJAGOO COFFEE & EATERY -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2024-2025</div>
+                        <div class="timeline-year">June 2020 - Mar 2024</div>
                         <div class="timeline-content">
-                            <h4>Data Engineering Transition</h4>
-                            <p data-i18n="about.story_3">
-                                Self-study and certifications in data engineering, cloud architecture, and databases.
-                                Built 4 production-grade portfolio projects.
-                            </p>
+                            <h4>Bejagoo Coffee &amp; Eatery — Business Manager</h4>
+                            <ul>
+                                <li>Analyzed sales data to identify customer patterns</li>
+                                <li>Optimized pricing strategies based on data analysis</li>
+                                <li>Created real-time financial reports for owner decision-making</li>
+                            </ul>
                         </div>
                     </div>
+
+                    <!-- Soekarno-Hatta International Airport -->
                     <div class="timeline-item">
-                        <div class="timeline-year">2025-Present</div>
+                        <div class="timeline-year">Feb 2016 - May 2020</div>
                         <div class="timeline-content">
-                            <h4>Data Engineer | Cloud Data Engineer</h4>
-                            <p data-i18n="about.story_4">
-                                Building production-ready ETL pipelines and data solutions.
-                                Certified by Oracle, IBM, and Meta.
-                            </p>
+                            <h4>Soekarno-Hatta International Airport — IT Terminal Service Support</h4>
+                            <ul>
+                                <li>Maintained IT infrastructure for operational data systems across 3 terminals</li>
+                                <li>Coordinated with cross-functional teams to troubleshoot data system issues</li>
+                                <li>Ensured system availability and data reliability</li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+        TECHNICAL SKILLS SECTION
+        ============================================================ -->
+        <section class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="about.skills_title">Technical Skills</h2>
+                    <p data-i18n="about.skills_subtitle">Technologies and tools I work with</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Cloud & Data Architecture -->
+                    <div class="skill-category">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <h4>Cloud &amp; Data Architecture</h4>
+                        <ul>
+                            <li>Oracle Cloud Infrastructure (OCI)</li>
+                            <li>Multicloud Architecture</li>
+                            <li>Star Schema</li>
+                            <li>Data Warehouse Design</li>
+                            <li>Dimensional Modeling</li>
+                            <li>Data Lake</li>
+                        </ul>
+                    </div>
+
+                    <!-- Data Engineering -->
+                    <div class="skill-category">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h4>Data Engineering &amp; Orchestration</h4>
+                        <ul>
+                            <li>Apache Airflow</li>
+                            <li>ETL/ELT Pipelines</li>
+                            <li>Docker Compose</li>
+                            <li>Python &amp; Pandas</li>
+                            <li>Data Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="skill-category">
+                        <i class="fas fa-database skill-icon"></i>
+                        <h4>Databases</h4>
+                        <ul>
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>Oracle Autonomous DB</li>
+                            <li>SQLite</li>
+                            <li>DuckDB</li>
+                        </ul>
+                    </div>
+
+                    <!-- AI & ML -->
+                    <div class="skill-category">
+                        <i class="fas fa-robot skill-icon"></i>
+                        <h4>AI &amp; Machine Learning</h4>
+                        <ul>
+                            <li>Retrieval-Augmented Generation (RAG)</li>
+                            <li>Vector Search</li>
+                            <li>Large Language Models (LLM)</li>
+                            <li>OCI Generative AI</li>
+                            <li>Prompt Engineering</li>
+                        </ul>
+                    </div>
+
+                    <!-- Visualization -->
+                    <div class="skill-category">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <h4>Visualization &amp; Tools</h4>
+                        <ul>
+                            <li>Streamlit</li>
+                            <li>Plotly</li>
+                            <li>Matplotlib</li>
+                            <li>Git &amp; GitHub</li>
+                            <li>Jupyter Notebook</li>
+                            <li>SQL</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -171,13 +259,13 @@
     </main>
 
     <!-- ============================================================
-    FOOTER (SAME AS INDEX)
+    FOOTER
     ============================================================ -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
-                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+                <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
             <div class="footer-social">
                 <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -186,7 +274,7 @@
                 <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>

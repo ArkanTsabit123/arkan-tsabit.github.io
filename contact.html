@@ -17,13 +17,13 @@
 <body>
 
     <!-- ============================================================
-    HEADER (SAME AS INDEX)
+    HEADER
     ============================================================ -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
                 <a href="index.html" aria-label="Home">
-                    <span class="logo-text">AT</span>
+                    <img src="assets/images/logo.ico" alt="Arkan Tsabit Logo" class="logo-img" />
                 </a>
             </div>
             <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -73,6 +73,7 @@
         <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
+                    <!-- Contact Info -->
                     <div class="contact-info">
                         <h2 data-i18n="contact.connect_title">Let's Connect</h2>
                         <p data-i18n="contact.connect_desc">
@@ -84,7 +85,9 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:arkantsabit025@gmail.com">arkantsabit025@gmail.com</a>
+                                <a href="mailto:arkantsabit025@gmail.com?subject=Hello%20Arkan" target="_blank">
+                                    arkantsabit025@gmail.com
+                                </a>
                             </div>
                         </div>
 
@@ -92,7 +95,7 @@
                             <i class="fas fa-phone"></i>
                             <div>
                                 <h4>Phone</h4>
-                                <a href="tel:+6281295709620">+62 812-9570-9620</a>
+                                <a href="https://wa.me/6281295709620" target="_blank">+62 812-9570-9620</a>
                             </div>
                         </div>
 
@@ -113,42 +116,37 @@
                         </div>
                     </div>
 
-                    <div class="contact-downloads">
-                        <h2 data-i18n="contact.download_title">Downloads</h2>
-                        <p data-i18n="contact.download_desc">Download my resume and job application documents</p>
+                    <!-- Contact Form -->
+                    <div class="contact-form" id="contact-form">
+                        <h2 data-i18n="contact.form_title">Send Me a Message</h2>
+                        <p data-i18n="contact.form_desc">I'll get back to you as soon as possible.</p>
 
-                        <a href="docs/CV/Arkan-Tsabit_Data-Engineer.pdf" class="btn btn-primary btn-block" download>
-                            <i class="fas fa-file-pdf"></i>
-                            <span data-i18n="contact.download_cv">Download CV (PDF)</span>
-                        </a>
+                        <form action="https://formspree.io/f/your-form-id" method="POST">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact.form_name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Full Name" required />
+                            </div>
 
-                        <a href="docs/Job-Application/Arkan-Tsabit_Job-Application.pdf" class="btn btn-secondary btn-block" download>
-                            <i class="fas fa-file-pdf"></i>
-                            <span data-i18n="contact.download_letter">Download Job Application (PDF)</span>
-                        </a>
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact.form_email">Your Email</label>
+                                <input type="email" id="email" name="email" placeholder="your email address" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" data-i18n="contact.form_subject">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="your message subject" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form_message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.form_send">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-        SOCIAL SECTION
-        ============================================================ -->
-        <section class="social-section">
-            <div class="container">
-                <div class="social-links">
-                    <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" class="social-link github">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
-                        <i class="fab fa-linkedin-in"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="mailto:arkantsabit025@gmail.com" class="social-link email">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email</span>
-                    </a>
                 </div>
             </div>
         </section>
@@ -156,13 +154,13 @@
     </main>
 
     <!-- ============================================================
-    FOOTER (SAME AS INDEX)
+    FOOTER
     ============================================================ -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
-                <span data-i18n="footer.credit">Built with passion for data engineering.</span>
+                <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
             <div class="footer-social">
                 <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -171,9 +169,8 @@
                 <a href="https://linkedin.com/in/arkan-tsabit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:arkantsabit025@gmail.com" aria-label="Email">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
                     <i class="fas fa-envelope"></i>
-                </a>
             </div>
         </div>
     </footer>
