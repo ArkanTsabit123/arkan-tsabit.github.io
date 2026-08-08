@@ -4,8 +4,8 @@
 
 | Property | Value |
 |----------|-------|
-| Version | 1.0.0 |
-| Last Updated | 2026-08-06 |
+| Version | 2.0.0 |
+| Last Updated | 2026-08-08 |
 | Status | Production Ready |
 | Domain | arkan-tsabit.github.io |
 | Hosting | GitHub Pages |
@@ -166,40 +166,15 @@ npx wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjso
 python upload_vectors.py
 ```
 
-### LLM Model Testing
+### Environment Variables
 
-```bash
-# Test different LLM models
-# Update worker.js with model ID and deploy:
-npx wrangler deploy
+Create `.env` file in root:
 ```
-
-**Model IDs to test:**
-
-| # | Model ID |
-|---|----------|
-| 1 | `@cf/meta/llama-4-scout-17b-16e-instruct` |
-| 2 | `@cf/meta/llama-3.2-3b-instruct` |
-| 3 | `@cf/meta/llama-3.1-8b-instruct-fp8` |
-| 4 | `@cf/meta/llama-3.2-1b-instruct` |
-| 5 | `@cf/meta/llama-3.3-70b-instruct-fp8-fast` |
-| 6 | `@cf/mistralai/mistral-small-3.1-24b-instruct` |
-| 7 | `@cf/mistral/mistral-7b-instruct-v0.2-lora` |
-| 8 | `@cf/qwen/qwen2.5-coder-32b-instruct` |
-| 9 | `@cf/qwen/qwen3-30b-a3b-fp8` |
-| 10 | `@cf/qwen/qwq-32b` |
-| 11 | `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` |
-| 12 | `@cf/google/gemma-4-26b-a4b-it` |
-| 13 | `@cf/google/gemma-7b-it-lora` |
-| 14 | `@cf/aisingapore/gemma-sea-lion-v4-27b-it` |
-| 15 | `@cf/ibm-granite/granite-4.0-h-micro` |
-| 16 | `@cf/moonshotai/kimi-k2.6` |
-| 17 | `@cf/moonshotai/kimi-k2.7-code` |
-| 18 | `@cf/zai-org/glm-4.7-flash` |
-| 19 | `@cf/zai-org/glm-5.2` |
-| 20 | `@cf/nvidia/nemotron-3-120b-a12b` |
-| 21 | `@cf/openai/gpt-oss-20b` |
-| 22 | `@cf/openai/gpt-oss-120b` |
+CLOUDFLARE_ACCOUNT_ID=your_account_id
+CLOUDFLARE_API_TOKEN=your_api_token
+VECTORIZE_INDEX_NAME=arkan-knowledge-base
+EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
+```
 
 ---
 
@@ -221,7 +196,6 @@ mkdir -p assets/images/projects/amazon
 mkdir -p assets/images/projects/expense
 mkdir -p assets/images/certifications
 mkdir -p docs/CV docs/Job-Application
-mkdir -p chatbot/knowledge-base
 mkdir -p data/i18n
 ```
 
@@ -243,12 +217,13 @@ touch data/i18n/en.json data/i18n/id.json
 
 # Chatbot files
 touch chatbot/worker.js chatbot/wrangler.toml
-touch chatbot/knowledge-base/cv-data.json
-touch chatbot/knowledge-base/projects-data.json
-touch chatbot/knowledge-base/certifications-data.json
+touch chatbot/knowledge-upload.json
+touch chatbot/upload_vectors.py
+touch chatbot/test_all.py
+touch chatbot/package.json
 
 # Documentation
-touch README.md LICENSE blueprint.md cheatsheet.md checklist.md
+touch README.md LICENSE blueprint.md cheatsheets.md checklist.md
 
 # Git
 touch .gitignore CNAME
@@ -275,6 +250,9 @@ nano data/i18n/en.json
 
 # Edit Indonesian translations
 nano data/i18n/id.json
+
+# Edit knowledge base
+nano chatbot/knowledge-upload.json
 ```
 
 ---
@@ -285,7 +263,7 @@ nano data/i18n/id.json
 
 ```bash
 # Run all 34 test questions
-python test_all.py
+python chatbot/test_all.py
 
 # Test single question with curl
 curl -X POST "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" \
@@ -298,6 +276,19 @@ Invoke-RestMethod -Uri "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat
 
 # Test health check
 curl https://arkan-chatbot.arkan-chatbot.workers.dev/health
+```
+
+### Portfolio Checker
+
+```bash
+# Run full portfolio validation
+python checker.py
+
+# Check specific file
+python checker.py --file index.html
+
+# Run with verbose output
+python checker.py --verbose
 ```
 
 ### Local Testing
@@ -360,6 +351,9 @@ npx sitemap-generator-cli http://localhost:8000 --output sitemap.xml
 
 # Meta tags validator
 # https://metatags.io/
+
+# Rich Results Test
+# https://search.google.com/test/rich-results
 ```
 
 ---
@@ -412,6 +406,27 @@ Invoke-RestMethod -Uri "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat
 
 ---
 
+## Contact Form Integration
+
+### Google Apps Script Commands
+
+```bash
+# Deploy web app
+# Apps Script -> Deploy -> New deployment -> Web app
+
+# Update web app URL in contact.html
+# const scriptURL = 'https://script.google.com/macros/s/YOUR_ID/exec';
+
+# Test form submission
+curl -X POST "https://script.google.com/macros/s/YOUR_ID/exec" \
+  -d "Name=Test" \
+  -d "Email=test@email.com" \
+  -d "Subject=Test" \
+  -d "Message=Hello"
+```
+
+---
+
 ## Troubleshooting
 
 ### Common Issues
@@ -429,6 +444,7 @@ Invoke-RestMethod -Uri "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat
 | LLM model deprecated | Update model in `worker.js` |
 | Vectorize index empty | Check `stored_vectors` in dashboard |
 | API token error | Regenerate token with proper permissions |
+| Contact form not working | Check Google Apps Script permissions |
 
 ### Debug Commands
 
@@ -454,6 +470,9 @@ wrangler tail
 
 # Run debug script
 python debug.py
+
+# Check environment variables
+cat .env
 ```
 
 ---
@@ -465,6 +484,11 @@ python debug.py
 | File | Path | Purpose |
 |------|------|---------|
 | Landing Page | index.html | Main entry point |
+| About Page | about.html | Professional summary |
+| Projects Page | projects.html | Project showcase |
+| Certifications Page | certifications.html | Certification display |
+| Achievements Page | achievements.html | Achievement showcase |
+| Contact Page | contact.html | Contact form |
 | CV PDF | docs/CV/Arkan-Tsabit_Data-Engineer.pdf | Downloadable CV |
 | Job Application | docs/Job-Application/Arkan-Tsabit_Job-Application.pdf | Downloadable application |
 | Projects Data | data/projects.json | All project information |
@@ -472,6 +496,9 @@ python debug.py
 | Achievements Data | data/achievements.json | All achievements |
 | Worker | chatbot/worker.js | Cloudflare Worker |
 | Knowledge Base | chatbot/knowledge-upload.json | 30 documents for RAG |
+| Environment Variables | .env | API keys and tokens |
+| Checker | checker.py | Portfolio validation script |
+| Structure | structure.py | Project structure display |
 
 ### URLs
 
@@ -483,6 +510,7 @@ python debug.py
 | Cloudflare Dashboard | https://dash.cloudflare.com |
 | Worker Health | https://arkan-chatbot.arkan-chatbot.workers.dev/health |
 | Chat API | https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat |
+| Google Sheets | https://docs.google.com/spreadsheets/d/1zcck8oaWyw5aWOpNl4JqstaLFYhjMvh_aNvrr0adqAg/edit |
 
 ### Colors
 
@@ -507,14 +535,7 @@ python debug.py
 | Pages | 6 |
 | Knowledge Base Documents | 30 |
 | Test Questions | 34 |
-
----
-
-## Version History
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0.0 | 2026-08-06 | Initial release |
+| Validation Checks | 153 |
 
 ---
 
@@ -530,6 +551,10 @@ python debug.py
 | CSS Validator | https://jigsaw.w3.org/css-validator/ |
 | Cloudflare Vectorize | https://developers.cloudflare.com/vectorize/ |
 | Workers AI Models | https://developers.cloudflare.com/workers-ai/models/ |
+| Google Sheets API | https://developers.google.com/apps-script |
+| Formspree | https://formspree.io |
+| Open Graph | https://ogp.me/ |
+| Schema.org | https://schema.org |
 
 ---
 

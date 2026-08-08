@@ -4,10 +4,10 @@
 
 | Property | Value |
 |----------|-------|
-| Version | 1.0.0 |
-| Last Updated | 2026-08-06 |
+| Version | 2.0.0 |
+| Last Updated | 2026-08-08 |
 | Status | Production Ready |
-| Domain | arkan-tsabit.github.io |
+| Domain | https://arkantsabit123.github.io/arkan-tsabit.github.io/index.html |
 | Hosting | GitHub Pages |
 | AI Chatbot | Cloudflare Workers + RAG |
 
@@ -22,8 +22,8 @@
 3. Provide multi-language support (Indonesian and US English).
 4. Implement an AI-powered chatbot using Cloudflare Workers with RAG.
 5. Highlight achievements including Oracle Race to Certification (Top 108 Global, Top 3 Indonesia).
-6. Enable CV and job application letter downloads.
-7. Support dark and light mode toggle.
+6. Support dark and light mode toggle.
+7. Integrate contact form with Google Sheets.
 
 ### Target Audience
 
@@ -96,6 +96,24 @@
 | AI Chatbot | Backend | Cloudflare Workers | RAG-powered question and answer |
 | Vector Database | Storage | Cloudflare Vectorize | Knowledge base storage |
 | LLM | AI Model | Cloudflare Workers AI | Response generation |
+| Contact Form | Backend | Google Apps Script | Form submission storage |
+
+---
+
+## Technology Stack
+
+| Layer | Technology | Version | Purpose |
+|-------|-----------|---------|---------|
+| Frontend | HTML5 | HTML Living Standard | Structure |
+| Styling | CSS3 | CSS Level 3 | Styling |
+| JavaScript | Vanilla JS | ECMAScript 2021 (ES12) | Interactivity |
+| Icons | Font Awesome | 6.4.0 | Icons |
+| Font | Inter | Google Fonts API | Typography |
+| Hosting | GitHub Pages | - (Service) | Static site hosting |
+| AI Chatbot | Cloudflare Workers | - (Platform) | RAG question and answer |
+| Vector Database | Cloudflare Vectorize | - (Service) | Knowledge storage |
+| LLM | Cloudflare Workers AI | - (Platform) | Response generation |
+| Contact Form | Google Apps Script | - (Platform) | Form submission storage |
 
 ---
 
@@ -107,7 +125,7 @@
 +-----------------------------------------------------------------------------+
 |                              HEADER                                          |
 |  +---------------------------------------------------------------------+   |
-|  |  [Logo AT]    [Home] [About] [Projects] [Certifications] [Contact] |   |
+|  |  [Logo]    [Home] [About] [Projects] [Certifications] [Contact]    |   |
 |  |                                            [Theme] [Language]       |   |
 |  +---------------------------------------------------------------------+   |
 +-----------------------------------------------------------------------------+
@@ -120,18 +138,17 @@
 |  |  HERO SECTION                                                       |   |
 |  |  - Name: Arkan Tsabit                                               |   |
 |  |  - Title: Data Engineer | Cloud Data Engineer                      |   |
-|  |  - Tagline: Building production-ready data pipelines              |   |
 |  |  - Metrics: 10 Professional Certifications, 1 Achievement,        |   |
 |  |             4 Data Projects, 4 Work Experience                     |   |
-|  |  - Buttons: View Projects, Download CV, Contact Me                |   |
+|  |  - Buttons: View Projects, Contact Me                             |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
 |  +---------------------------------------------------------------------+   |
 |  |  ABOUT ME                                                           |   |
-|  |  - Profile photo (placeholder)                                      |   |
-|  |  - Professional summary                                              |   |
-|  |  - Tech stack: Airflow, PostgreSQL, DuckDB, Python, Docker          |   |
-|  |  - Certifications: Oracle, IBM, Meta (10 total)                     |   |
+|  |  - Profile photo                                                    |   |
+|  |  - Professional summary                                             |   |
+|  |  - Working Experience (newest to oldest)                           |   |
+|  |  - Technical Skills with 5 categories                              |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
 |  +---------------------------------------------------------------------+   |
@@ -140,19 +157,16 @@
 |  |  |  BatchETL Pipeline                                              |   |
 |  |  |  - 2.96M rows, under 30 seconds execution, 100% data quality   |   |
 |  |  |  - Stack: Airflow, PostgreSQL, Streamlit, Docker               |   |
-|  |  |  - 5 KPIs, 4 charts, 5 filters                                |   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  |  Uber Data Pipeline                                              |   |
 |  |  |  - Airflow orchestration, DuckDB warehouse                      |   |
 |  |  |  - Star Schema: 4 dimension tables and 1 fact table            |   |
-|  |  |  - 4 KPIs, 4 charts, 3 filters                                 |   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  |  Amazon Web Scraping                                             |   |
 |  |  |  - Python, Requests, BeautifulSoup4                             |   |
 |  |  |  - 5 data points per product, 95+ percent success rate         |   |
-|  |  |  - 2 to 5 seconds per product                                  |   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  +-----------------------------------------------------------------+   |
 |  |  |  Daily Expense Tracker                                           |   |
@@ -164,7 +178,7 @@
 |                                                                             |
 |  +---------------------------------------------------------------------+   |
 |  |  CERTIFICATIONS (10)                                                |   |
-|  |  Oracle (8) and IBM (1) and Meta (1)                               |   |
+|  |  Oracle (8), IBM (1), Meta (1)                                     |   |
 |  |  - Each certification has a "Verify" button linking to official   |   |
 |  |    credential page                                                  |   |
 |  +---------------------------------------------------------------------+   |
@@ -182,7 +196,7 @@
 |  |  - Phone: +62 81295709620                                          |   |
 |  |  - GitHub: github.com/ArkanTsabit123                              |   |
 |  |  - LinkedIn: linkedin.com/in/arkan-tsabit                         |   |
-|  |  - Downloads: CV PDF, Job Application Letter PDF                  |   |
+|  |  - Contact Form with Google Sheets integration                    |   |
 |  +---------------------------------------------------------------------+   |
 +-----------------------------------------------------------------------------+
                                      |
@@ -190,7 +204,7 @@
 +-----------------------------------------------------------------------------+
 |                              FOOTER                                          |
 |  +---------------------------------------------------------------------+   |
-|  |  2026 Arkan Tsabit | Data Engineer Portfolio                       |   |
+|  |  Arkan Tsabit | Data Engineer | Cloud Data Engineer                |   |
 |  +---------------------------------------------------------------------+   |
 +-----------------------------------------------------------------------------+
                                      |
@@ -199,29 +213,11 @@
 |                           CHATBOT WIDGET                                    |
 |  +---------------------------------------------------------------------+   |
 |  |  Chat with Arkan's AI                                                |   |
-|  |                                                                     |   |
 |  |  [Type your question...] [Send]                                   |   |
-|  |                                                                     |   |
 |  |  Ask about experience, projects, certifications, or skills        |   |
 |  +---------------------------------------------------------------------+   |
 +-----------------------------------------------------------------------------+
 ```
-
----
-
-## Technology Stack
-
-| Layer | Technology | Version | Purpose |
-|-------|-----------|---------|---------|
-| Frontend | HTML5 | - | Structure |
-| Styling | CSS3 | - | Styling |
-| JavaScript | Vanilla JS | ES6 | Interactivity |
-| Icons | Font Awesome | 6.4.0 | Icons |
-| Font | Inter | Google Fonts | Typography |
-| Hosting | GitHub Pages | - | Deployment |
-| AI Chatbot | Cloudflare Workers | - | RAG question and answer |
-| Vector Database | Cloudflare Vectorize | - | Knowledge storage |
-| LLM | Cloudflare Workers AI | - | Response generation |
 
 ---
 
@@ -254,7 +250,7 @@
 ## File Structure
 
 ```
-arkan-tsabit-portfolio/
+arkan-tsabit.github.io/
 |
 +-- index.html
 +-- about.html
@@ -280,7 +276,7 @@ arkan-tsabit-portfolio/
 +-- assets/
 |   +-- images/
 |   |   +-- profile.jpg
-|   |   +-- logo.svg
+|   |   +-- logo.ico
 |   |   +-- favicon.ico
 |   |   +-- projects/
 |   |   |   +-- batchetl/
@@ -321,10 +317,10 @@ arkan-tsabit-portfolio/
 +-- chatbot/
 |   +-- worker.js
 |   +-- wrangler.toml
-|   +-- knowledge-base/
-|       +-- cv-data.json
-|       +-- projects-data.json
-|       +-- certifications-data.json
+|   +-- knowledge-upload.json
+|   +-- upload_vectors.py
+|   +-- test_all.py
+|   +-- package.json
 |
 +-- data/
 |   +-- projects.json
@@ -334,10 +330,15 @@ arkan-tsabit-portfolio/
 |       +-- en.json
 |       +-- id.json
 |
++-- .env
 +-- .gitignore
 +-- README.md
 +-- LICENSE
 +-- blueprint.md
++-- cheatsheets.md
++-- checklist.md
++-- checker.py
++-- structure.py
 +-- CNAME
 ```
 
@@ -361,19 +362,18 @@ arkan-tsabit-portfolio/
 | Section | Content |
 |---------|---------|
 | Profile | Photo and professional summary |
-| Story | Career transition from IT to Data Engineering |
-| Skills | Technical skills with categories |
-| Stats | Years of experience, projects, certifications |
-| Tools | Technology stack with icons |
+| Working Experience | BRI SD-WAN -> Satu Benih -> Bejagoo -> Airport (newest to oldest) |
+| Technical Skills | 5 categories: Cloud, Data Engineering, Databases, AI/ML, Visualization |
+| Stats | Projects, certifications, records processed, industries |
 
 ### 3. Projects
 
 | Project | Description | Metrics | Stack |
 |---------|-------------|---------|-------|
-| BatchETL Pipeline | End-to-end ETL for NYC Taxi data | 2.96M rows, under 30 seconds, 100 percent quality | Airflow, PostgreSQL, Streamlit, Docker |
+| BatchETL Pipeline | End-to-end ETL for NYC Taxi data | 2.96M rows, under 30 seconds, 100% quality | Airflow, PostgreSQL, Streamlit, Docker |
 | Uber Data Pipeline | Star schema data warehouse | 4 dimension and 1 fact tables | Airflow, DuckDB, Streamlit, Docker |
-| Amazon Web Scraping | Product data extraction | 5 fields per product, 95+ percent success | Python, BeautifulSoup, Requests, Pandas |
-| Daily Expense Tracker | Full-stack expense application | 277 tests, 100 percent pass | Python, SQLite, Tkinter, Matplotlib |
+| Amazon Web Scraping | Product data extraction | 5 fields per product, 95%+ success | Python, BeautifulSoup, Requests, Pandas |
+| Daily Expense Tracker | Full-stack expense application | 277 tests, 100% pass | Python, SQLite, Tkinter, Matplotlib |
 
 ### 4. Certifications
 
@@ -399,7 +399,7 @@ arkan-tsabit-portfolio/
 | Phone | +62 81295709620 |
 | GitHub | github.com/ArkanTsabit123 |
 | LinkedIn | linkedin.com/in/arkan-tsabit |
-| Downloads | CV PDF, Job Application PDF |
+| Contact Form | Google Sheets integration (Name, Email, Subject, Message, Date, Time) |
 
 ---
 
@@ -440,6 +440,88 @@ arkan-tsabit-portfolio/
     "cta_projects": "View Projects",
     "cta_cv": "Download CV",
     "cta_contact": "Contact Me"
+  },
+  "featured": {
+    "title": "Featured Project",
+    "subtitle": "My most comprehensive data engineering work",
+    "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
+    "cta": "View All Projects"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with",
+    "cloud": "Cloud & Data Architecture",
+    "engineering": "Data Engineering",
+    "databases": "Databases",
+    "visualization": "Visualization & Tools"
+  },
+  "certs": {
+    "title": "Certifications",
+    "subtitle": "10 professional certifications from industry leaders",
+    "oracle_desc": "8 professional certifications in cloud architecture, AI, and database services",
+    "ibm_desc": "Professional certificate in data engineering",
+    "meta_desc": "Professional certificate in database engineering",
+    "cta": "View All Certifications"
+  },
+  "chatbot": {
+    "title": "Ask Arkan's AI",
+    "description": "Have questions about my experience, projects, or skills? Chat with my AI assistant to learn more.",
+    "cta": "Open Chat"
+  },
+  "footer": {
+    "credit": "Data Engineer | Cloud Data Engineer"
+  },
+  "about": {
+    "page_title": "About Me",
+    "page_subtitle": "Get to know the person behind the data",
+    "who_am_i": "Who I Am",
+    "bio_1": "I am a Data Engineer with hands-on experience building production-ready ETL pipelines that process 2.96M+ records in under 30 seconds with 100% data quality. I specialize in data warehousing, dimensional modeling, and data integration.",
+    "bio_2": "I transitioned from IT infrastructure and network engineering to data engineering through intensive self-study and hands-on projects. My background in IT operations gives me a unique perspective on system reliability and data pipeline performance.",
+    "bio_3": "I am certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer. I am passionate about building scalable and reliable data solutions that turn raw data into actionable insights.",
+    "stats": {
+      "projects": "Data Projects",
+      "certs": "Certifications",
+      "rows": "Records Processed",
+      "domains": "Industries"
+    },
+    "work_title": "Working Experience",
+    "work_subtitle": "From IT infrastructure to data engineering",
+    "skills_title": "Technical Skills",
+    "skills_subtitle": "Technologies and tools I work with"
+  },
+  "projects": {
+    "page_title": "Projects",
+    "page_subtitle": "End-to-end data engineering projects built with industry-standard tools",
+    "filter": {
+      "all": "All",
+      "airflow": "Airflow",
+      "postgresql": "PostgreSQL",
+      "python": "Python",
+      "docker": "Docker",
+      "streamlit": "Streamlit"
+    }
+  },
+  "achievements": {
+    "page_title": "Achievements",
+    "page_subtitle": "Recognition and awards from my professional journey"
+  },
+  "contact": {
+    "page_title": "Contact",
+    "page_subtitle": "Get in touch for opportunities and collaborations",
+    "connect_title": "Let's Connect",
+    "connect_desc": "I am always open to new opportunities, collaborations, and conversations about data engineering, cloud architecture, and data-driven solutions.",
+    "form_title": "Send Me a Message",
+    "form_desc": "I'll get back to you as soon as possible.",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_subject": "Subject",
+    "form_message": "Message",
+    "form_send": "Send Message"
+  },
+  "error": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "cta": "Return Home"
   }
 }
 
@@ -468,6 +550,88 @@ arkan-tsabit-portfolio/
     "cta_projects": "Lihat Proyek",
     "cta_cv": "Unduh CV",
     "cta_contact": "Hubungi Saya"
+  },
+  "featured": {
+    "title": "Proyek Unggulan",
+    "subtitle": "Pekerjaan data engineering paling komprehensif saya",
+    "description": "Pipeline ETL end-to-end untuk data perjalanan NYC Taxi dengan otomatisasi, validasi kualitas data, dan dashboard analitik real-time.",
+    "cta": "Lihat Semua Proyek"
+  },
+  "skills": {
+    "title": "Keterampilan Teknis",
+    "subtitle": "Teknologi dan alat yang saya gunakan",
+    "cloud": "Cloud & Arsitektur Data",
+    "engineering": "Data Engineering",
+    "databases": "Database",
+    "visualization": "Visualisasi & Alat"
+  },
+  "certs": {
+    "title": "Sertifikasi",
+    "subtitle": "10 sertifikasi profesional dari pemimpin industri",
+    "oracle_desc": "8 sertifikasi profesional di arsitektur cloud, AI, dan layanan database",
+    "ibm_desc": "Sertifikat profesional di data engineering",
+    "meta_desc": "Sertifikat profesional di database engineering",
+    "cta": "Lihat Semua Sertifikasi"
+  },
+  "chatbot": {
+    "title": "Tanya AI Arkan",
+    "description": "Ada pertanyaan tentang pengalaman, proyek, atau keterampilan saya? Ngobrol dengan asisten AI saya untuk belajar lebih lanjut.",
+    "cta": "Buka Chat"
+  },
+  "footer": {
+    "credit": "Data Engineer | Cloud Data Engineer"
+  },
+  "about": {
+    "page_title": "Tentang Saya",
+    "page_subtitle": "Kenali orang di balik data",
+    "who_am_i": "Siapa Saya",
+    "bio_1": "Saya adalah Data Engineer dengan pengalaman membangun pipeline ETL produksi yang memproses 2.96M+ rekaman dalam waktu kurang dari 30 detik dengan kualitas data 100%. Saya berspesialisasi dalam pergudangan data, pemodelan dimensional, dan integrasi data.",
+    "bio_2": "Saya beralih dari infrastruktur IT dan rekayasa jaringan ke data engineering melalui belajar mandiri dan proyek langsung. Latar belakang saya di operasi IT memberi saya perspektif unik tentang keandalan sistem dan kinerja pipeline data.",
+    "bio_3": "Saya tersertifikasi sebagai Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer. Saya bersemangat membangun solusi data yang skalabel dan andal yang mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti.",
+    "stats": {
+      "projects": "Proyek Data",
+      "certs": "Sertifikasi",
+      "rows": "Rekaman Diproses",
+      "domains": "Industri"
+    },
+    "work_title": "Pengalaman Kerja",
+    "work_subtitle": "Dari infrastruktur IT ke data engineering",
+    "skills_title": "Keterampilan Teknis",
+    "skills_subtitle": "Teknologi dan alat yang saya gunakan"
+  },
+  "projects": {
+    "page_title": "Proyek",
+    "page_subtitle": "Proyek data engineering end-to-end yang dibangun dengan alat standar industri",
+    "filter": {
+      "all": "Semua",
+      "airflow": "Airflow",
+      "postgresql": "PostgreSQL",
+      "python": "Python",
+      "docker": "Docker",
+      "streamlit": "Streamlit"
+    }
+  },
+  "achievements": {
+    "page_title": "Prestasi",
+    "page_subtitle": "Pengakuan dan penghargaan dari perjalanan profesional saya"
+  },
+  "contact": {
+    "page_title": "Kontak",
+    "page_subtitle": "Hubungi saya untuk peluang dan kolaborasi",
+    "connect_title": "Mari Terhubung",
+    "connect_desc": "Saya selalu terbuka untuk peluang baru, kolaborasi, dan diskusi tentang data engineering, arsitektur cloud, dan solusi berbasis data.",
+    "form_title": "Kirim Pesan",
+    "form_desc": "Saya akan merespon sesegera mungkin.",
+    "form_name": "Nama Anda",
+    "form_email": "Email Anda",
+    "form_subject": "Subjek",
+    "form_message": "Pesan",
+    "form_send": "Kirim Pesan"
+  },
+  "error": {
+    "title": "Halaman Tidak Ditemukan",
+    "description": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "cta": "Kembali ke Beranda"
   }
 }
 ```
@@ -545,7 +709,6 @@ function toggleTheme() {
 |  +---------------------------------------------------------------------+   |
 |  |  4. Context Building                                               |   |
 |  |     - Extract content from metadata                                |   |
-|  |     - Filter scores > 0.3                                          |   |
 |  |     - Join content as context                                      |   |
 |  +---------------------------------------------------------------------+   |
 |                                     |                                       |
@@ -553,7 +716,7 @@ function toggleTheme() {
 |  +---------------------------------------------------------------------+   |
 |  |  5. LLM Response (Cloudflare Workers AI)                           |   |
 |  |     - Generate response based on context only                      |   |
-|  |     - Model: Mistral 7B v0.2 (testing better models)              |   |
+|  |     - Model: Mistral 7B v0.2                                      |   |
 |  +---------------------------------------------------------------------+   |
 |                                                                             |
 +-----------------------------------------------------------------------------+
@@ -561,234 +724,76 @@ function toggleTheme() {
 
 ### Knowledge Base Structure
 
-The knowledge base contains 30 documents organized by category:
+The knowledge base contains 30 documents organized by 7 categories:
 
-```
-{
-  "documents": [
-    {
-      "id": "profile_001",
-      "content": "Arkan Tsabit is a Data Engineer with expertise...",
-      "metadata": {
-        "category": "profile",
-        "keywords": "profile, introduction, data engineer",
-        "content": "Arkan Tsabit is a Data Engineer..."
-      }
-    },
-    {
-      "id": "project_batchetl",
-      "content": "BatchETL Pipeline is a data engineering project...",
-      "metadata": {
-        "category": "projects",
-        "name": "BatchETL Pipeline",
-        "keywords": "BatchETL, NYC Taxi, Airflow",
-        "content": "BatchETL Pipeline processes 2.96M rows..."
-      }
-    },
-    {
-      "id": "cert_oracle_001",
-      "content": "Oracle Multicloud Architect Professional...",
-      "metadata": {
-        "category": "certifications",
-        "provider": "Oracle",
-        "keywords": "Oracle, Multicloud Architect",
-        "content": "Oracle Multicloud Architect Professional..."
-      }
-    }
-  ]
-}
-```
-
-### Chatbot UI
-
-The chatbot widget appears as a floating button on all pages.
-
-```
-<!-- Chatbot Widget -->
-<div id="chatbot-widget">
-  <div id="chatbot-header">
-    <span>AI Assistant</span>
-    <button id="chatbotClose">✕</button>
-  </div>
-  <div id="chatbotMessages">
-    <div class="message bot">
-      Hello! Ask me about Arkan's experience, projects, certifications, or skills.
-    </div>
-  </div>
-  <div id="chatbot-input-area">
-    <input type="text" id="chatbotInput" placeholder="Type your question...">
-    <button id="chatbotSend">Send</button>
-  </div>
-</div>
-```
-
-### Cloudflare Worker (worker.js)
-
-```javascript
-export default {
-  async fetch(request, env, ctx) {
-    // CORS handling
-    if (request.method === 'OPTIONS') {
-      return new Response(null, {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type',
-        },
-      });
-    }
-
-    const url = new URL(request.url);
-
-    // Health check
-    if (url.pathname === '/health') {
-      return new Response(JSON.stringify({
-        status: 'healthy',
-        service: 'arkan-chatbot',
-        version: '2.0.0',
-        timestamp: new Date().toISOString(),
-      }), {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-    }
-
-    // Chat endpoint
-    if (url.pathname === '/api/chat' && request.method === 'POST') {
-      const body = await request.json();
-      const question = body.question;
-
-      // Generate embedding
-      const embeddingResponse = await env.AI.run('@cf/baai/bge-small-en-v1.5', {
-        text: question.trim(),
-      });
-      const embedding = embeddingResponse.data[0];
-
-      // Query Vectorize
-      const vectorResults = await env.VECTORIZE.query(embedding, {
-        topK: 5,
-        returnValues: false,
-        returnMetadata: true,
-      });
-
-      // Build context
-      let context = '';
-      if (vectorResults.matches && vectorResults.matches.length > 0) {
-        const contents = vectorResults.matches
-          .map(match => match.metadata?.content || '')
-          .filter(content => content);
-        context = contents.join('\n\n');
-      }
-
-      if (!context) {
-        return new Response(JSON.stringify({
-          response: "I don't have specific information about that topic. Please ask about Arkan's experience, projects, certifications, or skills.",
-          source: 'default',
-        }), {
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
-        });
-      }
-
-      // Generate response using LLM
-      const llmResponse = await env.AI.run('@cf/mistral/mistral-7b-instruct-v0.2-lora', {
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant. Answer based ONLY on the context given. Be concise.',
-          },
-          {
-            role: 'user',
-            content: `Answer based ONLY on this context: ${context}\n\nQuestion: ${question}\n\nAnswer:`,
-          },
-        ],
-        temperature: 0.2,
-        max_tokens: 150,
-      });
-
-      return new Response(JSON.stringify({
-        response: llmResponse.response || 'No response from LLM.',
-        source: 'llm',
-      }), {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        },
-      });
-    }
-
-    return new Response(JSON.stringify({
-      error: 'Not found',
-      message: 'The requested endpoint does not exist.',
-    }), {
-      status: 404,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
-  },
-};
-```
-
-### Cloudflare Worker Configuration (wrangler.toml)
-
-```toml
-name = "arkan-chatbot"
-main = "worker.js"
-compatibility_date = "2025-08-01"
-
-[vars]
-ENVIRONMENT = "production"
-
-[[vectorize]]
-binding = "VECTORIZE"
-index_name = "arkan-knowledge-base"
-
-[ai]
-binding = "AI"
-
-[observability]
-enabled = true
-
-[[env.production]]
-route = "arkan-chatbot.workers.dev"
-```
+| Category | Documents |
+|----------|-----------|
+| Profile | 3 |
+| Projects | 4 |
+| Certifications | 11 |
+| Achievements | 3 |
+| Experience | 5 |
+| Skills | 3 |
+| Contact | 1 |
+| **Total** | **30** |
 
 ---
 
-## LLM Testing Summary
+## Contact Form Integration
 
-The following 22 LLM models are being tested for compatibility with Cloudflare Workers AI:
+### Google Sheets Setup
 
-| # | Model ID | Status |
-|---|----------|--------|
-| 1 | `@cf/meta/llama-4-scout-17b-16e-instruct` | 🔄 Testing |
-| 2 | `@cf/meta/llama-3.2-3b-instruct` | 🔄 Testing |
-| 3 | `@cf/meta/llama-3.1-8b-instruct-fp8` | 🔄 Testing |
-| 4 | `@cf/meta/llama-3.2-1b-instruct` | 🔄 Testing |
-| 5 | `@cf/meta/llama-3.3-70b-instruct-fp8-fast` | 🔄 Testing |
-| 6 | `@cf/mistralai/mistral-small-3.1-24b-instruct` | 🔄 Testing |
-| 7 | `@cf/mistral/mistral-7b-instruct-v0.2-lora` | ✅ Active |
-| 8 | `@cf/qwen/qwen2.5-coder-32b-instruct` | 🔄 Testing |
-| 9 | `@cf/qwen/qwen3-30b-a3b-fp8` | 🔄 Testing |
-| 10 | `@cf/qwen/qwq-32b` | 🔄 Testing |
-| 11 | `@cf/deepseek-ai/deepseek-r1-distill-qwen-32b` | 🔄 Testing |
-| 12 | `@cf/google/gemma-4-26b-a4b-it` | 🔄 Testing |
-| 13 | `@cf/google/gemma-7b-it-lora` | 🔄 Testing |
-| 14 | `@cf/aisingapore/gemma-sea-lion-v4-27b-it` | 🔄 Testing |
-| 15 | `@cf/ibm-granite/granite-4.0-h-micro` | 🔄 Testing |
-| 16 | `@cf/moonshotai/kimi-k2.6` | 🔄 Testing |
-| 17 | `@cf/moonshotai/kimi-k2.7-code` | 🔄 Testing |
-| 18 | `@cf/zai-org/glm-4.7-flash` | 🔄 Testing |
-| 19 | `@cf/zai-org/glm-5.2` | 🔄 Testing |
-| 20 | `@cf/nvidia/nemotron-3-120b-a12b` | 🔄 Testing |
-| 21 | `@cf/openai/gpt-oss-20b` | 🔄 Testing |
-| 22 | `@cf/openai/gpt-oss-120b` | 🔄 Testing |
+**Headers:**
+| Name | Email | Subject | Message | Date | Time |
+
+**Apps Script Endpoint:**
+- Web App URL: `https://script.google.com/macros/s/.../exec`
+- Access: Anyone
+- Method: POST
+
+### Google Apps Script Code
+
+```
+const sheetName = 'Sheet1';
+
+function doPost(e) {
+  try {
+    const doc = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = doc.getSheetByName(sheetName);
+    
+    if (!sheet) {
+      const newSheet = doc.insertSheet(sheetName);
+      const headers = ['Name', 'Email', 'Subject', 'Message', 'Date', 'Time'];
+      newSheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    }
+    
+    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    const nextRow = sheet.getLastRow() + 1;
+    
+    const now = new Date();
+    const newRow = headers.map((header) => {
+      if (header === 'Date') {
+        return Utilities.formatDate(now, Session.getScriptTimeZone(), "yyyy-MM-dd");
+      }
+      if (header === 'Time') {
+        return Utilities.formatDate(now, Session.getScriptTimeZone(), "HH:mm:ss");
+      }
+      return e.parameter[header] || '';
+    });
+    
+    sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
+    
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'success', row: nextRow }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ result: 'error', error: error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
 
 ---
 
@@ -823,8 +828,7 @@ wrangler login
 wrangler vectorize create arkan-knowledge-base --preset @cf/baai/bge-small-en-v1.5
 
 # 4. Upload knowledge base
-node convert-to-ndjson.js
-wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
+python upload_vectors.py
 
 # 5. Deploy worker
 wrangler deploy
@@ -832,12 +836,12 @@ wrangler deploy
 
 ### Step 3: Environment Variables
 
+Create `.env` file:
 ```
-# .env for Cloudflare Workers
 CLOUDFLARE_ACCOUNT_ID=1ac4476c492b63bf4eeb0fb1523aab34
 CLOUDFLARE_API_TOKEN=your_api_token_here
 VECTORIZE_INDEX_NAME=arkan-knowledge-base
-AI_MODEL=@cf/baai/bge-small-en-v1.5
+EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 ```
 
 ---
@@ -853,7 +857,7 @@ AI_MODEL=@cf/baai/bge-small-en-v1.5
 | Compression | Gzip and Brotli compression |
 | Image Optimization | WebP format with responsive sizes |
 | Vector Search | Top K limited to 5 matches |
-| LLM Tokens | Limited to 150 tokens for faster response |
+| LLM Tokens | Limited to 250 tokens for faster response |
 
 ---
 
@@ -863,10 +867,9 @@ AI_MODEL=@cf/baai/bge-small-en-v1.5
 |---------|----------------|
 | Title | Arkan Tsabit - Data Engineer Portfolio |
 | Description | Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects. |
-| Keywords | Data Engineer, ETL, Airflow, PostgreSQL, Python, Portfolio |
 | Open Graph | Social media preview cards |
+| Twitter Card | Summary large image |
 | Schema Markup | Person, Project, Certification JSON-LD |
-| Sitemap | sitemap.xml for search engines |
 
 ---
 
@@ -883,15 +886,6 @@ AI_MODEL=@cf/baai/bge-small-en-v1.5
 
 ---
 
-## Analytics
-
-| Tool | Purpose |
-|------|---------|
-| Google Analytics | Track visitors and behavior |
-| Cloudflare Analytics | Worker performance monitoring |
-
----
-
 ## Troubleshooting
 
 | Issue | Solution |
@@ -903,6 +897,7 @@ AI_MODEL=@cf/baai/bge-small-en-v1.5
 | Language toggle not working | Check i18n JSON files |
 | LLM model deprecated | Update model in `worker.js` |
 | Vectorize index empty | Check `stored_vectors` in dashboard |
+| Contact form not working | Check Google Apps Script deployment and permissions |
 
 ---
 
@@ -929,6 +924,7 @@ AI_MODEL=@cf/baai/bge-small-en-v1.5
 | Worker | https://arkan-chatbot.arkan-chatbot.workers.dev |
 | Health Check | https://arkan-chatbot.arkan-chatbot.workers.dev/health |
 | Cloudflare Dashboard | https://dash.cloudflare.com |
+| Google Sheets | https://docs.google.com/spreadsheets/d/1zcck8oaWyw5aWOpNl4JqstaLFYhjMvh_aNvrr0adqAg/edit |
 
 ---
 

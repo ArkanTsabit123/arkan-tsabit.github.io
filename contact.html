@@ -121,25 +121,25 @@
                         <h2 data-i18n="contact.form_title">Send Me a Message</h2>
                         <p data-i18n="contact.form_desc">I'll get back to you as soon as possible.</p>
 
-                        <form action="https://formspree.io/f/your-form-id" method="POST">
+                        <form id="contactForm" method="POST">
                             <div class="form-group">
                                 <label for="name" data-i18n="contact.form_name">Your Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Full Name" required />
+                                <input type="text" id="name" name="Name" placeholder="Your Full Name" required />
                             </div>
 
                             <div class="form-group">
                                 <label for="email" data-i18n="contact.form_email">Your Email</label>
-                                <input type="email" id="email" name="email" placeholder="your email address" required />
+                                <input type="email" id="email" name="Email" placeholder="your email address" required />
                             </div>
 
                             <div class="form-group">
                                 <label for="subject" data-i18n="contact.form_subject">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="your message subject" required />
+                                <input type="text" id="subject" name="Subject" placeholder="your message subject" required />
                             </div>
 
                             <div class="form-group">
                                 <label for="message" data-i18n="contact.form_message">Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                                <textarea id="message" name="Message" rows="5" placeholder="Your message here..." required></textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.form_send">
@@ -171,6 +171,7 @@
                 </a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
                     <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
     </footer>
@@ -178,6 +179,43 @@
     <script src="js/main.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+
+    <!-- ============================================================
+    CONTACT FORM HANDLER - Google Sheets Integration
+    ============================================================ -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyhzkXTEjtzGFH45462wgNJUsFbdAql5cXaQR5QrKFSYvrnvUSsi_j9BZNmLXWgCEKw/exec';
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerText;
+            submitButton.innerText = 'Sending...';
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                });
+
+                const result = await response.json();
+                if (result.result === 'success') {
+                    alert('Your message has been sent! Thank you.');
+                    form.reset();
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            } finally {
+                submitButton.innerText = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    </script>
 
 </body>
 </html>

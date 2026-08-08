@@ -1,4 +1,4 @@
-# 🌐 Arkan Tsabit - Data Engineer Portfolio
+# Arkan Tsabit - Data Engineer Portfolio
 
 ## Personal Portfolio Website Showcasing Data Engineering Projects, Certifications, and Professional Experience
 
@@ -9,6 +9,7 @@
 [![Deployment](https://img.shields.io/badge/Deployment-GitHub%20Pages-brightgreen)](https://pages.github.com)
 [![Chatbot](https://img.shields.io/badge/Chatbot-RAG%20Powered-blueviolet)](https://arkan-chatbot.arkan-chatbot.workers.dev)
 [![Tests](https://img.shields.io/badge/Tests-34%20Passed-success)](https://github.com/ArkanTsabit123/arkan-tsabit.github.io)
+[![Contact](https://img.shields.io/badge/Contact-Google%20Sheets-green)](https://docs.google.com/spreadsheets/d/1zcck8oaWyw5aWOpNl4JqstaLFYhjMvh_aNvrr0adqAg/edit)
 
 ---
 
@@ -43,6 +44,7 @@ This repository contains the source code for my professional portfolio website. 
 - **AI-Powered Chatbot** using RAG (Retrieval-Augmented Generation)
 - **Multi-Language Support** (Indonesian and US English)
 - **Dark/Light Mode** toggle for optimal viewing
+- **Contact Form** with Google Sheets integration
 
 ### Key Metrics
 
@@ -56,6 +58,7 @@ This repository contains the source code for my professional portfolio website. 
 | Knowledge Base Documents | 30 |
 | Test Questions | 34 |
 | Deployment | GitHub Pages |
+| Contact Form | Google Sheets |
 
 ---
 
@@ -66,11 +69,11 @@ This repository contains the source code for my professional portfolio website. 
 | Feature | Description |
 |---------|-------------|
 | **Landing Page** | Professional introduction with key metrics and call-to-action buttons |
-| **About Me** | Professional summary, career transition story, and technical skills |
+| **About Me** | Professional summary, working experience, and technical skills |
 | **Projects** | 4 detailed project cards with metrics, tech stack, and GitHub links |
 | **Certifications** | 10 certifications with "Verify" buttons linking to official credentials |
 | **Achievements** | Oracle Race to Certification awards and teaching recognition |
-| **Contact** | Contact information and downloadable documents (CV, Job Application) |
+| **Contact** | Contact information and Google Sheets powered contact form |
 
 ### Interactive Features
 
@@ -80,6 +83,7 @@ This repository contains the source code for my professional portfolio website. 
 | **Multi-Language** | Indonesian and English toggle with persistent preference |
 | **AI Chatbot** | RAG-powered question-answering about experience, projects, and skills |
 | **Responsive Design** | Optimized for all screen sizes |
+| **Contact Form** | Google Sheets integration with real-time data storage |
 
 ### Technical Features
 
@@ -90,6 +94,7 @@ This repository contains the source code for my professional portfolio website. 
 | **RAG Implementation** | Vector search + LLM for accurate responses |
 | **Performance Optimized** | Lazy loading, minification, caching |
 | **Knowledge Base** | 30 documents with embedded vectors |
+| **Contact Form** | Google Apps Script backend with Web App deployment |
 
 ---
 
@@ -99,11 +104,11 @@ This repository contains the source code for my professional portfolio website. 
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
-| HTML5 | - | Structure |
-| CSS3 | - | Styling |
-| JavaScript | ES6 | Interactivity |
+| HTML5 | HTML Living Standard | Structure |
+| CSS3 | CSS Level 3 | Styling |
+| JavaScript | ECMAScript 2021 (ES12) | Interactivity |
 | Font Awesome | 6.4.0 | Icons |
-| Inter Font | - | Typography |
+| Inter Font | Google Fonts API | Typography |
 
 ### Backend
 
@@ -112,6 +117,7 @@ This repository contains the source code for my professional portfolio website. 
 | Cloudflare Workers | AI Chatbot API |
 | Cloudflare Vectorize | Knowledge base storage (384 dimensions) |
 | Cloudflare Workers AI | Embedding generation + LLM responses |
+| Google Apps Script | Contact form backend |
 
 ### Deployment
 
@@ -151,7 +157,7 @@ arkan-tsabit.github.io/
 ├── assets/
 │   ├── images/
 │   │   ├── profile.jpg            # Profile photo
-│   │   ├── logo.svg               # Logo
+│   │   ├── logo.ico               # Logo
 │   │   ├── favicon.ico            # Browser icon
 │   │   ├── projects/
 │   │   │   ├── batchetl/
@@ -191,11 +197,7 @@ arkan-tsabit.github.io/
 │   ├── worker.js                  # Cloudflare Worker (RAG logic)
 │   ├── wrangler.toml              # Worker configuration
 │   ├── knowledge-upload.json      # 30 documents knowledge base
-│   ├── knowledge-upload.ndjson    # NDJSON format for Vectorize
-│   ├── convert-to-ndjson.js       # JSON to NDJSON converter
 │   ├── upload_vectors.py          # Vector embedding & upload script
-│   ├── upload-knowledge.js        # Knowledge base generator
-│   ├── upload-knowledge.sh        # Bash upload script
 │   ├── test_all.py                # 34 test questions suite
 │   └── package.json               # Node.js dependencies
 │
@@ -207,13 +209,16 @@ arkan-tsabit.github.io/
 │       ├── en.json                # English translations
 │       └── id.json                # Indonesian translations
 │
+├── .env                           # Environment variables (DO NOT COMMIT)
 ├── .gitignore
 ├── README.md                      # This file
 ├── LICENSE                        # MIT License
 ├── blueprint.md                   # Technical documentation
-├── cheatsheet.md                  # Quick reference
+├── cheatsheets.md                 # Quick reference
 ├── checklist.md                   # Completion checklist
-├── debug.py                       # Debug script for chatbot
+├── CHANGELOG.md                   # Version history
+├── checker.py                     # Portfolio validation script
+├── structure.py                   # Project structure display
 └── CNAME                          # Custom domain (optional)
 ```
 
@@ -243,6 +248,16 @@ python -m http.server 8000
 # http://localhost:8000
 ```
 
+### Environment Setup
+
+Create `.env` file in root:
+```
+CLOUDFLARE_ACCOUNT_ID=your_account_id
+CLOUDFLARE_API_TOKEN=your_api_token
+VECTORIZE_INDEX_NAME=arkan-knowledge-base
+EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
+```
+
 ### Cloudflare Worker Setup
 
 ```bash
@@ -256,13 +271,20 @@ wrangler login
 wrangler vectorize create arkan-knowledge-base --preset @cf/baai/bge-small-en-v1.5
 
 # Upload knowledge base
-node convert-to-ndjson.js
-wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson
+cd chatbot
+python upload_vectors.py
 
 # Deploy worker
-cd chatbot
 wrangler deploy
 ```
+
+### Google Sheets Contact Form Setup
+
+1. Create Google Sheet with headers: `Name, Email, Subject, Message, Date, Time`
+2. Open Apps Script from Extensions menu
+3. Copy `doPost()` handler code from blueprint.md
+4. Deploy as Web App with access set to "Anyone"
+5. Update `scriptURL` in `contact.html`
 
 ---
 
@@ -315,12 +337,11 @@ curl https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat \
 |----------|-------|-------------|
 | Profile | 3 | Professional summary, specialization, background |
 | Projects | 4 | BatchETL, Uber, Amazon, Expense Tracker |
-| Certifications | 10 | Oracle, IBM, Meta |
+| Certifications | 11 | Oracle, IBM, Meta |
 | Achievements | 3 | Oracle Race Top 108, Top 3, Best Teacher |
 | Experience | 5 | BRI SD-WAN, Satu Benih, Bejagoo, Airport |
 | Skills | 3 | Tech stack, Data Engineering, Cloud |
 | Contact | 1 | Email, phone, GitHub, LinkedIn |
-| Summary | 1 | Experience summary |
 | **Total** | **30** | |
 
 ### Example Questions
@@ -345,6 +366,7 @@ curl https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat \
 
 ```bash
 # Run all 34 test questions
+cd chatbot
 python test_all.py
 
 # Output example
@@ -373,6 +395,28 @@ Total:  34
 Passed: 34
 Failed: 0
 Rate:   100.0%
+```
+
+### Portfolio Validation
+
+```bash
+# Run full portfolio validation
+python checker.py
+
+# Output example
+============================================================
+FINAL SUMMARY
+============================================================
+Check Statistics:
+  Total Checks:  153
+  Passed:        153
+  Failed:        0
+  Critical:      0
+  Success Rate:  100.0%
+
+Overall Grade:
+  EXCELLENT - 100% Complete!
+============================================================
 ```
 
 ### Test Questions Categories
@@ -440,7 +484,7 @@ The following 22 LLM models have been tested for compatibility:
 | File | Description |
 |------|-------------|
 | assets/images/profile.jpg | Profile photo |
-| assets/images/logo.svg | Logo |
+| assets/images/logo.ico | Logo |
 | assets/images/projects/ | Project screenshots |
 | assets/images/certifications/ | Certification images |
 
@@ -481,6 +525,8 @@ const response = await env.AI.run('@cf/mistral/mistral-7b-instruct-v0.2-lora', {
 | LLM model deprecated | Update model in `worker.js` |
 | Vectorize index empty | Check `stored_vectors` in dashboard |
 | API token error | Regenerate token with proper permissions |
+| Contact form not working | Check Google Apps Script deployment and permissions |
+| .env not loading | Ensure `python-dotenv` is installed |
 
 ### Debug Commands
 
@@ -495,13 +541,17 @@ const response = await env.AI.run('@cf/mistral/mistral-7b-instruct-v0.2-lora', {
 # Check Cloudflare Worker logs
 wrangler tail
 
-# Run debug script
-python debug.py
-
 # Test API endpoint
 curl -X POST "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" \
   -H "Content-Type: application/json" \
   -d '{"question":"Who is Arkan Tsabit?"}'
+
+# Test Google Sheets form
+curl -X POST "https://script.google.com/macros/s/YOUR_ID/exec" \
+  -d "Name=Test" \
+  -d "Email=test@email.com" \
+  -d "Subject=Test" \
+  -d "Message=Hello"
 ```
 
 ---
@@ -510,8 +560,10 @@ curl -X POST "https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat" \
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0.0 | 2026-08-05 | Initial release |
-| 1.1.0 | 2026-08-06 | Added RAG chatbot, knowledge base, LLM testing |
+| 2.0.0 | 2026-08-08 | Google Sheets integration, UI improvements, security updates |
+| 1.2.0 | 2026-08-06 | RAG chatbot, knowledge base, LLM testing |
+| 1.1.0 | 2026-08-05 | Cloudflare Worker, Vectorize integration |
+| 1.0.0 | 2026-07-25 | Initial release |
 
 ---
 
@@ -525,6 +577,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - Cloudflare for Workers, Vectorize, and Workers AI
 - GitHub for Pages hosting
+- Google for Sheets and Apps Script
 - Font Awesome for icons
 - Google Fonts for typography
 
