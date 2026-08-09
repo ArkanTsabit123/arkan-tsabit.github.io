@@ -228,3 +228,17 @@ secrets.py
 *.secrets
 *.secret
 credentials.json
+
+# .gitignore
+docs.html
+
+
+# Documentation files (hide from public - local only)
+docs/BLUEPRINT.md
+docs/CHANGELOG.md
+docs/CHEATSHEETS.md
+docs/CHECKLIST.md
+docs/GUIDE.md
+docs/INDEX.md
+docs/OPERATIONS.md
+docs/TECHNICAL.md

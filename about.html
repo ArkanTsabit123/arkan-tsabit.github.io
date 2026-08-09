@@ -16,9 +16,7 @@
 </head>
 <body>
 
-    <!-- ============================================================
-    HEADER
-    ============================================================ -->
+    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -52,12 +50,10 @@
         </div>
     </header>
 
-    <!-- ============================================================
-    MAIN CONTENT
-    ============================================================ -->
+    <!-- Main Content -->
     <main>
 
-        <!-- PAGE HEADER -->
+        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <h1 data-i18n="about.page_title">About Me</h1>
@@ -65,7 +61,7 @@
             </div>
         </section>
 
-        <!-- PROFILE SECTION -->
+        <!-- Profile Section -->
         <section class="profile-section">
             <div class="container profile-container">
                 <div class="profile-image">
@@ -110,9 +106,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        WORKING EXPERIENCE SECTION
-        ============================================================ -->
+        <!-- Working Experience Section -->
         <section class="story-section">
             <div class="container">
                 <div class="section-header">
@@ -120,7 +114,6 @@
                     <p data-i18n="about.work_subtitle">From IT infrastructure to data engineering</p>
                 </div>
                 <div class="timeline">
-                    <!-- BRI SD-WAN - Most Recent -->
                     <div class="timeline-item">
                         <div class="timeline-year">Feb 2026 - July 2026</div>
                         <div class="timeline-content">
@@ -133,7 +126,6 @@
                         </div>
                     </div>
 
-                    <!-- SATU BENIH BOARDING SCHOOL -->
                     <div class="timeline-item">
                         <div class="timeline-year">May 2025 - Feb 2026</div>
                         <div class="timeline-content">
@@ -146,7 +138,6 @@
                         </div>
                     </div>
 
-                    <!-- BEJAGOO COFFEE & EATERY -->
                     <div class="timeline-item">
                         <div class="timeline-year">June 2020 - Mar 2024</div>
                         <div class="timeline-content">
@@ -159,7 +150,6 @@
                         </div>
                     </div>
 
-                    <!-- Soekarno-Hatta International Airport -->
                     <div class="timeline-item">
                         <div class="timeline-year">Feb 2016 - May 2020</div>
                         <div class="timeline-content">
@@ -175,9 +165,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        TECHNICAL SKILLS SECTION
-        ============================================================ -->
+        <!-- Technical Skills Section -->
         <section class="skills-section">
             <div class="container">
                 <div class="section-header">
@@ -186,7 +174,6 @@
                 </div>
 
                 <div class="skills-grid">
-                    <!-- Cloud & Data Architecture -->
                     <div class="skill-category">
                         <i class="fas fa-cloud skill-icon"></i>
                         <h4>Cloud &amp; Data Architecture</h4>
@@ -200,7 +187,6 @@
                         </ul>
                     </div>
 
-                    <!-- Data Engineering -->
                     <div class="skill-category">
                         <i class="fas fa-code skill-icon"></i>
                         <h4>Data Engineering &amp; Orchestration</h4>
@@ -213,7 +199,6 @@
                         </ul>
                     </div>
 
-                    <!-- Databases -->
                     <div class="skill-category">
                         <i class="fas fa-database skill-icon"></i>
                         <h4>Databases</h4>
@@ -226,7 +211,6 @@
                         </ul>
                     </div>
 
-                    <!-- AI & ML -->
                     <div class="skill-category">
                         <i class="fas fa-robot skill-icon"></i>
                         <h4>AI &amp; Machine Learning</h4>
@@ -239,7 +223,6 @@
                         </ul>
                     </div>
 
-                    <!-- Visualization -->
                     <div class="skill-category">
                         <i class="fas fa-chart-bar skill-icon"></i>
                         <h4>Visualization &amp; Tools</h4>
@@ -258,16 +241,14 @@
 
     </main>
 
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
                 <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
-            <div class="footer-links">
+            <div class="footer-links" id="docsLink">
                 <a href="docs.html" class="footer-doc-link">
                     <i class="fas fa-book"></i> Documentation
                 </a>
@@ -289,6 +270,7 @@
     <script src="js/main.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/hide-docs.js"></script>
 
 </body>
 </html>

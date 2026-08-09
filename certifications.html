@@ -16,9 +16,7 @@
 </head>
 <body>
 
-    <!-- ============================================================
-    HEADER / NAVIGATION
-    ============================================================ -->
+    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -54,14 +52,10 @@
         </div>
     </header>
 
-    <!-- ============================================================
-    MAIN CONTENT
-    ============================================================ -->
+    <!-- Main Content -->
     <main>
 
-        <!-- ============================================================
-        PAGE HEADER
-        ============================================================ -->
+        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <h1 data-i18n="certs.page_title">Certifications</h1>
@@ -69,9 +63,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        ORACLE CERTIFICATIONS
-        ============================================================ -->
+        <!-- Oracle Certifications -->
         <section class="cert-section">
             <div class="container">
                 <div class="cert-provider">
@@ -82,7 +74,6 @@
                     </div>
                 </div>
                 <div class="cert-grid" id="oracleCerts">
-                    <!-- Loading State -->
                     <div class="loading-spinner" style="grid-column: 1 / -1;">
                         <i class="fas fa-spinner"></i>
                         <span>Loading certifications...</span>
@@ -91,9 +82,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        IBM CERTIFICATION
-        ============================================================ -->
+        <!-- IBM Certification -->
         <section class="cert-section">
             <div class="container">
                 <div class="cert-provider">
@@ -104,7 +93,6 @@
                     </div>
                 </div>
                 <div class="cert-grid" id="ibmCerts">
-                    <!-- Loading State -->
                     <div class="loading-spinner" style="grid-column: 1 / -1;">
                         <i class="fas fa-spinner"></i>
                         <span>Loading certifications...</span>
@@ -113,9 +101,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        META CERTIFICATION
-        ============================================================ -->
+        <!-- Meta Certification -->
         <section class="cert-section">
             <div class="container">
                 <div class="cert-provider">
@@ -126,7 +112,6 @@
                     </div>
                 </div>
                 <div class="cert-grid" id="metaCerts">
-                    <!-- Loading State -->
                     <div class="loading-spinner" style="grid-column: 1 / -1;">
                         <i class="fas fa-spinner"></i>
                         <span>Loading certifications...</span>
@@ -135,9 +120,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        CERTIFICATION STATS
-        ============================================================ -->
+        <!-- Certification Stats -->
         <section class="cert-stats">
             <div class="container">
                 <div class="stats-grid">
@@ -163,16 +146,14 @@
 
     </main>
 
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
                 <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
-            <div class="footer-links">
+            <div class="footer-links" id="docsLink">
                 <a href="docs.html" class="footer-doc-link">
                     <i class="fas fa-book"></i> Documentation
                 </a>
@@ -191,16 +172,13 @@
         </div>
     </footer>
 
-    <!-- ============================================================
-    SCRIPTS
-    ============================================================ -->
     <script src="js/main.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/hide-docs.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Load certifications data
             fetch('data/certifications.json')
                 .then(response => {
                     if (!response.ok) {
@@ -214,13 +192,10 @@
                     }
                     
                     const certs = data.certifications;
-
-                    // Filter by provider
                     const oracleCerts = certs.filter(c => c.provider === 'Oracle');
                     const ibmCerts = certs.filter(c => c.provider === 'IBM');
                     const metaCerts = certs.filter(c => c.provider === 'Meta');
 
-                    // Render each provider's certifications
                     renderCertGrid('oracleCerts', oracleCerts);
                     renderCertGrid('ibmCerts', ibmCerts);
                     renderCertGrid('metaCerts', metaCerts);

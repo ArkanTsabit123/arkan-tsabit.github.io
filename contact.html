@@ -16,9 +16,7 @@
 </head>
 <body>
 
-    <!-- ============================================================
-    HEADER
-    ============================================================ -->
+    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -52,14 +50,10 @@
         </div>
     </header>
 
-    <!-- ============================================================
-    MAIN CONTENT
-    ============================================================ -->
+    <!-- Main Content -->
     <main>
 
-        <!-- ============================================================
-        PAGE HEADER
-        ============================================================ -->
+        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <h1 data-i18n="contact.page_title">Contact</h1>
@@ -67,9 +61,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        CONTACT SECTION
-        ============================================================ -->
+        <!-- Contact Section -->
         <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
@@ -111,7 +103,7 @@
                             <i class="fab fa-linkedin-in"></i>
                             <div>
                                 <h4>LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/arkan-tsabit-0b12b9407/" target="_blank">linkedin.com/in/arkan-tsabit</a>
+                                <a href="https://www.linkedin.com/in/arkan-tsabit-0b12b9407/" target="_blank">linkedin.com/in/arkan-tsabit-0b12b9407</a>
                             </div>
                         </div>
                     </div>
@@ -153,16 +145,14 @@
 
     </main>
 
-    <!-- ============================================================
-    FOOTER
-    ============================================================ -->
+    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
                 &copy; <span id="currentYear"></span> Arkan Tsabit.
                 <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
             </p>
-            <div class="footer-links">
+            <div class="footer-links" id="docsLink">
                 <a href="docs.html" class="footer-doc-link">
                     <i class="fas fa-book"></i> Documentation
                 </a>
@@ -184,10 +174,8 @@
     <script src="js/main.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/hide-docs.js"></script>
 
-    <!-- ============================================================
-    CONTACT FORM HANDLER - Google Sheets Integration
-    ============================================================ -->
     <script>
         const form = document.getElementById('contactForm');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyhzkXTEjtzGFH45462wgNJUsFbdAql5cXaQR5QrKFSYvrnvUSsi_j9BZNmLXWgCEKw/exec';
