@@ -1,13 +1,40 @@
-# PORTFOLIO WEBSITE - COMPLETENESS CHECKLIST
+# CHECKLIST.md
 
-## Document Information
+## Portfolio Website - Completeness Checklist
+
+### Document Information
 
 | Property | Value |
 |----------|-------|
-| Version | 2.0.0 |
-| Last Updated | 2026-08-08 |
+| Version | 2.1.0 |
+| Last Updated | 2026-08-09 |
 | Status | Production Ready |
 | Target | 100% Completion |
+
+---
+
+## Table of Contents
+
+1. [Phase 1: Planning and Setup](#phase-1-planning-and-setup)
+2. [Phase 2: HTML Pages](#phase-2-html-pages)
+3. [Phase 3: CSS Styling](#phase-3-css-styling)
+4. [Phase 4: JavaScript](#phase-4-javascript)
+5. [Phase 5: Content](#phase-5-content)
+6. [Phase 6: Assets](#phase-6-assets)
+7. [Phase 7: Documentation](#phase-7-documentation)
+8. [Phase 8: Chatbot](#phase-8-chatbot)
+9. [Phase 9: Deployment](#phase-9-deployment)
+10. [Phase 10: Final Polish](#phase-10-final-polish)
+11. [Phase 11: Domain and Hosting Setup](#phase-11-domain-and-hosting-setup)
+12. [Phase 12: Google Search Console Setup](#phase-12-google-search-console-setup)
+13. [Phase 13: SEO On-Page Optimization](#phase-13-seo-on-page-optimization)
+14. [Phase 14: Sitemap and Robots.txt](#phase-14-sitemap-and-robotstxt)
+15. [Phase 15: Content Optimization](#phase-15-content-optimization)
+16. [Phase 16: Backlink Strategy](#phase-16-backlink-strategy)
+17. [Phase 17: Monitoring and Analytics](#phase-17-monitoring-and-analytics)
+18. [Phase 18: Maintenance](#phase-18-maintenance)
+19. [Summary](#summary)
+20. [Next Steps](#next-steps)
 
 ---
 
@@ -365,9 +392,9 @@
 | No | Task | Status | Priority | Notes |
 |----|------|--------|----------|-------|
 | 7.4 | README.md | ✅ Done | High | Project overview |
-| 7.5 | Blueprint.md | ✅ Done | High | Technical details |
+| 7.5 | blueprint.md | ✅ Done | High | Technical details |
 | 7.6 | Checklist.md | ✅ Done | High | This file |
-| 7.7 | Cheatsheets.md | ✅ Done | Medium | Quick reference |
+| 7.7 | cheatsheets.md | ✅ Done | Medium | Quick reference |
 
 ---
 
@@ -457,6 +484,107 @@
 
 ---
 
+## Phase 11: Domain and Hosting Setup
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 11.1 | Buy `.com` domain on Cloudflare Registrar | ⬜ Pending | High | ~$10.44/year |
+| 11.2 | Setup DNS records on Cloudflare | ⬜ Pending | High | A record to GitHub Pages IP |
+| 11.3 | Update GitHub Pages custom domain | ⬜ Pending | High | Settings → Pages → Custom domain |
+| 11.4 | Upload `CNAME` file to repository root | ⬜ Pending | High | Content: `arkantsabit.com` |
+| 11.5 | Test domain access (can open in browser) | ⬜ Pending | High | `https://arkantsabit.com` |
+| 11.6 | Enforce HTTPS on GitHub Pages | ⬜ Pending | High | Check in Settings → Pages |
+
+---
+
+## Phase 12: Google Search Console Setup
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 12.1 | Register for Google Search Console | ⬜ Pending | High | https://search.google.com/search-console |
+| 12.2 | Add property → Domain → `arkantsabit.com` | ⬜ Pending | High | |
+| 12.3 | Verify domain (TXT record on Cloudflare) | ⬜ Pending | High | Follow GSC instructions |
+| 12.4 | Submit sitemap.xml to GSC | ⬜ Pending | Medium | Sitemaps → Add |
+| 12.5 | Request Indexing (homepage) | ⬜ Pending | High | URL Inspection → Request Indexing |
+| 12.6 | Request Indexing (all pages) | ⬜ Pending | Medium | about, projects, certs, contact, achievements |
+
+---
+
+## Phase 13: SEO On-Page Optimization
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 13.1 | Update `<title>` tag on all pages | ⬜ Pending | High | "Arkan Tsabit - Data Engineer Portfolio" |
+| 13.2 | Update `<meta name="description">` | ⬜ Pending | High | Max 160 characters, include keywords |
+| 13.3 | Update `<meta property="og:title">` | ⬜ Pending | Medium | Open Graph for social media |
+| 13.4 | Update `<meta property="og:description">` | ⬜ Pending | Medium | |
+| 13.5 | Update `<meta property="og:url">` | ⬜ Pending | Medium | `https://arkantsabit.com` |
+| 13.6 | Update JSON-LD structured data | ⬜ Pending | Medium | Person schema in index.html |
+| 13.7 | Ensure H1 contains main keyword | ⬜ Pending | High | Each page must have H1 |
+
+---
+
+## Phase 14: Sitemap and Robots.txt
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 14.1 | Create `sitemap.xml` file in root | ⬜ Pending | High | List all pages (6 pages) |
+| 14.2 | Upload `sitemap.xml` to GitHub | ⬜ Pending | High | Push to repository |
+| 14.3 | Create `robots.txt` file in root | ⬜ Pending | High | Allow all, link to sitemap |
+| 14.4 | Upload `robots.txt` to GitHub | ⬜ Pending | High | Push to repository |
+| 14.5 | Submit sitemap to Google Search Console | ⬜ Pending | Medium | |
+| 14.6 | Submit sitemap to Bing Webmaster | ⬜ Pending | Low | Optional, additional traffic |
+
+---
+
+## Phase 15: Content Optimization
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 15.1 | Keyword "Arkan Tsabit" appears on homepage | ⬜ Pending | High | Minimum 3x (H1, description, footer) |
+| 15.2 | Keyword "Data Engineer" appears on all pages | ⬜ Pending | High | Title, description, content |
+| 15.3 | Project descriptions contain technical keywords | ⬜ Pending | High | ETL, pipeline, data warehouse, cloud |
+| 15.4 | Add alt text to all images | ⬜ Pending | Medium | Image description + keywords |
+| 15.5 | Ensure internal linking across all pages | ⬜ Pending | High | Home → About → Projects → Certifications → Contact |
+
+---
+
+## Phase 16: Backlink Strategy
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 16.1 | Update LinkedIn profile → add link | ⬜ Pending | High | `arkantsabit.com` |
+| 16.2 | Update GitHub bio → add link | ⬜ Pending | High | |
+| 16.3 | Update Medium profile → add link | ⬜ Pending | Medium | |
+| 16.4 | Post in communities (Reddit, Dev.to) | ⬜ Pending | Low | Discuss data engineering topics |
+| 16.5 | Write articles on Medium about projects | ⬜ Pending | Medium | Link to portfolio in articles |
+| 16.6 | Ask friends/mentors to link to website | ⬜ Pending | Low | |
+
+---
+
+## Phase 17: Monitoring and Analytics
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 17.1 | Setup Google Analytics | ⬜ Pending | Medium | https://analytics.google.com |
+| 17.2 | Setup Cloudflare Web Analytics | ⬜ Pending | Medium | Free, no cookies |
+| 17.3 | Monitor Google Search Console (weekly) | ⬜ Pending | High | Check keyword positions |
+| 17.4 | Monitor Core Web Vitals | ⬜ Pending | Medium | Performance, Accessibility, SEO |
+| 17.5 | Check broken links (monthly) | ⬜ Pending | Low | Use tools like Dr. Link Checker |
+
+---
+
+## Phase 18: Maintenance
+
+| No | Task | Status | Priority | Notes |
+|----|------|--------|----------|-------|
+| 18.1 | Renew domain annually | ⬜ Pending | High | Check on Cloudflare |
+| 18.2 | Update content regularly (monthly/quarterly) | ⬜ Pending | Medium | Add new projects, update CV |
+| 18.3 | Submit new URLs to Google Search Console | ⬜ Pending | Medium | Whenever new content is added |
+| 18.4 | Check SSL certificate (auto-renew) | ⬜ Pending | Low | Cloudflare automatic |
+
+---
+
 ## Summary
 
 ### Overall Status
@@ -473,15 +601,23 @@
 | Phase 8: Chatbot | 19 | 19 | 0 | 0 | 100% |
 | Phase 9: Deployment | 11 | 11 | 0 | 0 | 100% |
 | Phase 10: Final Polish | 9 | 7 | 2 | 0 | 78% |
-| **Total** | **231** | **229** | **2** | **0** | **99%** |
+| Phase 11: Domain and Hosting | 6 | 0 | 6 | 0 | 0% |
+| Phase 12: Google Search Console | 6 | 0 | 6 | 0 | 0% |
+| Phase 13: SEO On-Page | 7 | 0 | 7 | 0 | 0% |
+| Phase 14: Sitemap and Robots | 6 | 0 | 6 | 0 | 0% |
+| Phase 15: Content Optimization | 5 | 0 | 5 | 0 | 0% |
+| Phase 16: Backlink Strategy | 6 | 0 | 6 | 0 | 0% |
+| Phase 17: Monitoring | 5 | 0 | 5 | 0 | 0% |
+| Phase 18: Maintenance | 4 | 0 | 4 | 0 | 0% |
+| **Total** | **276** | **229** | **47** | **0** | **83%** |
 
 ### Priority Breakdown
 
 | Priority | Completed | Pending | Total |
 |----------|-----------|---------|-------|
-| High | 142 | 2 | 144 |
-| Medium | 36 | 0 | 36 |
-| Low | 51 | 0 | 51 |
+| High | 142 | 23 | 165 |
+| Medium | 36 | 17 | 53 |
+| Low | 51 | 7 | 58 |
 
 ---
 
@@ -491,6 +627,21 @@
 
 1. **Minify CSS and JavaScript** for production optimization
 2. **Remove console logs** from production code
+3. **Buy `.com` domain** on Cloudflare Registrar (~$10.44/year)
+4. **Setup DNS records** on Cloudflare (A record to GitHub Pages IP)
+5. **Update GitHub Pages** custom domain and CNAME file
+6. **Register for Google Search Console** and verify domain
+7. **Request Indexing** to Google
+
+### Timeline Target
+
+| Milestone | Target Time |
+|-----------|-------------|
+| Domain active | 1 day |
+| Google starts crawling | 1-3 days |
+| Appear on pages 5-10 | 1-2 weeks |
+| Appear on pages 1-3 | 1-3 months |
+| Page 1 on Google | 3-6 months |
 
 ### Quality Checks (Medium Priority)
 
@@ -526,6 +677,7 @@
 - Cloudflare Workers setup is complete with API tokens
 - LLM model testing is ongoing for optimal performance
 - Contact form integrated with Google Sheets
+- Domain and SEO setup pending (Phase 11-18)
 
 ---
 

@@ -1,21 +1,82 @@
-# ARKAN TSABIT - PORTFOLIO WEBSITE BLUEPRINT
+# BLUEPRINT.md
 
-## Document Information
+## Arkan Tsabit Portfolio - Complete Project Documentation
+
+### Document Information
 
 | Property | Value |
 |----------|-------|
-| Version | 2.0.0 |
-| Last Updated | 2026-08-08 |
+| Version | 2.1.0 |
+| Last Updated | 2026-08-09 |
 | Status | Production Ready |
-| Domain | https://arkantsabit123.github.io/arkan-tsabit.github.io/index.html |
+| Domain | https://arkantsabit.com (Pending) |
 | Hosting | GitHub Pages |
 | AI Chatbot | Cloudflare Workers + RAG |
 
 ---
 
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Core Objectives](#core-objectives)
+3. [Target Audience](#target-audience)
+4. [Success Metrics](#success-metrics)
+5. [System Architecture](#system-architecture)
+6. [Technology Stack](#technology-stack)
+7. [Website Structure](#website-structure)
+8. [Color Palette](#color-palette)
+9. [File Structure](#file-structure)
+10. [Page Content Details](#page-content-details)
+11. [Multi-Language Implementation](#multi-language-implementation)
+12. [Dark and Light Mode Implementation](#dark-and-light-mode-implementation)
+13. [RAG Chatbot Implementation](#rag-chatbot-implementation)
+14. [Knowledge Base Structure](#knowledge-base-structure)
+15. [Contact Form Integration](#contact-form-integration)
+16. [Domain Setup](#domain-setup)
+17. [SEO Implementation](#seo-implementation)
+18. [Google Search Console Setup](#google-search-console-setup)
+19. [Google Analytics Setup](#google-analytics-setup)
+20. [Backlink Strategy](#backlink-strategy)
+21. [Deployment Guide](#deployment-guide)
+22. [Performance Optimization](#performance-optimization)
+23. [Accessibility](#accessibility)
+24. [Troubleshooting](#troubleshooting)
+25. [Future Enhancements](#future-enhancements)
+
+---
+
 ## Project Overview
 
-### Core Objectives
+This repository contains the source code for a professional portfolio website showcasing data engineering work. It serves as a comprehensive platform to display projects, certifications, professional experience, and achievements.
+
+### Core Features
+
+- 4 Data Engineering Projects with detailed descriptions and metrics
+- 10 Professional Certifications from Oracle, IBM, and Meta
+- Professional Experience and career transition story
+- Achievements including Oracle Race to Certification (Top 108 Global, Top 3 Indonesia)
+- AI-Powered Chatbot using RAG (Retrieval-Augmented Generation)
+- Multi-Language Support (Indonesian and US English)
+- Dark/Light Mode toggle for optimal viewing
+- Contact Form with Google Sheets integration
+
+### Key Metrics
+
+| Metric | Value |
+|--------|-------|
+| Projects | 4 |
+| Certifications | 10 |
+| Languages | 2 (ID, EN) |
+| Pages | 6 |
+| Chatbot | RAG-powered |
+| Knowledge Base Documents | 30 |
+| Test Questions | 34 |
+| Deployment | GitHub Pages |
+| Contact Form | Google Sheets |
+
+---
+
+## Core Objectives
 
 1. Build a personal portfolio website to showcase data engineering projects.
 2. Display 10 professional certifications from Oracle, IBM, and Meta.
@@ -24,15 +85,20 @@
 5. Highlight achievements including Oracle Race to Certification (Top 108 Global, Top 3 Indonesia).
 6. Support dark and light mode toggle.
 7. Integrate contact form with Google Sheets.
+8. Set up custom domain and SEO optimization for better visibility.
 
-### Target Audience
+---
+
+## Target Audience
 
 - Recruiters and hiring managers.
 - Technical interviewers.
 - Data engineering peers.
 - Potential clients.
 
-### Success Metrics
+---
+
+## Success Metrics
 
 | Metric | Target |
 |--------|--------|
@@ -42,6 +108,8 @@
 | Chatbot Response Time | Under 3 seconds |
 | Mobile Responsiveness | 100 percent across all devices |
 | SEO Score | 90+ on Google Lighthouse |
+| Domain Active | arkantsabit.com |
+| Google Indexing | All pages indexed |
 
 ---
 
@@ -53,7 +121,7 @@
 +---------------------------------------------------------------------------------+
 |                              USER BROWSER                                        |
 |  +-----------------------------------------------------------------------------+|
-|  |  arkan-tsabit.github.io                                                      ||
+|  |  arkantsabit.com (Custom Domain)                                            ||
 |  +-----------------------------------------------------------------------------+|
 |                                     |                                            |
 |                                     v                                            |
@@ -81,6 +149,16 @@
 |  |  |  - Knowledge base: CV, Projects, Certifications                         |||
 |  |  +-------------------------------------------------------------------------+||
 |  +-----------------------------------------------------------------------------+|
+|                                     |                                            |
+|                                     v                                            |
+|  +-----------------------------------------------------------------------------+|
+|  |                         GOOGLE SHEETS                                        ||
+|  |                                                                             ||
+|  |  +-------------------------------------------------------------------------+||
+|  |  |  Contact Form Storage                                                    |||
+|  |  |  - Name, Email, Subject, Message, Date, Time                            |||
+|  |  +-------------------------------------------------------------------------+||
+|  +-----------------------------------------------------------------------------+|
 |                                                                                 |
 +---------------------------------------------------------------------------------+
 ```
@@ -97,23 +175,39 @@
 | Vector Database | Storage | Cloudflare Vectorize | Knowledge base storage |
 | LLM | AI Model | Cloudflare Workers AI | Response generation |
 | Contact Form | Backend | Google Apps Script | Form submission storage |
+| Domain | Registrar | Cloudflare Registrar | Custom domain management |
+| Analytics | Monitoring | Google Analytics | Visitor tracking |
 
 ---
 
 ## Technology Stack
 
-| Layer | Technology | Version | Purpose |
-|-------|-----------|---------|---------|
-| Frontend | HTML5 | HTML Living Standard | Structure |
-| Styling | CSS3 | CSS Level 3 | Styling |
-| JavaScript | Vanilla JS | ECMAScript 2021 (ES12) | Interactivity |
-| Icons | Font Awesome | 6.4.0 | Icons |
-| Font | Inter | Google Fonts API | Typography |
-| Hosting | GitHub Pages | - (Service) | Static site hosting |
-| AI Chatbot | Cloudflare Workers | - (Platform) | RAG question and answer |
-| Vector Database | Cloudflare Vectorize | - (Service) | Knowledge storage |
-| LLM | Cloudflare Workers AI | - (Platform) | Response generation |
-| Contact Form | Google Apps Script | - (Platform) | Form submission storage |
+### Frontend
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| HTML5 | HTML Living Standard | Structure |
+| CSS3 | CSS Level 3 | Styling |
+| JavaScript | ECMAScript 2021 (ES12) | Interactivity |
+| Font Awesome | 6.4.0 | Icons |
+| Inter Font | Google Fonts API | Typography |
+
+### Backend
+
+| Technology | Purpose |
+|------------|---------|
+| Cloudflare Workers | AI Chatbot API |
+| Cloudflare Vectorize | Knowledge base storage (384 dimensions) |
+| Cloudflare Workers AI | Embedding generation + LLM responses |
+| Google Apps Script | Contact form backend |
+
+### Deployment
+
+| Technology | Purpose |
+|------------|---------|
+| GitHub Pages | Static site hosting |
+| Cloudflare | Worker hosting |
+| Cloudflare Registrar | Domain registration (Pending) |
 
 ---
 
@@ -337,9 +431,12 @@ arkan-tsabit.github.io/
 +-- blueprint.md
 +-- cheatsheets.md
 +-- checklist.md
++-- CHANGELOG.md
 +-- checker.py
 +-- structure.py
 +-- CNAME
++-- sitemap.xml (Pending)
++-- robots.txt (Pending)
 ```
 
 ---
@@ -797,6 +894,217 @@ function doPost(e) {
 
 ---
 
+## Domain Setup
+
+### Cloudflare Registrar Setup
+
+1. **Buy Domain**: Purchase `arkantsabit.com` on Cloudflare Registrar (~$10.44/year)
+2. **DNS Records**: Configure A record pointing to GitHub Pages IP
+3. **CNAME File**: Create CNAME file with `arkantsabit.com`
+4. **GitHub Pages**: Update custom domain in Settings → Pages
+5. **HTTPS**: Enforce HTTPS in GitHub Pages settings
+
+### DNS Configuration
+
+| Record Type | Name | Value | TTL |
+|-------------|------|-------|-----|
+| A | @ | 185.199.108.153 | Auto |
+| A | @ | 185.199.109.153 | Auto |
+| A | @ | 185.199.110.153 | Auto |
+| A | @ | 185.199.111.153 | Auto |
+| CNAME | www | arkan-tsabit.github.io | Auto |
+
+---
+
+## SEO Implementation
+
+### Meta Tags
+
+| Tag | Content |
+|-----|---------|
+| Title | Arkan Tsabit - Data Engineer Portfolio |
+| Description | Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects. Certified Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer. |
+| Keywords | Data Engineer, ETL Pipeline, Data Warehouse, Cloud Architecture, Oracle, IBM, Meta |
+
+### Open Graph Tags
+
+```html
+<meta property="og:title" content="Arkan Tsabit - Data Engineer Portfolio" />
+<meta property="og:description" content="Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://arkantsabit.com" />
+<meta property="og:image" content="https://arkantsabit.com/assets/images/profile.jpg" />
+```
+
+### Twitter Card Tags
+
+```html
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Arkan Tsabit - Data Engineer Portfolio" />
+<meta name="twitter:description" content="Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects." />
+<meta name="twitter:image" content="https://arkantsabit.com/assets/images/profile.jpg" />
+```
+
+### JSON-LD Structured Data
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Arkan Tsabit",
+  "jobTitle": "Data Engineer",
+  "url": "https://arkantsabit.com",
+  "email": "arkantsabit025@gmail.com",
+  "sameAs": [
+    "https://github.com/ArkanTsabit123",
+    "https://www.linkedin.com/in/arkan-tsabit-0b12b9407/"
+  ],
+  "knowsAbout": [
+    "Data Engineering",
+    "ETL Pipelines",
+    "Data Warehousing",
+    "Cloud Architecture",
+    "SQL",
+    "Python"
+  ]
+}
+</script>
+```
+
+### Sitemap.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://arkantsabit.com/</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://arkantsabit.com/about.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arkantsabit.com/projects.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://arkantsabit.com/certifications.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://arkantsabit.com/achievements.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://arkantsabit.com/contact.html</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
+```
+
+### Robots.txt
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://arkantsabit.com/sitemap.xml
+```
+
+---
+
+## Google Search Console Setup
+
+### Steps
+
+1. **Register**: Go to https://search.google.com/search-console
+2. **Add Property**: Domain → `arkantsabit.com`
+3. **Verify Domain**: Add TXT record in Cloudflare DNS
+4. **Submit Sitemap**: Sitemaps → Add → `sitemap.xml`
+5. **Request Indexing**: URL Inspection → Request Indexing for each page
+
+### Pages to Index
+
+1. Homepage: `https://arkantsabit.com/`
+2. About: `https://arkantsabit.com/about.html`
+3. Projects: `https://arkantsabit.com/projects.html`
+4. Certifications: `https://arkantsabit.com/certifications.html`
+5. Achievements: `https://arkantsabit.com/achievements.html`
+6. Contact: `https://arkantsabit.com/contact.html`
+
+---
+
+## Google Analytics Setup
+
+### GA4 Configuration
+
+1. **Create Account**: https://analytics.google.com
+2. **Create Property**: GA4 property for `arkantsabit.com`
+3. **Get Measurement ID**: G-XXXXXXXXXX
+4. **Add Tracking Code** to all pages:
+
+```javascript
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+### Events to Track
+
+| Event | Trigger |
+|-------|---------|
+| Page View | Every page load |
+| Theme Toggle | Click on dark/light mode button |
+| Language Switch | Click on EN/ID button |
+| Chatbot Open | Click on chatbot icon |
+| Chatbot Message | Send message in chatbot |
+| Contact Form Submit | Submit contact form |
+| Project Click | Click on project card |
+| Certification Verify | Click on verify button |
+
+---
+
+## Backlink Strategy
+
+### Platforms to Update
+
+| Platform | Action |
+|----------|--------|
+| LinkedIn | Add `arkantsabit.com` to profile |
+| GitHub | Add `arkantsabit.com` to bio |
+| Medium | Add `arkantsabit.com` to profile |
+| Dev.to | Add `arkantsabit.com` to profile |
+| Reddit | Share projects with link |
+| Kaskus | Discuss data engineering with link |
+
+### Content Strategy
+
+1. Write articles on Medium about data engineering projects
+2. Create tutorials on ETL pipelines and data warehousing
+3. Share project demos on YouTube
+4. Post on LinkedIn about certifications and achievements
+5. Participate in data engineering communities
+
+---
+
 ## Deployment Guide
 
 ### Step 1: GitHub Pages Setup
@@ -851,7 +1159,7 @@ EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 | Technique | Implementation |
 |-----------|----------------|
 | Lazy Loading | Images load on scroll |
-| Minification | CSS and JavaScript minified |
+| Minification | CSS and JavaScript minified (Pending) |
 | CDN | Font Awesome and Google Fonts via CDN |
 | Caching | Browser cache for static assets |
 | Compression | Gzip and Brotli compression |
@@ -859,17 +1167,14 @@ EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 | Vector Search | Top K limited to 5 matches |
 | LLM Tokens | Limited to 250 tokens for faster response |
 
----
+### Lighthouse Targets
 
-## SEO Strategy
-
-| Element | Implementation |
-|---------|----------------|
-| Title | Arkan Tsabit - Data Engineer Portfolio |
-| Description | Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects. |
-| Open Graph | Social media preview cards |
-| Twitter Card | Summary large image |
-| Schema Markup | Person, Project, Certification JSON-LD |
+| Metric | Target |
+|--------|--------|
+| Performance | 90+ |
+| Accessibility | 95+ |
+| Best Practices | 95+ |
+| SEO | 100 |
 
 ---
 
@@ -898,6 +1203,8 @@ EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 | LLM model deprecated | Update model in `worker.js` |
 | Vectorize index empty | Check `stored_vectors` in dashboard |
 | Contact form not working | Check Google Apps Script deployment and permissions |
+| Domain not resolving | Check DNS records and Cloudflare configuration |
+| SEO not indexed | Check robots.txt and sitemap.xml |
 
 ---
 
@@ -910,7 +1217,9 @@ EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 | Interactive Charts | Low | Medium |
 | Newsletter Signup | Low | Low |
 | Real-time Analytics Dashboard | Low | High |
-| Custom Domain | Medium | Low |
+| Custom Domain | High | Low (Pending) |
+| SEO Optimization | High | Medium (Pending) |
+| CSS/JS Minification | High | Low (Pending) |
 
 ---
 
@@ -918,13 +1227,31 @@ EMBEDDING_MODEL=@cf/baai/bge-small-en-v1.5
 
 | Resource | URL |
 |----------|-----|
-| Website | https://arkan-tsabit.github.io |
+| Website | https://arkantsabit123.github.io/arkan-tsabit.github.io/ |
+| Domain | https://arkantsabit.com (Pending) |
 | GitHub | https://github.com/ArkanTsabit123 |
-| LinkedIn | https://linkedin.com/in/arkan-tsabit |
+| LinkedIn | https://www.linkedin.com/in/arkan-tsabit-0b12b9407/ |
 | Worker | https://arkan-chatbot.arkan-chatbot.workers.dev |
 | Health Check | https://arkan-chatbot.arkan-chatbot.workers.dev/health |
 | Cloudflare Dashboard | https://dash.cloudflare.com |
 | Google Sheets | https://docs.google.com/spreadsheets/d/1zcck8oaWyw5aWOpNl4JqstaLFYhjMvh_aNvrr0adqAg/edit |
+| Google Search Console | https://search.google.com/search-console |
+| Google Analytics | https://analytics.google.com |
+
+---
+
+## Domain & SEO Setup Checklist
+
+| Phase | Status | Progress |
+|-------|--------|----------|
+| Phase 1: Domain & Hosting Setup | Pending | 0% |
+| Phase 2: Google Search Console Setup | Pending | 0% |
+| Phase 3: SEO On-Page Optimization | Pending | 0% |
+| Phase 4: Sitemap & Robots.txt | Pending | 0% |
+| Phase 5: Content Optimization | Pending | 0% |
+| Phase 6: Backlink Strategy | Pending | 0% |
+| Phase 7: Monitoring & Analytics | Pending | 0% |
+| Phase 8: Maintenance | Pending | 0% |
 
 ---
 

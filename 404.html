@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found - Arkan Tsabit</title>
+    <meta name="description" content="Page not found - Arkan Tsabit Data Engineer Portfolio" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,8 +12,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
+
+    <!-- ============================================================
+    HEADER / NAVIGATION
+    ============================================================ -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Home">
+                    <img src="assets/images/logo.ico" alt="Arkan Tsabit Logo" class="logo-img" />
+                </a>
+            </div>
+
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="certifications.html" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="achievements.html" class="nav-link" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT - ERROR PAGE
+    ============================================================ -->
     <main class="error-page">
         <div class="container error-container">
             <div class="error-content">
@@ -26,6 +70,41 @@
             </div>
         </div>
     </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Arkan Tsabit.
+                <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
+            </p>
+            <div class="footer-links">
+                <a href="docs.html" class="footer-doc-link">
+                    <i class="fas fa-book"></i> Documentation
+                </a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/arkan-tsabit-0b12b9407/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="js/main.js"></script>
+    <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
+
 </body>
 </html>

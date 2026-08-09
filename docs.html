@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation - Arkan Tsabit</title>
+    <meta name="description" content="Complete documentation for Arkan Tsabit Portfolio website." />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+        /* Additional styles for docs page */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .doc-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .doc-card .doc-icon {
+            font-size: var(--font-size-2xl);
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .doc-card h3 {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .doc-card .doc-description {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .doc-card .doc-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--font-size-xs);
+            color: var(--text-muted);
+        }
+
+        .doc-card .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .doc-card .doc-link:hover {
+            color: var(--accent-blue-hover);
+        }
+
+        .doc-card .doc-link i {
+            font-size: var(--font-size-xs);
+        }
+
+        .doc-card .badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: 600;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .doc-card .badge.primary {
+            background: var(--accent-blue);
+            color: var(--white);
+            border-color: var(--accent-blue);
+        }
+
+        .doc-card .badge.green {
+            background: var(--accent-green);
+            color: var(--white);
+            border-color: var(--accent-green);
+        }
+
+        .docs-intro {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+        }
+
+        .docs-intro p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+        }
+
+        .docs-intro .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            padding: 0.5rem 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .docs-intro .github-link:hover {
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+        }
+
+        .docs-intro .github-link i {
+            color: var(--accent-blue);
+        }
+
+        @media (max-width: 768px) {
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="header" role="banner">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Home">
+                    <img src="assets/images/logo.ico" alt="Arkan Tsabit Logo" class="logo-img" />
+                </a>
+            </div>
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list" id="navList">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="certifications.html" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="achievements.html" class="nav-link" data-i18n="nav.achievements">Achievements</a></li>
+                    <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+    <main>
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Documentation</h1>
+                <p>Complete project documentation for Arkan Tsabit Portfolio</p>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="docs-intro">
+            <div class="container">
+                <p>
+                    This page lists all documentation files for the Arkan Tsabit Portfolio project.
+                    Click on any document to view it on GitHub.
+                </p>
+                <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/tree/main/docs" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> View All Docs on GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- DOCS GRID -->
+        <section>
+            <div class="container">
+                <div class="docs-grid">
+
+                    <!-- INDEX.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <h3>INDEX.md</h3>
+                        <p class="doc-description">
+                            Central navigation hub for all documentation. Use this to find the right file for your needs.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge primary">Navigation</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/INDEX.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- blueprint.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>blueprint.md</h3>
+                        <p class="doc-description">
+                            Complete project documentation and specifications. The primary document for understanding the project end to end.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge primary">Overview</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/blueprint.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- TECHNICAL.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>TECHNICAL.md</h3>
+                        <p class="doc-description">
+                            Architecture, API, and performance documentation. Deep dive into how the system works.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge">Technical</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/TECHNICAL.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- OPERATIONS.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>OPERATIONS.md</h3>
+                        <p class="doc-description">
+                            Maintenance, costs, and security documentation. Operational guide for running the system.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge">Operations</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/OPERATIONS.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GUIDE.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>GUIDE.md</h3>
+                        <p class="doc-description">
+                            User flows and contribution guidelines. For end users and open source contributors.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge">Guide</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/GUIDE.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CHECKLIST.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h3>CHECKLIST.md</h3>
+                        <p class="doc-description">
+                            Project progress tracking with 276 tasks across 18 phases. See what's done and what's pending.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge green">Tracking</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/CHECKLIST.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CHANGELOG.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>CHANGELOG.md</h3>
+                        <p class="doc-description">
+                            Version history and release notes. All notable changes from initial release to present.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge">History</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/CHANGELOG.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- cheatsheets.md -->
+                    <div class="doc-card">
+                        <div class="doc-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3>cheatsheets.md</h3>
+                        <p class="doc-description">
+                            Quick reference and commands. Daily development commands, Git, Cloudflare, testing, and more.
+                        </p>
+                        <div class="doc-meta">
+                            <span class="badge">Reference</span>
+                            <a href="https://github.com/ArkanTsabit123/arkan-tsabit.github.io/blob/main/docs/cheatsheets.md" target="_blank" class="doc-link">
+                                View <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer-container">
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Arkan Tsabit.
+                <span data-i18n="footer.credit">Data Engineer | Cloud Data Engineer</span>
+            </p>
+            <div class="footer-links">
+                <a href="docs.html" class="footer-doc-link">
+                    <i class="fas fa-book"></i> Documentation
+                </a>
+            </div>
+            <div class="footer-social">
+                <a href="https://github.com/ArkanTsabit123" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/arkan-tsabit-0b12b9407/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arkantsabit025@gmail.com" target="_blank" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="js/main.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/i18n.js"></script>
+
+</body>
+</html>
