@@ -180,6 +180,7 @@ exports/
 debug_log_*.json
 phase*_verification.json
 phase*_verification_report.txt
+checker_results.json
 
 # Local utility scripts (optional - keep structure.py if needed)
 structure.py
@@ -192,6 +193,11 @@ docs/diagrams/*.drawio
 docs/diagrams/*.dbml
 docs/diagrams/*.mwb
 !docs/diagrams/*.pdf
+
+# PDF files (CV, Job Application - binary)
+docs/CV/*.pdf
+docs/Job-Application/*.pdf
+*.pdf
 
 # ============================================================
 # CHATBOT SPECIFIC
@@ -215,7 +221,7 @@ chatbot/node_modules/
 # ============================================================
 
 # !checker.py
-# !structure.py 
+# !structure.py
 
 # ============================================================
 # SECRETS (DON'T PUBLISH!)
@@ -229,16 +235,12 @@ secrets.py
 *.secret
 credentials.json
 
-# .gitignore
+# ============================================================
+# DOCUMENTATION (PRIVATE - LOCAL ONLY)
+# ============================================================
+
+# All markdown files in docs/
+docs/*.md
+
+# Documentation HTML page (local only)
 docs.html
-
-
-# Documentation files (hide from public - local only)
-docs/BLUEPRINT.md
-docs/CHANGELOG.md
-docs/CHEATSHEETS.md
-docs/CHECKLIST.md
-docs/GUIDE.md
-docs/INDEX.md
-docs/OPERATIONS.md
-docs/TECHNICAL.md
