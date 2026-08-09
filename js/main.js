@@ -104,5 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    console.log('Arkan Tsabit Portfolio - Loaded Successfully');
 });

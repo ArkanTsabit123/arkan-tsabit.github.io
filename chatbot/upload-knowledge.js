@@ -150,5 +150,3 @@ const knowledgeData = {
 
 const outputPath = join(process.cwd(), 'knowledge-upload.json');
 writeFileSync(outputPath, JSON.stringify(knowledgeData, null, 2));
-console.log(`Saved ${knowledgeData.documents.length} documents to ${outputPath}`);
-console.log('Now run: npx wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.json');

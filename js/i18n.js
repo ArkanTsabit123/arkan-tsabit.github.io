@@ -107,5 +107,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     initLanguage();
 
-    console.log('i18n: Initialized');
 });

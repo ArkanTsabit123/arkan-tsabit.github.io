@@ -19,7 +19,3 @@ const ndjsonContent = jsonData.documents.map(doc => {
 const outputPath = join(process.cwd(), 'knowledge-upload.ndjson');
 writeFileSync(outputPath, ndjsonContent, 'utf-8');
 
-console.log(`✅ Converted ${jsonData.documents.length} documents to NDJSON`);
-console.log(`📄 File: ${outputPath}`);
-console.log('\nNext step:');
-console.log('npx wrangler vectorize insert arkan-knowledge-base --file knowledge-upload.ndjson');

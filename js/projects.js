@@ -133,5 +133,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     fetchProjects();
 
-    console.log('Projects: Initialized');
 });

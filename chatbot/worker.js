@@ -81,10 +81,8 @@ async function handleChatRequest(request, env) {
         }
 
         const searchResults = await queryVectorize(embedding, env);
-        console.log('Vectorize matches:', searchResults.matches?.length || 0);
 
         const context = buildContext(searchResults);
-        console.log('Context built:', context ? 'YES' : 'NO');
 
         if (!context) {
             return createDefaultResponse();
@@ -126,12 +124,8 @@ async function queryVectorize(embedding, env) {
         });
         
         // Debug logging
-        console.log('Query result matches:', result.matches?.length || 0);
         if (result.matches && result.matches.length > 0) {
-            console.log('First match ID:', result.matches[0].id);
-            console.log('First match score:', result.matches[0].score);
             if (result.matches[0].metadata) {
-                console.log('First match metadata keys:', Object.keys(result.matches[0].metadata));
             }
         }
         
@@ -151,7 +145,6 @@ function buildContext(searchResults) {
     const contents = [];
 
     for (const match of searchResults.matches) {
-        console.log(`Processing match: id=${match.id}, score=${match.score}`);
         
         let content = '';
 
@@ -187,7 +180,6 @@ function buildContext(searchResults) {
         // Add to contents if we have meaningful content
         if (content && content.length > 0) {
             contents.push(content);
-            console.log(`Added content (${content.length} chars): ${content.substring(0, 100)}...`);
         }
     }
 
@@ -197,7 +189,6 @@ function buildContext(searchResults) {
     }
 
     const context = contents.join('\n\n');
-    console.log(`Context built with ${contents.length} items, total ${context.length} chars`);
     return context;
 }
 

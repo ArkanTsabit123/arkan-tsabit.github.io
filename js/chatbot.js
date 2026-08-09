@@ -164,5 +164,4 @@ document.addEventListener('DOMContentLoaded', function() {
     chatbotWidget.classList.remove('open');
     chatbotToggle.style.display = 'flex';
 
-    console.log('Chatbot: Initialized');
 });
