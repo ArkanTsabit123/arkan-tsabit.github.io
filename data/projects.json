@@ -4,27 +4,21 @@
       "id": "batchetl",
       "name": "BatchETL Pipeline",
       "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
-      "metrics": {
-        "rows": "2.96M",
-        "execution": "<30s",
-        "quality": "100%"
-      },
-      "stack": ["Airflow", "PostgreSQL", "Streamlit", "Docker"],
-      "tags": ["airflow", "postgresql", "streamlit", "docker", "python"],
+      "tech_stack": "Apache Airflow · PostgreSQL · Docker · Python · Pandas · Streamlit · Plotly",
+      "results": "2.96M rows processed | <30s execution | 100% data quality | 20M+ rows in database | Live dashboard",
+      "stack": ["Airflow", "PostgreSQL", "Docker", "Python", "Pandas", "Streamlit", "Plotly"],
+      "tags": ["airflow", "postgresql", "docker", "python", "streamlit"],
       "github": "https://github.com/ArkanTsabit123/BatchETL-Pipeline",
-      "demo": null,
+      "demo": "https://batchetl.streamlit.app",
       "image": "assets/images/projects/batchetl/dashboard.png"
     },
     {
       "id": "uber",
       "name": "Uber Data Pipeline",
       "description": "End-to-end ETL pipeline for NYC Uber/Taxi trip data with star schema data warehouse and interactive dashboard.",
-      "metrics": {
-        "dim_tables": "4",
-        "fact_tables": "1",
-        "charts": "4"
-      },
-      "stack": ["Airflow", "DuckDB", "Streamlit", "Docker"],
+      "tech_stack": "Apache Airflow · DuckDB · Streamlit · Docker · Python · Pandas",
+      "results": "Star schema with 4 dimension tables and 1 fact table. Interactive dashboard with 4 charts and real-time filtering.",
+      "stack": ["Airflow", "DuckDB", "Streamlit", "Docker", "Python", "Pandas"],
       "tags": ["airflow", "duckdb", "streamlit", "docker", "python"],
       "github": "https://github.com/ArkanTsabit123/uber-data-pipeline",
       "demo": null,
@@ -34,12 +28,9 @@
       "id": "amazon",
       "name": "Amazon Web Scraping",
       "description": "Python-based web scraping pipeline for extracting product data from Amazon search results with automated data cleaning and export.",
-      "metrics": {
-        "fields": "5",
-        "success": "95%+",
-        "speed": "2-5s"
-      },
-      "stack": ["Python", "BeautifulSoup", "Requests", "Pandas"],
+      "tech_stack": "Python · BeautifulSoup · Requests · Pandas · Jupyter",
+      "results": "Extracts 5 data points per product with 95%+ success rate. Automated data cleaning and CSV export.",
+      "stack": ["Python", "BeautifulSoup", "Requests", "Pandas", "Jupyter"],
       "tags": ["python", "scraping", "pandas"],
       "github": "https://github.com/ArkanTsabit123/Amazon-Web-Scrapping",
       "demo": null,
@@ -49,12 +40,9 @@
       "id": "expense",
       "name": "Daily Expense Tracker",
       "description": "Complete expense tracking application with dual interfaces (CLI + GUI), budget management, recurring expenses, and data visualization.",
-      "metrics": {
-        "tests": "277",
-        "pass_rate": "100%",
-        "tables": "5"
-      },
-      "stack": ["Python", "SQLite", "Tkinter", "Matplotlib"],
+      "tech_stack": "Python · SQLite · Tkinter · Matplotlib · Pandas",
+      "results": "277 test cases with 100% pass rate. 5 database tables with optimized indexes for fast queries.",
+      "stack": ["Python", "SQLite", "Tkinter", "Matplotlib", "Pandas"],
       "tags": ["python", "sqlite", "gui", "cli"],
       "github": "https://github.com/ArkanTsabit123/Daily-Expense-Tracker",
       "demo": null,

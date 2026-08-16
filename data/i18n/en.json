@@ -1,108 +1,113 @@
 {
-    "nav": {
-        "home": "Home",
-        "about": "About Me",
-        "projects": "Projects",
-        "certifications": "Certifications",
-        "achievements": "Achievements",
-        "contact": "Contact"
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "achievements": "Achievements",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Available for Opportunities",
+    "greeting": "Hello, I'm",
+    "title": "Data Engineer | Cloud Data Engineer",
+    "tagline": "Hi, I'm Arkan — Data Engineer with expertise in ETL pipelines, data warehousing, and cloud architecture. Certified Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer.",
+    "subtagline": "I am also proficient in modern data engineering tools and technologies, including:",
+    "metrics": {
+      "certs": "Professional Certifications",
+      "achievement": "Achievement",
+      "projects": "Data Projects",
+      "experience": "Work Experience"
     },
-    "hero": {
-        "badge": "Available for Opportunities",
-        "greeting": "Hello, I'm",
-        "title": "Data Engineer | Cloud Data Engineer",
-        "tagline": "Hi, I'm Arkan — Data Engineer with expertise in ETL pipelines, data warehousing, and cloud architecture. Certified Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer.",
-        "subtagline": "I am also proficient in modern data engineering tools and technologies, including:",
-        "metrics": {
-            "certs": "Professional Certifications",
-            "achievement": "Achievement",
-            "projects": "Data Projects",
-            "experience": "Work Experience"
-        },
-        "cta_projects": "View Projects",
-        "cta_cv": "Download CV",
-        "cta_contact": "Contact Me"
+    "cta_projects": "View Projects",
+    "cta_contact": "Contact Me"
+  },
+  "featured": {
+    "title": "Featured Project",
+    "subtitle": "My most comprehensive data engineering work",
+    "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
+    "cta": "View All Projects"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with",
+    "cloud": "Cloud & Data Architecture",
+    "engineering": "Data Engineering",
+    "databases": "Databases",
+    "visualization": "Visualization & Tools"
+  },
+  "certs": {
+    "title": "Certifications",
+    "subtitle": "10 professional certifications from industry leaders",
+    "oracle_desc": "8 professional certifications in cloud architecture, AI, and database services",
+    "ibm_desc": "Professional certificate in data engineering",
+    "meta_desc": "Professional certificate in database engineering",
+    "cta": "View All Certifications"
+  },
+  "chatbot": {
+    "title": "Ask Arkan's AI",
+    "description": "Have questions about my experience, projects, or skills? Chat with my AI assistant to learn more.",
+    "cta": "Open Chat"
+  },
+  "footer": {
+    "credit": "Data Engineer | Cloud Data Engineer"
+  },
+  "about": {
+    "page_title": "About Me",
+    "page_subtitle": "Get to know the person behind the data",
+    "who_am_i": "Who I Am",
+    "bio_1": "I am a Data Engineer with hands-on experience building production-ready ETL pipelines that process 2.96M+ records in under 30 seconds with 100% data quality. I specialize in data warehousing, dimensional modeling, and data integration.",
+    "bio_2": "I transitioned from IT infrastructure and network engineering to data engineering through intensive self-study and hands-on projects. My background in IT operations gives me a unique perspective on system reliability and data pipeline performance.",
+    "bio_3": "I am certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer. I am passionate about building scalable and reliable data solutions that turn raw data into actionable insights.",
+    "stats": {
+      "projects": "Data Projects",
+      "certs": "Certifications",
+      "rows": "Records Processed",
+      "domains": "Industries"
     },
-    "featured": {
-        "title": "Featured Project",
-        "subtitle": "My most comprehensive data engineering work",
-        "description": "End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.",
-        "cta": "View All Projects"
-    },
-    "skills": {
-        "title": "Technical Skills",
-        "subtitle": "Technologies and tools I work with",
-        "cloud": "Cloud & Data Architecture",
-        "engineering": "Data Engineering",
-        "databases": "Databases",
-        "visualization": "Visualization & Tools"
-    },
-    "certs": {
-        "title": "Certifications",
-        "subtitle": "10 professional certifications from industry leaders",
-        "oracle_desc": "8 professional certifications in cloud architecture, AI, and database services",
-        "ibm_desc": "Professional certificate in data engineering",
-        "meta_desc": "Professional certificate in database engineering",
-        "cta": "View All Certifications"
-    },
-    "chatbot": {
-        "title": "Ask Arkan's AI",
-        "description": "Have questions about my experience, projects, or skills? Chat with my AI assistant to learn more.",
-        "cta": "Open Chat"
-    },
-    "footer": {
-        "credit": "Data Engineer | Cloud Data Engineer"
-    },
-    "about": {
-        "page_title": "About Me",
-        "page_subtitle": "Get to know the person behind the data",
-        "who_am_i": "Who I Am",
-        "bio_1": "I am a Data Engineer with hands-on experience building production-ready ETL pipelines that process 2.96M+ records in under 30 seconds with 100% data quality. I specialize in data warehousing, dimensional modeling, and data integration.",
-        "bio_2": "I transitioned from IT infrastructure and network engineering to data engineering through intensive self-study and hands-on projects. My background in IT operations gives me a unique perspective on system reliability and data pipeline performance.",
-        "bio_3": "I am certified as an Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer. I am passionate about building scalable and reliable data solutions that turn raw data into actionable insights.",
-        "stats": {
-            "projects": "Data Projects",
-            "certs": "Certifications",
-            "rows": "Records Processed",
-            "domains": "Industries"
-        },
-        "work_title": "Working Experience",
-        "work_subtitle": "From IT infrastructure to data engineering",
-        "skills_title": "Technical Skills",
-        "skills_subtitle": "Technologies and tools I work with"
-    },
-    "projects": {
-        "page_title": "Projects",
-        "page_subtitle": "End-to-end data engineering projects built with industry-standard tools",
-        "filter": {
-            "all": "All",
-            "airflow": "Airflow",
-            "postgresql": "PostgreSQL",
-            "python": "Python",
-            "docker": "Docker",
-            "streamlit": "Streamlit"
-        }
-    },
-    "achievements": {
-        "page_title": "Achievements",
-        "page_subtitle": "Recognition and awards from my professional journey"
-    },
-    "contact": {
-        "page_title": "Contact",
-        "page_subtitle": "Get in touch for opportunities and collaborations",
-        "connect_title": "Let's Connect",
-        "connect_desc": "I am always open to new opportunities, collaborations, and conversations about data engineering, cloud architecture, and data-driven solutions.",
-        "form_title": "Send Me a Message",
-        "form_desc": "I'll get back to you as soon as possible.",
-        "form_name": "Your Name",
-        "form_email": "Your Email",
-        "form_subject": "Subject",
-        "form_message": "Message",
-        "form_send": "Send Message"
-    },
-    "error": {
-        "title": "Page Not Found",
-        "description": "The page you are looking for does not exist or has been moved.",
-        "cta": "Return Home"
+    "work_title": "Working Experience",
+    "work_subtitle": "From IT infrastructure to data engineering",
+    "skills_title": "Technical Skills",
+    "skills_subtitle": "Technologies and tools I work with"
+  },
+  "projects": {
+    "page_title": "Projects",
+    "page_subtitle": "End-to-end data engineering projects built with industry-standard tools",
+    "filter": {
+      "all": "All",
+      "airflow": "Airflow",
+      "postgresql": "PostgreSQL",
+      "python": "Python",
+      "docker": "Docker",
+      "streamlit": "Streamlit"
     }
+  },
+  "achievements": {
+    "page_title": "Achievements",
+    "page_subtitle": "Recognition and awards from my professional journey"
+  },
+  "contact": {
+    "page_title": "Contact",
+    "page_subtitle": "Get in touch for opportunities and collaborations",
+    "connect_title": "Let's Connect",
+    "connect_desc": "I am always open to new opportunities, collaborations, and conversations about data engineering, cloud architecture, and data-driven solutions.",
+    "form_title": "Send Me a Message",
+    "form_desc": "I'll get back to you as soon as possible.",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_subject": "Subject",
+    "form_message": "Message",
+    "form_send": "Send Message"
+  },
+  "error": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "cta": "Return Home"
+  },
+  "common": {
+    "loading": "Loading achievements...",
+    "error_loading": "Unable to load achievements. Please try again later.",
+    "retry": "Retry",
+    "learn_more": "Learn More"
+  }
 }

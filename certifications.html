@@ -8,15 +8,99 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-on-load-delay-1 { animation-delay: 0.1s; }
+        .animate-on-load-delay-2 { animation-delay: 0.2s; }
+        .animate-on-load-delay-3 { animation-delay: 0.3s; }
+        .animate-on-load-delay-4 { animation-delay: 0.4s; }
+        .animate-on-load-delay-5 { animation-delay: 0.5s; }
+
+        .cert-item {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+        .cert-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 15px 35px -12px rgba(37, 99, 235, 0.2);
+        }
+
+        .cert-provider-logo {
+            transition: transform 0.4s ease;
+        }
+        .cert-provider:hover .cert-provider-logo {
+            transform: scale(1.08);
+        }
+
+        .cert-verify-btn {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .cert-verify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.4);
+        }
+
+        .stat-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-item:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.2);
+        }
+        .stat-number {
+            transition: color 0.3s ease;
+        }
+        .stat-item:hover .stat-number {
+            color: var(--accent-blue-hover);
+        }
+
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--radius-full);
+        }
+
+        [data-theme="dark"] .cert-item:hover {
+            box-shadow: 0 15px 35px -12px rgba(59, 130, 246, 0.3);
+        }
+        [data-theme="dark"] .stat-item:hover {
+            box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        .cert-provider {
+            cursor: default;
+        }
+
+        @media (max-width: 768px) {
+            .cert-item:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -52,19 +136,16 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
 
-        <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header animate-on-load">
             <div class="container">
                 <h1 data-i18n="certs.page_title">Certifications</h1>
                 <p data-i18n="certs.page_subtitle">10 professional certifications from industry leaders</p>
             </div>
         </section>
 
-        <!-- Oracle Certifications -->
-        <section class="cert-section">
+        <section class="cert-section animate-on-load animate-on-load-delay-1">
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/oracle.png" alt="Oracle" class="cert-provider-logo" />
@@ -82,8 +163,7 @@
             </div>
         </section>
 
-        <!-- IBM Certification -->
-        <section class="cert-section">
+        <section class="cert-section animate-on-load animate-on-load-delay-2">
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/ibm.png" alt="IBM" class="cert-provider-logo" />
@@ -101,8 +181,7 @@
             </div>
         </section>
 
-        <!-- Meta Certification -->
-        <section class="cert-section">
+        <section class="cert-section animate-on-load animate-on-load-delay-3">
             <div class="container">
                 <div class="cert-provider">
                     <img src="assets/images/certifications/meta.png" alt="Meta" class="cert-provider-logo" />
@@ -120,23 +199,22 @@
             </div>
         </section>
 
-        <!-- Certification Stats -->
         <section class="cert-stats">
             <div class="container">
                 <div class="stats-grid">
-                    <div class="stat-item">
+                    <div class="stat-item animate-on-load animate-on-load-delay-1">
                         <span class="stat-number">8</span>
                         <span class="stat-label">Oracle</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-on-load animate-on-load-delay-2">
                         <span class="stat-number">1</span>
                         <span class="stat-label">IBM</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-on-load animate-on-load-delay-3">
                         <span class="stat-number">1</span>
                         <span class="stat-label">Meta</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-on-load animate-on-load-delay-4">
                         <span class="stat-number">10</span>
                         <span class="stat-label">Total</span>
                     </div>
@@ -146,7 +224,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
@@ -180,44 +257,41 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('data/certifications.json')
-                .then(response => {
+                .then(function(response) {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
                     return response.json();
                 })
-                .then(data => {
+                .then(function(data) {
                     if (!data.certifications || data.certifications.length === 0) {
                         throw new Error('No certifications data found');
                     }
-                    
-                    const certs = data.certifications;
-                    const oracleCerts = certs.filter(c => c.provider === 'Oracle');
-                    const ibmCerts = certs.filter(c => c.provider === 'IBM');
-                    const metaCerts = certs.filter(c => c.provider === 'Meta');
+
+                    var certs = data.certifications;
+                    var oracleCerts = certs.filter(function(c) { return c.provider === 'Oracle'; });
+                    var ibmCerts = certs.filter(function(c) { return c.provider === 'IBM'; });
+                    var metaCerts = certs.filter(function(c) { return c.provider === 'Meta'; });
 
                     renderCertGrid('oracleCerts', oracleCerts);
                     renderCertGrid('ibmCerts', ibmCerts);
                     renderCertGrid('metaCerts', metaCerts);
                 })
-                .catch(error => {
+                .catch(function(error) {
                     console.error('Error loading certifications:', error);
-                    const containers = ['oracleCerts', 'ibmCerts', 'metaCerts'];
-                    containers.forEach(id => {
+                    var containers = ['oracleCerts', 'ibmCerts', 'metaCerts'];
+                    containers.forEach(function(id) {
                         document.getElementById(id).innerHTML = `
                             <div class="error-message" style="grid-column: 1 / -1;">
                                 <i class="fas fa-exclamation-circle"></i>
                                 <p>Unable to load certifications. Please try again later.</p>
-                                <button class="btn btn-secondary btn-sm" onclick="location.reload()" style="margin-top: var(--spacing-md);">
-                                    <i class="fas fa-redo"></i> Retry
-                                </button>
                             </div>
                         `;
                     });
                 });
 
             function renderCertGrid(elementId, certs) {
-                const container = document.getElementById(elementId);
+                var container = document.getElementById(elementId);
                 if (!container) return;
 
                 if (certs.length === 0) {
@@ -229,20 +303,26 @@
                     return;
                 }
 
-                container.innerHTML = certs.map(cert => `
-                    <div class="cert-item">
-                        <h4>${cert.name}</h4>
-                        <span>${cert.provider} • ${cert.year || 'N/A'}</span>
-                        ${cert.link ? `
-                            <a href="${cert.link}"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="cert-verify-btn">
-                                <i class="fas fa-external-link-alt"></i> Verify
-                            </a>
-                        ` : ''}
-                    </div>
-                `).join('');
+                var html = '';
+                for (var i = 0; i < certs.length; i++) {
+                    var cert = certs[i];
+                    var delayClass = 'animate-on-load-delay-' + ((i % 5) + 1);
+                    html += `
+                        <div class="cert-item animate-on-load ${delayClass}">
+                            <h4>${cert.name}</h4>
+                            <span>${cert.provider} • ${cert.year || 'N/A'}</span>
+                            ${cert.link ? `
+                                <a href="${cert.link}"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="cert-verify-btn">
+                                    <i class="fas fa-external-link-alt"></i> Verify
+                                </a>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                container.innerHTML = html;
             }
         });
     </script>

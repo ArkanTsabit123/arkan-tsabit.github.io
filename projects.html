@@ -8,15 +8,201 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .animate-on-load-delay-1 { animation-delay: 0.1s; }
+        .animate-on-load-delay-2 { animation-delay: 0.2s; }
+        .animate-on-load-delay-3 { animation-delay: 0.3s; }
+        .animate-on-load-delay-4 { animation-delay: 0.4s; }
+        .animate-on-load-delay-5 { animation-delay: 0.5s; }
+
+        /* ============================================================
+           PROJECT CARD
+           ============================================================ */
+        .project-card {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .project-card .project-image {
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+
+        /* ============================================================
+           PROJECT TECH STACK
+           ============================================================ */
+        .project-tech-stack {
+            margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .project-tech-stack .tech-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .project-tech-stack .tech-items {
+            color: var(--text-secondary);
+        }
+
+        .project-description {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* ============================================================
+           PROJECT RESULTS
+           ============================================================ */
+        .project-results {
+            background: var(--bg-secondary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent-blue);
+            margin: var(--spacing-md) 0;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-results:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px -6px rgba(37, 99, 235, 0.15);
+        }
+
+        .project-results .results-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* ============================================================
+           FILTER BUTTONS
+           ============================================================ */
+        .filter-btn {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-blue);
+            color: var(--white);
+            border-color: var(--accent-blue);
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn-primary {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ============================================================
+           SECTION HEADER
+           ============================================================ */
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--radius-full);
+        }
+
+        /* ============================================================
+           DARK MODE
+           ============================================================ */
+        [data-theme="dark"] .project-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] .project-results {
+            background: var(--bg-tertiary);
+        }
+
+        [data-theme="dark"] .project-results:hover {
+            box-shadow: 0 4px 15px -6px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .project-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -50,19 +236,16 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
 
-        <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header animate-on-load">
             <div class="container">
                 <h1 data-i18n="projects.page_title">Projects</h1>
                 <p data-i18n="projects.page_subtitle">End-to-end data engineering projects built with industry-standard tools</p>
             </div>
         </section>
 
-        <!-- Filter -->
-        <section class="filter-section">
+        <section class="filter-section animate-on-load animate-on-load-delay-1">
             <div class="container">
                 <div class="filter-buttons" id="filterButtons">
                     <button class="filter-btn active" data-filter="all" data-i18n="projects.filter.all">All</button>
@@ -75,18 +258,15 @@
             </div>
         </section>
 
-        <!-- Projects Grid -->
         <section class="projects-section">
             <div class="container">
                 <div class="projects-grid" id="projectsGrid">
-                    <!-- Projects will be rendered by JavaScript from data/projects.json -->
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
@@ -117,6 +297,116 @@
     <script src="js/i18n.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/hide-docs.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var grid = document.getElementById('projectsGrid');
+
+            fetch('data/projects.json')
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(function(data) {
+                    if (!data.projects || data.projects.length === 0) {
+                        throw new Error('No projects data found');
+                    }
+                    renderProjects(data.projects);
+                })
+                .catch(function(error) {
+                    console.error('Error loading projects:', error);
+                    grid.innerHTML = `
+                        <div class="error-message" style="grid-column: 1 / -1;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Unable to load projects. Please try again later.</p>
+                        </div>
+                    `;
+                });
+
+            function renderProjects(projects) {
+                var html = '';
+
+                for (var i = 0; i < projects.length; i++) {
+                    var project = projects[i];
+                    var techStackDisplay = project.tech_stack || project.stack.join(' · ');
+                    var delayClass = 'animate-on-load-delay-' + ((i % 5) + 1);
+
+                    var linksHtml = '';
+                    linksHtml += '<a href="' + project.github + '" target="_blank" class="btn btn-sm btn-secondary">';
+                    linksHtml += '<i class="fab fa-github"></i> GitHub';
+                    linksHtml += '</a>';
+
+                    if (project.demo) {
+                        linksHtml += '<a href="' + project.demo + '" target="_blank" class="btn btn-sm btn-primary">';
+                        linksHtml += '<i class="fas fa-rocket"></i> Deploy';
+                        linksHtml += '</a>';
+                    }
+
+                    html += `
+                        <div class="project-card animate-on-load ${delayClass}">
+                            <div class="project-image">
+                                <img src="${project.image}" alt="${project.name}" />
+                            </div>
+                            <div class="project-body">
+                                <h3>${project.name}</h3>
+                                <p class="project-description">${project.description}</p>
+                                <div class="project-tech-stack">
+                                    <span class="tech-label">Tech Stack:</span>
+                                    <span class="tech-items">${techStackDisplay}</span>
+                                </div>
+                                <div class="project-results">
+                                    <span class="results-label">Results</span>
+                                    ${project.results}
+                                </div>
+                                <div class="project-links">
+                                    ${linksHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                grid.innerHTML = html;
+
+                // Filter functionality
+                var filterButtons = document.querySelectorAll('.filter-btn');
+                var projectCards = document.querySelectorAll('.project-card');
+
+                filterButtons.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                        btn.classList.add('active');
+
+                        var filter = btn.getAttribute('data-filter');
+
+                        projectCards.forEach(function(card) {
+                            if (filter === 'all') {
+                                card.style.display = 'block';
+                                return;
+                            }
+
+                            var tags = card.getAttribute('data-tags') || '';
+                            if (tags.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+
+                // Set data-tags for filtering
+                projectCards.forEach(function(card, index) {
+                    var project = projects[index];
+                    if (project && project.tags) {
+                        card.setAttribute('data-tags', project.tags.join(' '));
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>

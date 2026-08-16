@@ -1,28 +1,28 @@
 // ============================================================
-// PROJECTS FILTER AND RENDER
+// PROJECTS FILTER AND RENDER 
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    const projectsGrid = document.getElementById('projectsGrid');
-    const filterButtons = document.getElementById('filterButtons');
+    var projectsGrid = document.getElementById('projectsGrid');
+    var filterButtons = document.getElementById('filterButtons');
 
-    let projects = [];
-    let currentFilter = 'all';
+    var projectsData = [];
+    var currentFilter = 'all';
 
     // ============================================================
     // FETCH PROJECTS DATA
     // ============================================================
     async function fetchProjects() {
         try {
-            const response = await fetch('data/projects.json');
+            var response = await fetch('data/projects.json');
             if (!response.ok) {
                 throw new Error('Failed to load projects data');
             }
-            const data = await response.json();
-            projects = data.projects || [];
-            renderProjects(projects);
+            var data = await response.json();
+            projectsData = data.projects || [];
+            renderProjects(projectsData);
         } catch (error) {
             console.error('Error loading projects:', error);
             if (projectsGrid) {
@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // RENDER PROJECTS
+    // RENDER PROJECTS - UPDATED WITH NEW STRUCTURE
     // ============================================================
-    function renderProjects(projectsToRender) {
+    function renderProjects(projects) {
         if (!projectsGrid) return;
 
-        if (projectsToRender.length === 0) {
+        if (projects.length === 0) {
             projectsGrid.innerHTML = `
                 <div class="no-projects">
                     <p>No projects found for the selected filter.</p>
@@ -50,39 +50,63 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        projectsGrid.innerHTML = projectsToRender.map(function(project) {
-            const metricsHtml = project.metrics ? Object.entries(project.metrics).map(function([key, value]) {
-                return `<span><strong>${value}</strong> ${key.replace('_', ' ')}</span>`;
-            }).join('') : '';
+        var html = '';
 
-            const stackHtml = project.stack ? project.stack.map(function(tech) {
-                return `<span class="stack-tag">${tech}</span>`;
-            }).join('') : '';
+        for (var i = 0; i < projects.length; i++) {
+            var project = projects[i];
+            var techStackDisplay = project.tech_stack || project.stack.join(' · ');
+            var delayClass = 'animate-on-load-delay-' + ((i % 5) + 1);
+            var imagePath = project.image || 'assets/images/projects/' + project.id + '/dashboard.png';
 
-            const imagePath = project.image || `assets/images/projects/${project.id}/dashboard.png`;
+            // Build links
+            var linksHtml = '';
 
-            return `
-                <div class="project-card" data-tags="${(project.tags || []).join(' ')}">
+            if (project.github) {
+                linksHtml += '<a href="' + project.github + '" target="_blank" class="btn btn-sm btn-secondary">';
+                linksHtml += '<i class="fab fa-github"></i> GitHub';
+                linksHtml += '</a>';
+            }
+
+            if (project.demo) {
+                linksHtml += '<a href="' + project.demo + '" target="_blank" class="btn btn-sm btn-primary">';
+                linksHtml += '<i class="fas fa-rocket"></i> Deploy';
+                linksHtml += '</a>';
+            }
+
+            html += `
+                <div class="project-card animate-on-load ${delayClass}" data-tags="${(project.tags || []).join(' ')}">
                     <div class="project-image">
                         <img src="${imagePath}" alt="${project.name}" loading="lazy" />
                     </div>
                     <div class="project-body">
                         <h3>${project.name}</h3>
-                        <p>${project.description}</p>
-                        <div class="project-metrics">
-                            ${metricsHtml}
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-tech-stack">
+                            <span class="tech-label">Tech Stack:</span>
+                            <span class="tech-items">${techStackDisplay}</span>
                         </div>
-                        <div class="project-stack">
-                            ${stackHtml}
+                        <div class="project-results">
+                            <span class="results-label">Results</span>
+                            ${project.results || ''}
                         </div>
                         <div class="project-links">
-                            ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub</a>` : ''}
-                            ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Live Demo</a>` : ''}
+                            ${linksHtml}
                         </div>
                     </div>
                 </div>
             `;
-        }).join('');
+        }
+
+        projectsGrid.innerHTML = html;
+
+        // Set data-tags for filtering
+        var projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(function(card, index) {
+            var project = projects[index];
+            if (project && project.tags) {
+                card.setAttribute('data-tags', project.tags.join(' '));
+            }
+        });
     }
 
     // ============================================================
@@ -93,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update active button
         if (filterButtons) {
-            const buttons = filterButtons.querySelectorAll('.filter-btn');
+            var buttons = filterButtons.querySelectorAll('.filter-btn');
             buttons.forEach(function(btn) {
                 btn.classList.remove('active');
                 if (btn.dataset.filter === filter) {
@@ -103,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Filter projects
-        let filteredProjects = projects;
+        var filteredProjects = projectsData;
         if (filter !== 'all') {
-            filteredProjects = projects.filter(function(project) {
+            filteredProjects = projectsData.filter(function(project) {
                 return (project.tags || []).includes(filter);
             });
         }
@@ -114,13 +138,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================================
-    // EVENT LISTENERS FOR FILTER BUTTONS
+    // EVENT LISTENERS
     // ============================================================
     if (filterButtons) {
         filterButtons.addEventListener('click', function(e) {
-            const btn = e.target.closest('.filter-btn');
+            var btn = e.target.closest('.filter-btn');
             if (btn) {
-                const filter = btn.dataset.filter;
+                var filter = btn.dataset.filter;
                 if (filter) {
                     filterProjects(filter);
                 }
@@ -132,5 +156,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // INITIALIZE
     // ============================================================
     fetchProjects();
-
 });

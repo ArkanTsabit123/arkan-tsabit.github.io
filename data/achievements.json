@@ -1,25 +1,46 @@
 {
   "achievements": [
     {
-      "id": "oracle-race-global",
+      "id": "oracle-global",
       "title": "Oracle Race to Certification",
+      "year": "2025",
+      "icon": "fas fa-globe-americas",
       "description": "Top 108 Global Leaderboard in Oracle Race to Certification 2025, competing against thousands of participants worldwide.",
-      "year": 2025,
-      "icon": "fas fa-globe-americas"
+      "translations": {
+        "id": {
+          "title": "Perlombaan Sertifikasi Oracle",
+          "description": "Peringkat 108 Global dalam Oracle Race to Certification 2025, bersaing dengan ribuan peserta di seluruh dunia."
+        }
+      },
+      "link": null
     },
     {
-      "id": "oracle-race-indonesia",
+      "id": "oracle-indonesia",
       "title": "Oracle Race to Certification",
+      "year": "2025",
+      "icon": "fas fa-medal",
       "description": "Top 3 Indonesia in Oracle Race to Certification 2025, demonstrating exceptional performance in Oracle Cloud certification.",
-      "year": 2025,
-      "icon": "fas fa-trophy"
+      "translations": {
+        "id": {
+          "title": "Perlombaan Sertifikasi Oracle",
+          "description": "Peringkat 3 Indonesia dalam Oracle Race to Certification 2025, menunjukkan performa luar biasa dalam sertifikasi Oracle Cloud."
+        }
+      },
+      "link": null
     },
     {
       "id": "best-teacher",
       "title": "Best Teacher Award",
+      "year": "2025",
+      "icon": "fas fa-chalkboard-teacher",
       "description": "Recognized as Best Teacher at Satu Benih Boarding School in 2025 for excellence in teaching and curriculum delivery.",
-      "year": 2025,
-      "icon": "fas fa-award"
+      "translations": {
+        "id": {
+          "title": "Penghargaan Guru Terbaik",
+          "description": "Diakui sebagai Guru Terbaik di Satu Benih Boarding School tahun 2025 atas keunggulan dalam pengajaran dan penyampaian kurikulum."
+        }
+      },
+      "link": null
     }
   ]
 }

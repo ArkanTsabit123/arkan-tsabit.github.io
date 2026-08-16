@@ -5,31 +5,38 @@
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const html = document.documentElement;
+    var themeToggle = document.getElementById('themeToggle');
+    var themeIcon = document.getElementById('themeIcon');
+    var htmlElement = document.documentElement;
+
+    var STORAGE_KEY = 'theme';
 
     // ============================================================
     // GET PREFERRED THEME
     // ============================================================
     function getPreferredTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            return savedTheme;
+        var storedTheme = localStorage.getItem(STORAGE_KEY);
+        if (storedTheme === 'dark' || storedTheme === 'light') {
+            return storedTheme;
         }
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         return prefersDark ? 'dark' : 'light';
     }
 
     // ============================================================
-    // APPLY THEME
+    // SET THEME
     // ============================================================
-    function applyTheme(theme) {
-        html.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+    function setTheme(theme) {
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem(STORAGE_KEY, theme);
 
         if (themeIcon) {
-            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
         }
     }
 
@@ -37,30 +44,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // TOGGLE THEME
     // ============================================================
     function toggleTheme() {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(newTheme);
+        var currentTheme = htmlElement.getAttribute('data-theme') || 'light';
+        var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
     }
 
     // ============================================================
-    // INITIALIZE THEME
+    // INITIALIZE
     // ============================================================
-    const initialTheme = getPreferredTheme();
-    applyTheme(initialTheme);
+    var initialTheme = getPreferredTheme();
+    setTheme(initialTheme);
 
-    // ============================================================
-    // EVENT LISTENERS
-    // ============================================================
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Listen for system theme changes
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) {
-            const newTheme = e.matches ? 'dark' : 'light';
-            applyTheme(newTheme);
+        if (!localStorage.getItem(STORAGE_KEY)) {
+            var newTheme = e.matches ? 'dark' : 'light';
+            setTheme(newTheme);
         }
     });
-
 });

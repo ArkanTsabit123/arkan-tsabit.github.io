@@ -8,15 +8,112 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-on-load-delay-1 { animation-delay: 0.1s; }
+        .animate-on-load-delay-2 { animation-delay: 0.2s; }
+        .animate-on-load-delay-3 { animation-delay: 0.3s; }
+
+        .achievement-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+        }
+
+        .achievement-icon {
+            font-size: var(--font-size-3xl);
+            color: var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+        .achievement-card:hover .achievement-icon {
+            transform: scale(1.3) rotate(-5deg);
+            color: var(--accent-blue-hover);
+        }
+
+        .achievement-card h3 {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .achievement-card .achievement-year {
+            font-size: var(--font-size-sm);
+            color: var(--accent-blue);
+            font-weight: 600;
+            display: block;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .achievement-card p {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--radius-full);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        [data-theme="dark"] .achievement-card {
+            background: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+        [data-theme="dark"] .achievement-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            .achievement-card:hover {
+                transform: translateY(-6px);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -50,32 +147,25 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
 
-        <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header animate-on-load">
             <div class="container">
                 <h1 data-i18n="achievements.page_title">Achievements</h1>
                 <p data-i18n="achievements.page_subtitle">Recognition and awards from my professional journey</p>
             </div>
         </section>
 
-        <!-- Achievements Grid -->
         <section class="achievements-section">
             <div class="container">
                 <div class="achievements-grid" id="achievementsGrid">
-                    <div class="loading-spinner" style="grid-column: 1 / -1;">
-                        <i class="fas fa-spinner"></i>
-                        <span>Loading achievements...</span>
-                    </div>
+                    <!-- Akan diisi oleh JavaScript -->
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
@@ -108,50 +198,44 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const grid = document.getElementById('achievementsGrid');
+            var grid = document.getElementById('achievementsGrid');
 
-            fetch('data/achievements.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (!data.achievements || data.achievements.length === 0) {
-                        throw new Error('No achievements data found');
-                    }
-                    renderAchievements(data.achievements);
-                })
-                .catch(error => {
-                    console.error('Error loading achievements:', error);
-                    grid.innerHTML = `
-                        <div class="error-message" style="grid-column: 1 / -1;">
-                            <i class="fas fa-exclamation-circle"></i>
-                            <p>Unable to load achievements. Please try again later.</p>
-                            <button class="btn btn-secondary btn-sm" onclick="location.reload()" style="margin-top: var(--spacing-md);">
-                                <i class="fas fa-redo"></i> Retry
-                            </button>
-                        </div>
-                    `;
-                });
+            var achievements = [
+                {
+                    "title": "Oracle Race to Certification",
+                    "year": "2025",
+                    "icon": "fas fa-globe-americas",
+                    "description": "Top 108 Global Leaderboard in Oracle Race to Certification 2025, competing against thousands of participants worldwide."
+                },
+                {
+                    "title": "Oracle Race to Certification",
+                    "year": "2025",
+                    "icon": "fas fa-medal",
+                    "description": "Top 3 Indonesia in Oracle Race to Certification 2025, demonstrating exceptional performance in Oracle Cloud certification."
+                },
+                {
+                    "title": "Best Teacher Award",
+                    "year": "2025",
+                    "icon": "fas fa-chalkboard-teacher",
+                    "description": "Recognized as Best Teacher at Satu Benih Boarding School in 2025 for excellence in teaching and curriculum delivery."
+                }
+            ];
 
-            function renderAchievements(achievements) {
-                grid.innerHTML = achievements.map(item => `
-                    <div class="achievement-card">
+            grid.innerHTML = '';
+
+            for (var i = 0; i < achievements.length; i++) {
+                var item = achievements[i];
+                var delayClass = 'animate-on-load-delay-' + ((i % 3) + 1);
+                grid.innerHTML += `
+                    <div class="achievement-card animate-on-load ${delayClass}">
                         <div class="achievement-icon">
-                            <i class="${item.icon || 'fas fa-trophy'}"></i>
+                            <i class="${item.icon}"></i>
                         </div>
                         <h3>${item.title}</h3>
-                        <span class="achievement-year">${item.year || ''}</span>
+                        <span class="achievement-year">${item.year}</span>
                         <p>${item.description}</p>
-                        ${item.link ? `
-                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="margin-top: var(--spacing-md);">
-                                <i class="fas fa-external-link-alt"></i> Learn More
-                            </a>
-                        ` : ''}
                     </div>
-                `).join('');
+                `;
             }
         });
     </script>

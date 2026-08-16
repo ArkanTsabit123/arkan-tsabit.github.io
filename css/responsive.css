@@ -190,6 +190,21 @@
         padding: 0.25rem 0.75rem;
         font-size: var(--font-size-xs);
     }
+
+    /* Project Results - Mobile */
+    .project-results {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    .featured-results {
+        padding: var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    .project-tech-stack {
+        font-size: var(--font-size-xs);
+    }
 }
 
 /* --------------------------------------------
@@ -328,6 +343,17 @@
 
     .page-header {
         padding-top: calc(60px + var(--spacing-xl));
+    }
+
+    /* Project Results - Small Mobile */
+    .project-results {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    .featured-results {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
     }
 }
 

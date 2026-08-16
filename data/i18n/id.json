@@ -1,108 +1,113 @@
 {
-    "nav": {
-        "home": "Beranda",
-        "about": "Tentang Saya",
-        "projects": "Proyek",
-        "certifications": "Sertifikasi",
-        "achievements": "Prestasi",
-        "contact": "Kontak"
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Saya",
+    "projects": "Proyek",
+    "certifications": "Sertifikasi",
+    "achievements": "Prestasi",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "badge": "Terbuka untuk Kerja",
+    "greeting": "Halo, Saya",
+    "title": "Data Engineer | Cloud Data Engineer",
+    "tagline": "Halo, saya Arkan — Data Engineer dengan keahlian di pipeline ETL, pergudangan data, dan arsitektur cloud. Tersertifikasi Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer.",
+    "subtagline": "Saya juga mahir dalam berbagai alat dan teknologi data engineering modern, di antaranya:",
+    "metrics": {
+      "certs": "Sertifikasi Profesional",
+      "achievement": "Prestasi",
+      "projects": "Proyek Data",
+      "experience": "Pengalaman Kerja"
     },
-    "hero": {
-        "badge": "Tersedia untuk Bekerja",
-        "greeting": "Halo, Saya",
-        "title": "Data Engineer | Cloud Data Engineer",
-        "tagline": "Halo, saya Arkan — Data Engineer dengan keahlian di pipeline ETL, pergudangan data, dan arsitektur cloud. Tersertifikasi Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer.",
-        "subtagline": "Saya juga mahir dalam berbagai alat dan teknologi data engineering modern, di antaranya:",
-        "metrics": {
-            "certs": "Sertifikasi Profesional",
-            "achievement": "Prestasi",
-            "projects": "Proyek Data",
-            "experience": "Pengalaman Kerja"
-        },
-        "cta_projects": "Lihat Proyek",
-        "cta_cv": "Unduh CV",
-        "cta_contact": "Hubungi Saya"
+    "cta_projects": "Lihat Proyek",
+    "cta_contact": "Hubungi Saya"
+  },
+  "featured": {
+    "title": "Proyek Unggulan",
+    "subtitle": "Pekerjaan data engineering paling komprehensif saya",
+    "description": "Pipeline ETL end-to-end untuk data perjalanan NYC Taxi dengan otomatisasi, validasi kualitas data, dan dashboard analitik real-time.",
+    "cta": "Lihat Semua Proyek"
+  },
+  "skills": {
+    "title": "Keterampilan Teknis",
+    "subtitle": "Teknologi dan alat yang saya gunakan",
+    "cloud": "Cloud & Arsitektur Data",
+    "engineering": "Data Engineering",
+    "databases": "Database",
+    "visualization": "Visualisasi & Alat"
+  },
+  "certs": {
+    "title": "Sertifikasi",
+    "subtitle": "10 sertifikasi profesional dari pemimpin industri",
+    "oracle_desc": "8 sertifikasi profesional di arsitektur cloud, AI, dan layanan database",
+    "ibm_desc": "Sertifikat profesional di data engineering",
+    "meta_desc": "Sertifikat profesional di database engineering",
+    "cta": "Lihat Semua Sertifikasi"
+  },
+  "chatbot": {
+    "title": "Tanya AI Arkan",
+    "description": "Ada pertanyaan tentang pengalaman, proyek, atau keterampilan saya? Ngobrol dengan asisten AI saya untuk belajar lebih lanjut.",
+    "cta": "Buka Chat"
+  },
+  "footer": {
+    "credit": "Data Engineer | Cloud Data Engineer"
+  },
+  "about": {
+    "page_title": "Tentang Saya",
+    "page_subtitle": "Kenali orang di balik data",
+    "who_am_i": "Siapa Saya",
+    "bio_1": "Saya adalah Data Engineer dengan pengalaman membangun pipeline ETL produksi yang memproses 2.96M+ rekaman dalam waktu kurang dari 30 detik dengan kualitas data 100%. Saya berspesialisasi dalam pergudangan data, pemodelan dimensional, dan integrasi data.",
+    "bio_2": "Saya beralih dari infrastruktur IT dan rekayasa jaringan ke data engineering melalui belajar mandiri dan proyek langsung. Latar belakang saya di operasi IT memberi saya perspektif unik tentang keandalan sistem dan kinerja pipeline data.",
+    "bio_3": "Saya tersertifikasi sebagai Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer. Saya bersemangat membangun solusi data yang skalabel dan andal yang mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti.",
+    "stats": {
+      "projects": "Proyek Data",
+      "certs": "Sertifikasi",
+      "rows": "Rekaman Diproses",
+      "domains": "Industri"
     },
-    "featured": {
-        "title": "Proyek Unggulan",
-        "subtitle": "Pekerjaan data engineering paling komprehensif saya",
-        "description": "Pipeline ETL end-to-end untuk data perjalanan NYC Taxi dengan otomatisasi, validasi kualitas data, dan dashboard analitik real-time.",
-        "cta": "Lihat Semua Proyek"
-    },
-    "skills": {
-        "title": "Keterampilan Teknis",
-        "subtitle": "Teknologi dan alat yang saya gunakan",
-        "cloud": "Cloud & Arsitektur Data",
-        "engineering": "Data Engineering",
-        "databases": "Database",
-        "visualization": "Visualisasi & Alat"
-    },
-    "certs": {
-        "title": "Sertifikasi",
-        "subtitle": "10 sertifikasi profesional dari pemimpin industri",
-        "oracle_desc": "8 sertifikasi profesional di arsitektur cloud, AI, dan layanan database",
-        "ibm_desc": "Sertifikat profesional di data engineering",
-        "meta_desc": "Sertifikat profesional di database engineering",
-        "cta": "Lihat Semua Sertifikasi"
-    },
-    "chatbot": {
-        "title": "Tanya AI Arkan",
-        "description": "Ada pertanyaan tentang pengalaman, proyek, atau keterampilan saya? Ngobrol dengan asisten AI saya untuk belajar lebih lanjut.",
-        "cta": "Buka Chat"
-    },
-    "footer": {
-        "credit": "Data Engineer | Cloud Data Engineer"
-    },
-    "about": {
-        "page_title": "Tentang Saya",
-        "page_subtitle": "Kenali orang di balik data",
-        "who_am_i": "Siapa Saya",
-        "bio_1": "Saya adalah Data Engineer dengan pengalaman membangun pipeline ETL produksi yang memproses 2.96M+ rekaman dalam waktu kurang dari 30 detik dengan kualitas data 100%. Saya berspesialisasi dalam pergudangan data, pemodelan dimensional, dan integrasi data.",
-        "bio_2": "Saya beralih dari infrastruktur IT dan rekayasa jaringan ke data engineering melalui belajar mandiri dan proyek langsung. Latar belakang saya di operasi IT memberi saya perspektif unik tentang keandalan sistem dan kinerja pipeline data.",
-        "bio_3": "Saya tersertifikasi sebagai Oracle Multicloud Architect, IBM Data Engineer, dan Meta Database Engineer. Saya bersemangat membangun solusi data yang skalabel dan andal yang mengubah data mentah menjadi wawasan yang dapat ditindaklanjuti.",
-        "stats": {
-            "projects": "Proyek Data",
-            "certs": "Sertifikasi",
-            "rows": "Rekaman Diproses",
-            "domains": "Industri"
-        },
-        "work_title": "Pengalaman Kerja",
-        "work_subtitle": "Dari infrastruktur IT ke data engineering",
-        "skills_title": "Keterampilan Teknis",
-        "skills_subtitle": "Teknologi dan alat yang saya gunakan"
-    },
-    "projects": {
-        "page_title": "Proyek",
-        "page_subtitle": "Proyek data engineering end-to-end yang dibangun dengan alat standar industri",
-        "filter": {
-            "all": "Semua",
-            "airflow": "Airflow",
-            "postgresql": "PostgreSQL",
-            "python": "Python",
-            "docker": "Docker",
-            "streamlit": "Streamlit"
-        }
-    },
-    "achievements": {
-        "page_title": "Prestasi",
-        "page_subtitle": "Pengakuan dan penghargaan dari perjalanan profesional saya"
-    },
-    "contact": {
-        "page_title": "Kontak",
-        "page_subtitle": "Hubungi saya untuk peluang dan kolaborasi",
-        "connect_title": "Mari Terhubung",
-        "connect_desc": "Saya selalu terbuka untuk peluang baru, kolaborasi, dan diskusi tentang data engineering, arsitektur cloud, dan solusi berbasis data.",
-        "form_title": "Kirim Pesan",
-        "form_desc": "Saya akan merespon sesegera mungkin.",
-        "form_name": "Nama Anda",
-        "form_email": "Email Anda",
-        "form_subject": "Subjek",
-        "form_message": "Pesan",
-        "form_send": "Kirim Pesan"
-    },
-    "error": {
-        "title": "Halaman Tidak Ditemukan",
-        "description": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
-        "cta": "Kembali ke Beranda"
+    "work_title": "Pengalaman Kerja",
+    "work_subtitle": "Dari infrastruktur IT ke data engineering",
+    "skills_title": "Keterampilan Teknis",
+    "skills_subtitle": "Teknologi dan alat yang saya gunakan"
+  },
+  "projects": {
+    "page_title": "Proyek",
+    "page_subtitle": "Proyek data engineering end-to-end yang dibangun dengan alat standar industri",
+    "filter": {
+      "all": "Semua",
+      "airflow": "Airflow",
+      "postgresql": "PostgreSQL",
+      "python": "Python",
+      "docker": "Docker",
+      "streamlit": "Streamlit"
     }
+  },
+  "achievements": {
+    "page_title": "Prestasi",
+    "page_subtitle": "Pengakuan dan penghargaan dari perjalanan profesional saya"
+  },
+  "contact": {
+    "page_title": "Kontak",
+    "page_subtitle": "Hubungi saya untuk peluang dan kolaborasi",
+    "connect_title": "Mari Terhubung",
+    "connect_desc": "Saya selalu terbuka untuk peluang baru, kolaborasi, dan diskusi tentang data engineering, arsitektur cloud, dan solusi berbasis data.",
+    "form_title": "Kirim Pesan",
+    "form_desc": "Saya akan merespon sesegera mungkin.",
+    "form_name": "Nama Anda",
+    "form_email": "Email Anda",
+    "form_subject": "Subjek",
+    "form_message": "Pesan",
+    "form_send": "Kirim Pesan"
+  },
+  "error": {
+    "title": "Halaman Tidak Ditemukan",
+    "description": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "cta": "Kembali ke Beranda"
+  },
+  "common": {
+    "loading": "Memuat prestasi...",
+    "error_loading": "Gagal memuat prestasi. Silakan coba lagi nanti.",
+    "retry": "Coba Lagi",
+    "learn_more": "Pelajari Lebih Lanjut"
+  }
 }

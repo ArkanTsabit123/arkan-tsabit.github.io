@@ -15,7 +15,7 @@
     --accent-blue-hover: #2563eb;
     --accent-green: #34d399;
     --accent-green-hover: #10b981;
-    --white: #ffffff;  /* ✅ FIXED: Tetap putih untuk teks/tombol */
+    --white: #ffffff;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
@@ -312,4 +312,23 @@
 [data-theme="dark"] .cert-verify-btn:hover {
     background: var(--accent-blue);
     color: var(--white);
+}
+
+/* ============================================================
+   PROJECT RESULTS - DARK MODE
+   ============================================================ */
+[data-theme="dark"] .project-results {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .project-results:hover {
+    box-shadow: 0 4px 15px -6px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .featured-results {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .featured-results:hover {
+    box-shadow: 0 4px 15px -6px rgba(59, 130, 246, 0.3);
 }

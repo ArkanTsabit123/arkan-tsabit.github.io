@@ -1,84 +1,74 @@
 {
   "certifications": [
     {
-      "id": "oci-multicloud",
-      "provider": "Oracle",
+      "id": "oci-multicloud-architect",
       "name": "OCI Multicloud Architect Professional",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=99E3FF00B51B7F01EBB349E70C1797168EC307E05C3B3F2804F5FEAFF1EDE366",
-      "icon": "assets/images/certifications/oracle.png"
+      "provider": "Oracle",
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
-      "id": "oci-genai",
-      "provider": "Oracle",
+      "id": "oci-generative-ai",
       "name": "OCI Generative AI Professional",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=4108A46E884297C4A2A7903F29B8B6B1BE3C8085639788DA61EBC061CB9C3F5F",
-      "icon": "assets/images/certifications/oracle.png"
+      "provider": "Oracle",
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
-      "id": "oci-vector",
+      "id": "oci-ai-vector-search",
+      "name": "OCI AI Vector Search",
       "provider": "Oracle",
-      "name": "AI Vector Search Certified Professional",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=79D9DE40E76454DA693E60F7B71AD78FCBBE5072D6F4214FC7E2FD982593EDDD",
-      "icon": "assets/images/certifications/oracle.png"
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
-      "id": "oci-autonomous",
+      "id": "oci-autonomous-database",
+      "name": "OCI Autonomous Database",
       "provider": "Oracle",
-      "name": "Autonomous Database Cloud Professional",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=8AC0AE3D9E7ECB5B33635326032AD33F9614CB6BDAC5BFE5784B7E4522A68E9C",
-      "icon": "assets/images/certifications/oracle.png"
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
-      "id": "oci-db-services",
+      "id": "oci-cloud-database-services",
+      "name": "OCI Cloud Database Services",
       "provider": "Oracle",
-      "name": "Cloud Database Services Professional",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=0C2EA1BCFECB9658472AD96C71A69EC7459E895D74386B0D6A45F7C209551813",
-      "icon": "assets/images/certifications/oracle.png"
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
       "id": "oci-ai-foundations",
+      "name": "OCI AI Foundations",
       "provider": "Oracle",
-      "name": "OCI AI Foundations Associate",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=D592DE2A2D5CCA6FBD5E0A021BF40BC932DD3B847A80425BABD5A4ABBD6CA24D",
-      "icon": "assets/images/certifications/oracle.png"
-    },
-    {
-      "id": "oci-data-platform",
-      "provider": "Oracle",
-      "name": "Oracle Data Platform Foundations Associate",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=65BBB3F0D58CA22597232518C6CA09D381E0AA903D6ADA2806C4D5929A7BE7F6",
-      "icon": "assets/images/certifications/oracle.png"
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
       "id": "oci-foundations",
+      "name": "OCI Foundations",
       "provider": "Oracle",
-      "name": "OCI Foundations Associate",
-      "year": 2025,
-      "link": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=17C96B55EB3916C91EF1B896EC1BE2FDDC869D216B885F60C3DD073E8E909CBD",
-      "icon": "assets/images/certifications/oracle.png"
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
-      "id": "meta-database",
-      "provider": "Meta",
-      "name": "Meta Database Engineer Professional Certificate",
-      "year": 2025,
-      "link": "https://www.coursera.org/account/accomplishments/professional-cert/0DJPC6W8M192",
-      "icon": "assets/images/certifications/meta.png"
+      "id": "oci-data-platform",
+      "name": "OCI Data Platform",
+      "provider": "Oracle",
+      "year": "2025",
+      "link": "https://catalog-education.oracle.com/pls/certview/sharebadge?id=YOUR_ID_HERE"
     },
     {
       "id": "ibm-data-engineering",
+      "name": "Data Engineering Professional Certificate",
       "provider": "IBM",
-      "name": "IBM Data Engineering Professional Certificate",
-      "year": 2025,
-      "link": "https://www.coursera.org/account/accomplishments/professional-cert/TVDET6XAODUI",
-      "icon": "assets/images/certifications/ibm.png"
+      "year": "2025",
+      "link": "https://www.coursera.org/account/accomplishments/professional-cert/YOUR_ID_HERE"
+    },
+    {
+      "id": "meta-database-engineer",
+      "name": "Database Engineer Professional Certificate",
+      "provider": "Meta",
+      "year": "2025",
+      "link": "https://www.coursera.org/account/accomplishments/professional-cert/YOUR_ID_HERE"
     }
   ]
 }

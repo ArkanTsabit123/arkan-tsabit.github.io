@@ -1,135 +1,135 @@
 // ============================================================
-// RAG CHATBOT INTEGRATION
+// CHATBOT WIDGET
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // DOM Elements
-    const chatbotWidget = document.getElementById('chatbot-widget');
-    const chatbotToggle = document.getElementById('chatbotToggle');
-    const chatbotClose = document.getElementById('chatbotClose');
-    const chatbotInput = document.getElementById('chatbotInput');
-    const chatbotSend = document.getElementById('chatbotSend');
-    const chatbotMessages = document.getElementById('chatbotMessages');
+    var chatbotWidget = document.getElementById('chatbot-widget');
+    var chatbotToggle = document.getElementById('chatbotToggle');
+    var chatbotClose = document.getElementById('chatbotClose');
+    var chatbotInput = document.getElementById('chatbotInput');
+    var chatbotSend = document.getElementById('chatbotSend');
+    var chatbotMessages = document.getElementById('chatbotMessages');
+    var openChatbotBtn = document.getElementById('openChatbotBtn');
 
-    let isOpen = false;
+    var isOpen = false;
+    var isProcessing = false;
+
+    var API_URL = 'https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat';
 
     // ============================================================
     // TOGGLE CHATBOT
     // ============================================================
     function toggleChatbot() {
         isOpen = !isOpen;
-        chatbotWidget.classList.toggle('open', isOpen);
-        chatbotToggle.style.display = isOpen ? 'none' : 'flex';
-
         if (isOpen) {
+            chatbotWidget.classList.add('open');
+            chatbotToggle.style.display = 'none';
             chatbotInput.focus();
+        } else {
+            chatbotWidget.classList.remove('open');
+            chatbotToggle.style.display = 'flex';
+        }
+    }
+
+    function openChatbot() {
+        if (!isOpen) {
+            toggleChatbot();
+        }
+    }
+
+    function closeChatbot() {
+        if (isOpen) {
+            toggleChatbot();
         }
     }
 
     // ============================================================
-    // ADD MESSAGE
+    // MESSAGE HANDLING
     // ============================================================
-    function addMessage(text, type) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${type}`;
+    function addMessage(message, sender) {
+        var messageDiv = document.createElement('div');
+        messageDiv.className = 'message ' + sender;
 
-        const bubble = document.createElement('div');
+        var bubble = document.createElement('div');
         bubble.className = 'message-bubble';
-        bubble.textContent = text;
+        bubble.textContent = message;
 
         messageDiv.appendChild(bubble);
         chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        scrollToBottom();
     }
 
-    // ============================================================
-    // SHOW TYPING INDICATOR
-    // ============================================================
     function showTyping() {
-        const typingDiv = document.createElement('div');
-        typingDiv.className = 'typing-indicator active';
+        var typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot';
         typingDiv.id = 'typingIndicator';
 
-        for (let i = 0; i < 3; i++) {
-            const dot = document.createElement('span');
-            typingDiv.appendChild(dot);
-        }
+        var bubble = document.createElement('div');
+        bubble.className = 'message-bubble typing-indicator active';
+        bubble.innerHTML = '<span></span><span></span><span></span>';
 
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message bot';
-        messageDiv.appendChild(typingDiv);
-        chatbotMessages.appendChild(messageDiv);
+        typingDiv.appendChild(bubble);
+        chatbotMessages.appendChild(typingDiv);
+        scrollToBottom();
+    }
+
+    function removeTyping() {
+        var typingIndicator = document.getElementById('typingIndicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+
+    function scrollToBottom() {
         chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
     // ============================================================
-    // HIDE TYPING INDICATOR
+    // SEND MESSAGE
     // ============================================================
-    function hideTyping() {
-        const typing = document.getElementById('typingIndicator');
-        if (typing) {
-            const parent = typing.closest('.message');
-            if (parent) {
-                parent.remove();
-            }
-        }
-    }
+    async function sendMessage() {
+        var question = chatbotInput.value.trim();
 
-    // ============================================================
-    // SEND MESSAGE TO CLOUDFLARE WORKER
-    // ============================================================
-    async function sendMessageToWorker(message) {
+        if (!question || isProcessing) {
+            return;
+        }
+
+        addMessage(question, 'user');
+        chatbotInput.value = '';
+        isProcessing = true;
+        chatbotSend.disabled = true;
+
+        showTyping();
+
         try {
-            const response = await fetch('https://arkan-chatbot.arkan-chatbot.workers.dev/api/chat', {
+            var response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ question: message }),
+                body: JSON.stringify({ question: question })
             });
 
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error('API request failed with status ' + response.status);
             }
 
-            const data = await response.json();
-            return data.response || 'I am unable to answer that right now. Please try again.';
+            var data = await response.json();
+            var botResponse = data.response || 'I am unable to answer that at the moment.';
+
+            removeTyping();
+            addMessage(botResponse, 'bot');
+
         } catch (error) {
-            console.error('Chatbot API error:', error);
-            return 'I am having trouble connecting right now. Please try again later.';
-        }
-    }
-
-    // ============================================================
-    // HANDLE USER MESSAGE
-    // ============================================================
-    async function handleUserMessage() {
-        const message = chatbotInput.value.trim();
-        if (!message) return;
-
-        // Clear input
-        chatbotInput.value = '';
-
-        // Add user message
-        addMessage(message, 'user');
-
-        // Show typing indicator
-        showTyping();
-
-        try {
-            // Get response from worker
-            const response = await sendMessageToWorker(message);
-
-            // Hide typing indicator
-            hideTyping();
-
-            // Add bot response
-            addMessage(response, 'bot');
-        } catch (error) {
-            hideTyping();
-            addMessage('Sorry, an error occurred. Please try again later.', 'bot');
+            console.error('Chatbot Error:', error);
+            removeTyping();
+            addMessage('Sorry, I encountered an error. Please try again later.', 'bot');
+        } finally {
+            isProcessing = false;
+            chatbotSend.disabled = false;
+            chatbotInput.focus();
         }
     }
 
@@ -141,27 +141,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (chatbotClose) {
-        chatbotClose.addEventListener('click', toggleChatbot);
+        chatbotClose.addEventListener('click', closeChatbot);
     }
 
     if (chatbotSend) {
-        chatbotSend.addEventListener('click', handleUserMessage);
+        chatbotSend.addEventListener('click', sendMessage);
     }
 
     if (chatbotInput) {
-        chatbotInput.addEventListener('keydown', function(e) {
+        chatbotInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                handleUserMessage();
+                sendMessage();
             }
         });
     }
 
-    // ============================================================
-    // INITIALIZE
-    // ============================================================
-    // Ensure chatbot is closed on load
-    chatbotWidget.classList.remove('open');
-    chatbotToggle.style.display = 'flex';
+    if (openChatbotBtn) {
+        openChatbotBtn.addEventListener('click', openChatbot);
+    }
 
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isOpen) {
+            closeChatbot();
+        }
+    });
 });

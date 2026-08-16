@@ -11,4 +11,12 @@
     if (docsLink && !isLocal) {
         docsLink.style.display = 'none';
     }
+
+    // Also hide the link after the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        var docsLink = document.getElementById('docsLink');
+        if (docsLink && !isLocal) {
+            docsLink.style.display = 'none';
+        }
+    });
 })();

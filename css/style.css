@@ -1494,8 +1494,8 @@ ul {
 }
 
 /* ============================================================
-CONTACT FORM
-============================================================ */
+   CONTACT FORM
+   ============================================================ */
 .contact-form {
     padding: var(--spacing-xl);
     background: var(--bg-secondary);
@@ -1567,4 +1567,88 @@ CONTACT FORM
 [data-theme="dark"] .form-group textarea:focus {
     border-color: var(--accent-blue);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================================
+   PROJECT RESULTS (NEW)
+   ============================================================ */
+.project-results {
+    background: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--accent-blue);
+    margin: var(--spacing-md) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-results:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px -6px rgba(37, 99, 235, 0.15);
+}
+
+.project-results .results-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ============================================================
+   PROJECT TECH STACK (Updated)
+   ============================================================ */
+.project-tech-stack {
+    margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.project-tech-stack .tech-label {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.project-tech-stack .tech-items {
+    color: var(--text-secondary);
+}
+
+/* ============================================================
+   PROJECT METRICS (HIDDEN - No longer used)
+   ============================================================ */
+.project-metrics {
+    display: none;
+}
+
+/* ============================================================
+   PROJECT STACK TAGS (HIDDEN - No longer used)
+   ============================================================ */
+.project-stack {
+    display: none;
+}
+
+/* ============================================================
+   FEATURED RESULTS (For index.html)
+   ============================================================ */
+.featured-results {
+    background: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--accent-blue);
+    margin: var(--spacing-md) 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-results:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px -6px rgba(37, 99, 235, 0.15);
+}
+
+.featured-results .results-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: var(--spacing-xs);
 }

@@ -6,19 +6,16 @@
     <title>Arkan Tsabit - Data Engineer Portfolio</title>
     <meta name="description" content="Arkan Tsabit - Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects." />
 
-    <!-- Open Graph / Social Media Tags -->
     <meta property="og:title" content="Arkan Tsabit - Data Engineer Portfolio" />
     <meta property="og:description" content="Data Engineer with expertise in ETL pipelines, data warehousing, and cloud architecture. Certified Oracle Multicloud Architect, IBM Data Engineer, and Meta Database Engineer." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://arkantsabit123.github.io/arkan-tsabit.github.io/" />
     <meta property="og:image" content="https://arkantsabit123.github.io/arkan-tsabit.github.io/assets/images/profile.jpg" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Arkan Tsabit - Data Engineer Portfolio" />
     <meta name="twitter:description" content="Data Engineer portfolio showcasing ETL pipelines, data warehousing, and cloud architecture projects." />
 
-    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -45,22 +42,321 @@
     }
     </script>
 
-    <!-- Favicon & Fonts -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/chatbot.css" />
+
+    <style>
+        /* ============================================================
+           ANIMATIONS
+           ============================================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+            }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .animate-on-load-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .animate-on-load-delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-on-load-delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .animate-on-load-delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-on-load-delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        .animate-on-load-delay-6 {
+            animation-delay: 0.6s;
+        }
+
+        /* ============================================================
+           FEATURED CARD ENHANCEMENTS
+           ============================================================ */
+        .featured-card {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .featured-card .featured-image {
+            transition: transform 0.6s ease;
+        }
+
+        .featured-card:hover .featured-image {
+            transform: scale(1.02);
+        }
+
+        /* ============================================================
+           PROJECT TECH STACK
+           ============================================================ */
+        .project-tech-stack {
+            margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .project-tech-stack .tech-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .project-tech-stack .tech-items {
+            color: var(--text-secondary);
+        }
+
+        .project-description {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* ============================================================
+           FEATURED METRICS - EYE CATCHING
+           ============================================================ */
+        .featured-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-sm);
+            padding: var(--spacing-md) 0;
+        }
+
+        .featured-metrics .metric-item-featured {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: var(--bg-secondary);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--accent-blue);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-metrics .metric-item-featured:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.2);
+        }
+
+        .featured-metrics .metric-number-featured {
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1.2;
+        }
+
+        .featured-metrics .metric-label-featured {
+            font-size: var(--font-size-xs);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           HERO METRICS - EYE CATCHING
+           ============================================================ */
+        .hero-metrics .metric-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .hero-metrics .metric-item:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.25);
+        }
+
+        .hero-metrics .metric-number {
+            transition: color 0.3s ease;
+        }
+
+        .hero-metrics .metric-item:hover .metric-number {
+            color: var(--accent-blue-hover);
+        }
+
+        /* ============================================================
+           BUTTONS ENHANCEMENT
+           ============================================================ */
+        .btn-primary {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -8px rgba(37, 99, 235, 0.4);
+        }
+
+        /* ============================================================
+           SECTION HEADER ENHANCEMENT
+           ============================================================ */
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--radius-full);
+        }
+
+        /* ============================================================
+           SKILLS CATEGORY ENHANCEMENT
+           ============================================================ */
+        .skill-category {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category .skill-icon {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        .skill-category:hover .skill-icon {
+            transform: scale(1.2) rotate(-5deg);
+            color: var(--accent-blue-hover);
+        }
+
+        /* ============================================================
+           CHATBOT CTA ENHANCEMENT
+           ============================================================ */
+        .chatbot-cta-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        /* ============================================================
+           DARK MODE SPECIFIC ENHANCEMENTS
+           ============================================================ */
+        [data-theme="dark"] .featured-metrics .metric-item-featured {
+            background: var(--bg-tertiary);
+            border-left-color: var(--accent-blue);
+        }
+
+        [data-theme="dark"] .featured-card:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        [data-theme="dark"] .hero-metrics .metric-item:hover {
+            box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        /* ============================================================
+           RESPONSIVE ADJUSTMENTS
+           ============================================================ */
+        @media (max-width: 768px) {
+            .featured-metrics {
+                gap: var(--spacing-sm);
+            }
+
+            .featured-metrics .metric-item-featured {
+                padding: var(--spacing-xs) var(--spacing-sm);
+            }
+
+            .featured-metrics .metric-number-featured {
+                font-size: var(--font-size-xl);
+            }
+
+            .skill-category:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-metrics .metric-item-featured {
+                flex: 1 1 calc(50% - var(--spacing-sm));
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header / Navigation -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -96,13 +392,12 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
 
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="container hero-container">
-                <div class="hero-content">
+                <div class="hero-content animate-on-load">
                     <p class="hero-badge" data-i18n="hero.badge">Available for Opportunities</p>
                     <h1 class="hero-title">
                         <span data-i18n="hero.greeting">Hello, I'm</span>
@@ -126,31 +421,31 @@
                     </ul>
 
                     <div class="hero-metrics">
-                        <div class="metric-item">
+                        <div class="metric-item animate-on-load animate-on-load-delay-1">
                             <span class="metric-number">10</span>
                             <span class="metric-label" data-i18n="hero.metrics.certs">Professional Certifications</span>
                         </div>
-                        <div class="metric-item">
+                        <div class="metric-item animate-on-load animate-on-load-delay-2">
                             <span class="metric-number">1</span>
                             <span class="metric-label" data-i18n="hero.metrics.achievement">Achievement</span>
                         </div>
-                        <div class="metric-item">
+                        <div class="metric-item animate-on-load animate-on-load-delay-3">
                             <span class="metric-number">4</span>
                             <span class="metric-label" data-i18n="hero.metrics.projects">Data Projects</span>
                         </div>
-                        <div class="metric-item">
+                        <div class="metric-item animate-on-load animate-on-load-delay-4">
                             <span class="metric-number">4</span>
                             <span class="metric-label" data-i18n="hero.metrics.experience">Work Experience</span>
                         </div>
                     </div>
 
-                    <div class="hero-buttons">
+                    <div class="hero-buttons animate-on-load animate-on-load-delay-5">
                         <a href="projects.html" class="btn btn-primary" data-i18n="hero.cta_projects">View Projects</a>
                         <a href="contact.html" class="btn btn-outline" data-i18n="hero.cta_contact">Contact Me</a>
                     </div>
                 </div>
 
-                <div class="hero-visual">
+                <div class="hero-visual animate-on-load animate-on-load-delay-3">
                     <div class="hero-image">
                         <img src="assets/images/profile.jpg" alt="Arkan Tsabit" />
                     </div>
@@ -168,48 +463,49 @@
         <!-- Featured Project Section -->
         <section class="featured-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate-on-load">
                     <h2 data-i18n="featured.title">Featured Project</h2>
                     <p data-i18n="featured.subtitle">My most comprehensive data engineering work</p>
                 </div>
 
-                <div class="featured-card">
+                <div class="featured-card animate-on-load animate-on-load-delay-2">
                     <div class="featured-image">
                         <img src="assets/images/projects/batchetl/dashboard.png" alt="BatchETL Pipeline Dashboard" />
                     </div>
-                    <div class="featured-content">
-                        <h3>BatchETL Pipeline</h3>
-                        <p data-i18n="featured.description">
-                            End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration,
-                            data quality validation, and real-time analytics dashboard.
-                        </p>
-                        <div class="featured-metrics">
-                            <span><strong>2.96M</strong> rows</span>
-                            <span><strong>&lt;30s</strong> execution</span>
-                            <span><strong>100%</strong> quality</span>
-                        </div>
-                        <div class="featured-stack">
-                            <span class="stack-tag">Airflow</span>
-                            <span class="stack-tag">PostgreSQL</span>
-                            <span class="stack-tag">Streamlit</span>
-                            <span class="stack-tag">Docker</span>
-                        </div>
-                        <a href="projects.html" class="btn btn-primary btn-sm" data-i18n="featured.cta">View All Projects</a>
+                <div class="featured-content">
+                    <h3>BatchETL Pipeline</h3>
+                    <p class="project-description">
+                        End-to-end ETL pipeline for NYC Taxi trip data with automated orchestration, data quality validation, and real-time analytics dashboard.
+                    </p>
+                    <div class="project-tech-stack">
+                        <span class="tech-label">Tech Stack:</span>
+                        <span class="tech-items">Apache Airflow · PostgreSQL · Docker · Python · Pandas · Streamlit · Plotly</span>
+                    </div>
+                    <div class="project-results" style="background: var(--bg-secondary); padding: var(--spacing-md); border-radius: var(--radius-md); border-left: 4px solid var(--accent-blue); margin: var(--spacing-md) 0; font-size: var(--font-size-sm); color: var(--text-secondary);">
+                        <span class="results-label" style="font-weight: 600; color: var(--text-primary); display: block; margin-bottom: var(--spacing-xs);">Results</span>
+                        2.96M rows processed in under 30 seconds with 100% data quality. Over 20M rows stored in PostgreSQL database.
+                    </div>
+                    <div class="featured-links" style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap; margin-top: var(--spacing-md);">
+                        <a href="https://github.com/ArkanTsabit123/BatchETL-Pipeline" target="_blank" class="btn btn-sm btn-secondary">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://batchetl.streamlit.app" target="_blank" class="btn btn-sm btn-primary">
+                            <i class="fas fa-rocket"></i> Deploy
+                        </a>
                     </div>
                 </div>
-            </div>
         </section>
 
         <!-- Skills Overview -->
         <section class="skills-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate-on-load">
                     <h2 data-i18n="skills.title">Technical Skills</h2>
                     <p data-i18n="skills.subtitle">Technologies and tools I work with</p>
                 </div>
 
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-1">
                         <i class="fas fa-cloud skill-icon"></i>
                         <h4 data-i18n="skills.cloud">Cloud &amp; Data Architecture</h4>
                         <ul>
@@ -221,7 +517,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-2">
                         <i class="fas fa-code skill-icon"></i>
                         <h4 data-i18n="skills.engineering">Data Engineering</h4>
                         <ul>
@@ -233,7 +529,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-3">
                         <i class="fas fa-database skill-icon"></i>
                         <h4 data-i18n="skills.databases">Databases</h4>
                         <ul>
@@ -245,7 +541,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-4">
                         <i class="fas fa-chart-bar skill-icon"></i>
                         <h4 data-i18n="skills.visualization">Visualization &amp; Tools</h4>
                         <ul>
@@ -263,27 +559,27 @@
         <!-- Certifications Preview -->
         <section class="certs-preview-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate-on-load">
                     <h2 data-i18n="certs.title">Certifications</h2>
                     <p data-i18n="certs.subtitle">10 professional certifications from industry leaders</p>
                 </div>
 
                 <div class="certs-preview-grid">
-                    <div class="cert-preview-item">
+                    <div class="cert-preview-item animate-on-load animate-on-load-delay-1">
                         <img src="assets/images/certifications/oracle.png" alt="Oracle" />
                         <span>8 Certifications</span>
                     </div>
-                    <div class="cert-preview-item">
+                    <div class="cert-preview-item animate-on-load animate-on-load-delay-2">
                         <img src="assets/images/certifications/ibm.png" alt="IBM" />
                         <span>IBM Data Engineering</span>
                     </div>
-                    <div class="cert-preview-item">
+                    <div class="cert-preview-item animate-on-load animate-on-load-delay-3">
                         <img src="assets/images/certifications/meta.png" alt="Meta" />
                         <span>Meta Database Engineer</span>
                     </div>
                 </div>
 
-                <div class="certs-preview-cta">
+                <div class="certs-preview-cta animate-on-load animate-on-load-delay-4">
                     <a href="certifications.html" class="btn btn-outline" data-i18n="certs.cta">View All Certifications</a>
                 </div>
             </div>
@@ -292,7 +588,7 @@
         <!-- Chatbot CTA -->
         <section class="chatbot-cta-section">
             <div class="container">
-                <div class="chatbot-cta-content">
+                <div class="chatbot-cta-content animate-on-load animate-on-load-delay-2">
                     <i class="fas fa-robot chatbot-cta-icon"></i>
                     <h2 data-i18n="chatbot.title">Ask Arkan's AI</h2>
                     <p data-i18n="chatbot.description">
@@ -366,6 +662,38 @@
     <script src="js/chatbot.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/hide-docs.js"></script>
+
+    <script>
+        // Trigger animations when elements come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            var animateElements = document.querySelectorAll('.animate-on-load');
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateElements.forEach(function(el) {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+
+            // Start animations for elements already in view
+            setTimeout(function() {
+                animateElements.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.style.animationPlayState = 'running';
+                    }
+                });
+            }, 100);
+        });
+    </script>
 
 </body>
 </html>

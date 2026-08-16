@@ -1,107 +1,71 @@
 // ============================================================
-// MAIN JAVASCRIPT
+// MAIN FUNCTIONALITY
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
 
-    // ============================================================
-    // SET CURRENT YEAR IN FOOTER
-    // ============================================================
-    const yearElement = document.getElementById('currentYear');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
+    var hamburger = document.getElementById('hamburger');
+    var navList = document.getElementById('navList');
+    var currentYear = document.getElementById('currentYear');
 
     // ============================================================
-    // MOBILE HAMBURGER MENU
+    // MOBILE MENU
     // ============================================================
-    const hamburger = document.getElementById('hamburger');
-    const navList = document.getElementById('navList');
-
     if (hamburger && navList) {
         hamburger.addEventListener('click', function() {
             navList.classList.toggle('open');
-            hamburger.classList.toggle('active');
+            var isOpen = navList.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close menu on link click (mobile)
-        const navLinks = navList.querySelectorAll('.nav-link');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
+        document.addEventListener('click', function(e) {
+            var isClickInside = hamburger.contains(e.target) || navList.contains(e.target);
+            if (!isClickInside && navList.classList.contains('open')) {
                 navList.classList.remove('open');
-                hamburger.classList.remove('active');
-            });
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
     // ============================================================
-    // NAVIGATION ACTIVE STATE
+    // FOOTER YEAR
     // ============================================================
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(function(link) {
-        const href = link.getAttribute('href');
-        if (href === currentPath || (href === 'index.html' && currentPath === '/')) {
-            link.classList.add('active');
-        } else if (href && currentPath.includes(href)) {
-            link.classList.add('active');
-        }
-    });
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
 
     // ============================================================
-    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // SMOOTH SCROLL
     // ============================================================
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
+            var targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
+            var targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
 
     // ============================================================
-    // HEADER SHADOW ON SCROLL
+    // ACTIVE NAV LINK
     // ============================================================
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
+    var currentPath = window.location.pathname;
+    var navLinks = document.querySelectorAll('.nav-link');
 
-    window.addEventListener('scroll', function() {
-        const scrollY = window.scrollY;
-
-        if (scrollY > 10) {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+    navLinks.forEach(function(link) {
+        var linkPath = link.getAttribute('href');
+        if (linkPath === currentPath || (currentPath === '/' && linkPath === 'index.html')) {
+            link.classList.add('active');
         } else {
-            header.style.boxShadow = 'none';
+            link.classList.remove('active');
         }
-
-        lastScrollY = scrollY;
     });
-
-    // ============================================================
-    // OPEN CHATBOT FROM CTA BUTTON
-    // ============================================================
-    const openChatbotBtn = document.getElementById('openChatbotBtn');
-    const chatbotToggle = document.getElementById('chatbotToggle');
-
-    if (openChatbotBtn) {
-        openChatbotBtn.addEventListener('click', function() {
-            if (chatbotToggle) {
-                chatbotToggle.click();
-            }
-        });
-    }
-
 });

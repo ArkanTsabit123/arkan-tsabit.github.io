@@ -8,15 +8,147 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/dark-mode.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .animate-on-load-delay-1 { animation-delay: 0.1s; }
+        .animate-on-load-delay-2 { animation-delay: 0.2s; }
+        .animate-on-load-delay-3 { animation-delay: 0.3s; }
+        .animate-on-load-delay-4 { animation-delay: 0.4s; }
+        .animate-on-load-delay-5 { animation-delay: 0.5s; }
+
+        .profile-image {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .profile-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.3);
+        }
+
+        .stat-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-item:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.2);
+        }
+        .stat-number {
+            transition: color 0.3s ease;
+        }
+        .stat-item:hover .stat-number {
+            color: var(--accent-blue-hover);
+        }
+
+        .skill-category {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+        }
+        .skill-category .skill-icon {
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+        .skill-category:hover .skill-icon {
+            transform: scale(1.2) rotate(-5deg);
+            color: var(--accent-blue-hover);
+        }
+
+        .timeline-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            margin-bottom: var(--spacing-md);
+        }
+        .timeline-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            border-radius: var(--radius-full);
+        }
+
+        .btn-primary {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -8px rgba(37, 99, 235, 0.4);
+        }
+
+        [data-theme="dark"] .timeline-item:hover {
+            box-shadow: 0 8px 25px -8px rgba(59, 130, 246, 0.3);
+            border-color: var(--accent-blue);
+        }
+        [data-theme="dark"] .stat-item:hover {
+            box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+        [data-theme="dark"] .skill-category:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item:hover {
+                transform: translateX(4px);
+            }
+            .profile-image:hover {
+                transform: scale(1.01);
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container header-container">
             <div class="logo">
@@ -50,24 +182,21 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main>
 
-        <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header animate-on-load">
             <div class="container">
                 <h1 data-i18n="about.page_title">About Me</h1>
                 <p data-i18n="about.page_subtitle">Get to know the person behind the data</p>
             </div>
         </section>
 
-        <!-- Profile Section -->
         <section class="profile-section">
             <div class="container profile-container">
-                <div class="profile-image">
+                <div class="profile-image animate-on-load animate-on-load-delay-1">
                     <img src="assets/images/profile.jpg" alt="Arkan Tsabit" />
                 </div>
-                <div class="profile-content">
+                <div class="profile-content animate-on-load animate-on-load-delay-2">
                     <h2 data-i18n="about.who_am_i">Who I Am</h2>
                     <p data-i18n="about.bio_1">
                         I am a Data Engineer with hands-on experience building production-ready ETL pipelines
@@ -85,19 +214,19 @@
                         into actionable insights.
                     </p>
                     <div class="profile-stats">
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-load animate-on-load-delay-3">
                             <span class="stat-number">4</span>
                             <span class="stat-label" data-i18n="about.stats.projects">Data Projects</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-load animate-on-load-delay-4">
                             <span class="stat-number">10</span>
                             <span class="stat-label" data-i18n="about.stats.certs">Certifications</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-load animate-on-load-delay-5">
                             <span class="stat-number">2.96M+</span>
                             <span class="stat-label" data-i18n="about.stats.rows">Records Processed</span>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item animate-on-load animate-on-load-delay-5">
                             <span class="stat-number">3</span>
                             <span class="stat-label" data-i18n="about.stats.domains">Industries</span>
                         </div>
@@ -106,15 +235,14 @@
             </div>
         </section>
 
-        <!-- Working Experience Section -->
         <section class="story-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate-on-load">
                     <h2 data-i18n="about.work_title">Working Experience</h2>
                     <p data-i18n="about.work_subtitle">From IT infrastructure to data engineering</p>
                 </div>
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item animate-on-load animate-on-load-delay-1">
                         <div class="timeline-year">Feb 2026 - July 2026</div>
                         <div class="timeline-content">
                             <h4>BRI SD-WAN — Level 2 Network Engineer</h4>
@@ -126,7 +254,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item animate-on-load animate-on-load-delay-2">
                         <div class="timeline-year">May 2025 - Feb 2026</div>
                         <div class="timeline-content">
                             <h4>Satu Benih Boarding School — Database Administrator &amp; Computer Teacher</h4>
@@ -138,7 +266,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item animate-on-load animate-on-load-delay-3">
                         <div class="timeline-year">June 2020 - Mar 2024</div>
                         <div class="timeline-content">
                             <h4>Bejagoo Coffee &amp; Eatery — Business Manager</h4>
@@ -150,7 +278,7 @@
                         </div>
                     </div>
 
-                    <div class="timeline-item">
+                    <div class="timeline-item animate-on-load animate-on-load-delay-4">
                         <div class="timeline-year">Feb 2016 - May 2020</div>
                         <div class="timeline-content">
                             <h4>Soekarno-Hatta International Airport — IT Terminal Service Support</h4>
@@ -165,16 +293,15 @@
             </div>
         </section>
 
-        <!-- Technical Skills Section -->
         <section class="skills-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header animate-on-load">
                     <h2 data-i18n="about.skills_title">Technical Skills</h2>
                     <p data-i18n="about.skills_subtitle">Technologies and tools I work with</p>
                 </div>
 
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-1">
                         <i class="fas fa-cloud skill-icon"></i>
                         <h4>Cloud &amp; Data Architecture</h4>
                         <ul>
@@ -187,7 +314,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-2">
                         <i class="fas fa-code skill-icon"></i>
                         <h4>Data Engineering &amp; Orchestration</h4>
                         <ul>
@@ -199,7 +326,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-3">
                         <i class="fas fa-database skill-icon"></i>
                         <h4>Databases</h4>
                         <ul>
@@ -211,7 +338,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-4">
                         <i class="fas fa-robot skill-icon"></i>
                         <h4>AI &amp; Machine Learning</h4>
                         <ul>
@@ -223,7 +350,7 @@
                         </ul>
                     </div>
 
-                    <div class="skill-category">
+                    <div class="skill-category animate-on-load animate-on-load-delay-5">
                         <i class="fas fa-chart-bar skill-icon"></i>
                         <h4>Visualization &amp; Tools</h4>
                         <ul>
@@ -241,7 +368,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container footer-container">
             <p class="footer-text">
@@ -271,6 +397,33 @@
     <script src="js/dark-mode.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/hide-docs.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var animateElements = document.querySelectorAll('.animate-on-load');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animateElements.forEach(function(el) {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+
+            setTimeout(function() {
+                animateElements.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.style.animationPlayState = 'running';
+                    }
+                });
+            }, 100);
+        });
+    </script>
 
 </body>
 </html>
